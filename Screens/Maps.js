@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { Platform, StyleSheet, Text, View, Dimensions, PixelRatio } from 'react-native';
+import MapView from 'react-native-maps';
+
+const screen = Dimensions.get('window');
+const ASPECT_RATIO = screen.width / screen.height;
+const mapPaddingBottom = screen.height * 0.1;
+const mapPaddingTop = screen.height * 0.1;
+
 
 const instructions = Platform.select({
   ios: 'ios Home',
@@ -7,32 +14,45 @@ const instructions = Platform.select({
 });
 
 type Props = {};
+
 export default class Maps extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>MAP SCREEN</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+        <MapView
+          style={styles.map}
+          showsTraffic={false}
+          region={{
+            latitude: 33.7500,
+            longitude: -84.3880,
+            latitudeDelta: 0.030,
+            longitudeDelta: 0.024,
+        }}>
+     </MapView>
+   </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  map: {
+    ...StyleSheet.absoluteFillObject,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+  border: {
+    borderWidth: 10,
+    borderColor: '#faa',
+    borderBottomWidth: 10,
+    borderBottomColor: '#faa',
+    borderTopWidth: 10,
+    borderTopColor: '#faa',
+    borderLeftWidth: 10,
+    borderLeftColor: '#faa',
+    borderRightWidth: 10,
+    borderRightColor: '#faa',
+  }
+ });
