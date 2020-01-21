@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Dimensions, PixelRatio } from 'react-native';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import { Platform, StyleSheet, Text, View, Button } from 'react-native'
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
+
 
 const instructions = Platform.select({
   ios: 'ios Home',
