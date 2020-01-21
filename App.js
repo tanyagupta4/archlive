@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { Platform, StyleSheet, Text, View, Dimensions, PixelRatio } from 'react-native';
 import MapView from 'react-native-maps';
 
@@ -25,9 +26,28 @@ export default class App extends Component {
      </MapView>
    </View>
     );
-  }
-}
+=======
+import { Platform, StyleSheet, Text, View } from 'react-native'
+import { createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
+import 'react-native-gesture-handler'
+import HomeScreen from './Screens/home.js'
+import Map from './Screens/Maps.js'
 
+type Props = {};
+
+const mainStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Map: Map
+  },
+  {
+    initialRouteName: 'Home'
+>>>>>>> master
+  }
+);
+
+<<<<<<< HEAD
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
@@ -50,3 +70,6 @@ const styles = StyleSheet.create({
     borderRightColor: '#faa',
   }
  });
+=======
+export default createAppContainer(mainStack);
+>>>>>>> master
