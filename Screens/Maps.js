@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Dimensions, PixelRatio } from 'react-native';
-import MapView from 'react-native-maps';
-
-const screen = Dimensions.get('window');
-const ASPECT_RATIO = screen.width / screen.height;
-const mapPaddingBottom = screen.height * 0.1;
-const mapPaddingTop = screen.height * 0.1;
-
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
 const instructions = Platform.select({
   ios: 'ios Home',
@@ -21,7 +15,9 @@ export default class Maps extends Component<Props> {
       <View style={styles.container}>
         <MapView
           style={styles.map}
+          provider={PROVIDER_GOOGLE}
           showsTraffic={false}
+          showsUserLocation={true}
           region={{
             latitude: 33.7500,
             longitude: -84.3880,
