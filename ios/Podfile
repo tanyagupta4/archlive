@@ -36,7 +36,13 @@ target 'archlive' do
   pod 'glog', :podspec => "#{rnPrefix}/third-party-podspecs/glog.podspec"
   pod 'Folly', :podspec => "#{rnPrefix}/third-party-podspecs/Folly.podspec"
 
+
   # Other native modules
+
+rn_maps_path = '../node_modules/react-native-maps'
+pod 'react-native-google-maps', :path => rn_maps_path
+pod 'GoogleMaps', '3.2.0'
+
 
   # Automatically detect installed unimodules
   use_unimodules!

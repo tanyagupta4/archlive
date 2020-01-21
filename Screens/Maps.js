@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native';
+import { Platform, StyleSheet, Text, View, Button } from 'react-native'
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 const instructions = Platform.select({
   ios: 'ios Home',
@@ -7,32 +8,24 @@ const instructions = Platform.select({
 });
 
 type Props = {};
+
 export default class Maps extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>MAP SCREEN</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+
+       <MapView
+       style={{flex: 1}}
+       provider={PROVIDER_GOOGLE}
+       showsTraffic={false}
+       showsUserLocation={true}
+       region={{
+         latitude: 33.7500,
+         longitude: -84.3880,
+         latitudeDelta: 0.030,
+         longitudeDelta: 0.024,
+       }}>
+      </MapView>
+
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
