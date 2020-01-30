@@ -25,6 +25,36 @@ export default class Maps extends Component<Props> {
             latitudeDelta: 0.030,
             longitudeDelta: 0.024,
         }}>
+
+            <MapView.Marker
+              coordinate={{latitude: 33.736773,
+              longitude: -84.384715}}
+              title={"title"}
+              description={"description"}>
+
+              <MapView.Callout 
+              onPress={() => {
+                alert('You tapped the button!');
+                return false;
+              }}>
+                <View>
+                {/* <Image
+                  style={{width: 50, height: 50}}k
+                  source={{uri: 'http://album.atlantahistorycenter.com/utils/ajaxhelper/?CISOROOT=Jenkins&CISOPTR=41&action=2&DMSCALE=100&DMWIDTH=512&DMHEIGHT=477&DMX=0&DMY=0&DMTEXT=&DMROTATE=0'}}
+                /> */}
+
+                  <Text>This is a test callout</Text>
+                  
+                </View>
+                <Button
+                    title="Press me"
+                    // onPress={() => {
+                    //   alert('You tapped the button!');
+                    //   return false;
+                    // }}
+                  />
+              </MapView.Callout>
+            </MapView.Marker>
      </MapView>
    </View>
     );
