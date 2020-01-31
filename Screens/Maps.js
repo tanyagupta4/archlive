@@ -34,7 +34,7 @@ export default class Maps extends Component<Props> {
 
               <MapView.Callout>
                 <View>
-                  <Text>This is a test callout</Text>
+                  <Text>This is Ben's callout</Text>
                 </View>
              </MapView.Callout>
             </MapView.Marker>
