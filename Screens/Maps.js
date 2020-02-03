@@ -32,28 +32,15 @@ export default class Maps extends Component<Props> {
               title={"title"}
               description={"description"}>
 
-              <MapView.Callout 
-              onPress={() => {
-                alert('You tapped the button!');
-                return false;
-              }}>
+              <MapView.Callout
+                onPress={() => {
+                  this.props.navigation.navigate("Information", {location: 'Summerhill'});
+                  return false;
+                }}>
                 <View>
-                {/* <Image
-                  style={{width: 50, height: 50}}k
-                  source={{uri: 'http://album.atlantahistorycenter.com/utils/ajaxhelper/?CISOROOT=Jenkins&CISOPTR=41&action=2&DMSCALE=100&DMWIDTH=512&DMHEIGHT=477&DMX=0&DMY=0&DMTEXT=&DMROTATE=0'}}
-                /> */}
-
                   <Text>This is a test callout</Text>
-                  
                 </View>
-                <Button
-                    title="Press me"
-                    // onPress={() => {
-                    //   alert('You tapped the button!');
-                    //   return false;
-                    // }}
-                  />
-              </MapView.Callout>
+             </MapView.Callout>
             </MapView.Marker>
      </MapView>
    </View>
