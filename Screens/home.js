@@ -11,9 +11,9 @@ type Props = {};
 export default class HomeScreen extends Component<Props> {
   render() {
     const images = [
-        require('./IvanAllen.jpg'),
-        require('./IvanAllen2.jpg'),
-        require('./IvanAllen3.png'),
+        require('../Images/IvanAllen.jpg'),
+        require('../Images/IvanAllen2.jpg'),
+        require('../Images/IvanAllen3.png'),
     ];
     return (
       <View style={styles.container}>
