@@ -32,7 +32,11 @@ export default class Maps extends Component<Props> {
               title={"title"}
               description={"description"}>
 
-              <MapView.Callout>
+              <MapView.Callout
+                onPress={() => {
+                  this.props.navigation.navigate("Information", {location: 'Summerhill'});
+                  return false;
+                }}>
                 <View>
                   <Text>This is Ben's callout</Text>
                 </View>

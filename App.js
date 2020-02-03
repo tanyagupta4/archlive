@@ -5,13 +5,15 @@ import { createStackNavigator } from 'react-navigation-stack'
 import 'react-native-gesture-handler'
 import HomeScreen from './Screens/home.js'
 import Map from './Screens/Maps.js'
+import Information from './Screens/Information.js'
 
 type Props = {};
 
 const mainStack = createStackNavigator(
   {
     Home: HomeScreen,
-    Map: Map
+    Map: Map,
+    Information: Information,
   },
   {
     initialRouteName: 'Home'
