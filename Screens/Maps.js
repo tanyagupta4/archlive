@@ -38,7 +38,7 @@ export default class Maps extends Component<Props> {
                   return false;
                 }}>
                 <View>
-                  <Text>This is Ben's callout</Text>
+                  <Text>This is a test callout</Text>
                 </View>
              </MapView.Callout>
             </MapView.Marker>
