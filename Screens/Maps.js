@@ -29,7 +29,7 @@ const markers = [
     "name" : "Ivan Allen College of Liberal Arts",
     "text" : "Summary",
     "longlat" : [33.77396, -84.40425],
-    "location" : "Summerhill",
+    "location" : "empty",
 	  
   },
 
@@ -37,7 +37,7 @@ const markers = [
     "name" : "Hemphill Avenue Northwest",
     "text" : "Summary",
     "longlat" : [33.78359, -84.40543],
-    "location" : "Summerhill",
+    "location" : "empty",
 	  
   },
 
@@ -45,7 +45,7 @@ const markers = [
     "name" : "National Center for Civil and Human Rights",
     "text" : "Summary",
     "longlat" : [33.76402, -84.39307],
-	  "location" : "Summerhill",
+	  "location" : "empty",
   },
 
 
@@ -53,7 +53,7 @@ const markers = [
     "name" : "International Civil Rights Walk of Fame",
     "text" : "Summary",
     "longlat" : [33.75704, -84.37333],
-	  "location" : "Summerhill",
+	  "location" : "empty",
   },
 
 
@@ -61,63 +61,63 @@ const markers = [
     "name" : "Ebenezer Baptist Church",
     "text" : "Summary",
     "longlat" : [33.75537, -84.3742],
-	  "location" : "Summerhill",
+	  "location" : "empty",
   },
 
   {
     "name" : "Sweet Auburn",
     "text" : "Summary",
     "longlat" : [33.75378, -84.37654],
-	  "location" : "Summerhill",
+	  "location" : "empty",
   },
 
   {
     "name" : "SNCC Headquarters",
     "text" : "Summary",
     "longlat" : [33.75109, -84.39916],
-	  "location" : "Summerhill",
+	  "location" : "empty",
   },
 
   {
     "name" : "Peyton Road Wall",
     "text" : "Summary",
     "longlat" : [33.74796, -84.4745],
-	  "location" : "Summerhill",
+	  "location" : "empty",
   },
 
   {
     "name" : "Proctor Creek",
     "text" : "Summary",
     "longlat" : [33.77709, -84.4424],
-	  "location" : "Summerhill",
+	  "location" : "empty",
   },
 
   {
     "name" : "Perry Homes Community",
     "text" : "Summary",
     "longlat" : [33.79341, -84.4527],
-	  "location" : "Summerhill",
+	  "location" : "empty",
   },
 
   {
     "name" : "Ivan Allen Jr. Residence",
     "text" : "Summary",
     "longlat" : [33.82559, -84.38771],
-	  "location" : "Summerhill",
+	  "location" : "empty",
   },
 
   {
     "name" : "Atlanta History Center",
     "text" : "Summary",
     "longlat" : [33.84218, -84.38598],
-	  "location" : "Summerhill",
+	  "location" : "empty",
   },
 
   {
     "name" : "East Point Transit Station",
     "text" : "Summary",
     "longlat" : [33.67742, -84.44054],
-	  "location" : "Summerhill",
+	  "location" : "empty",
   },
 ];
 
