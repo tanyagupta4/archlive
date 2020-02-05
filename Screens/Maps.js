@@ -10,6 +10,118 @@ const instructions = Platform.select({
 
 type Props = {};
 
+
+const markers = [
+  {
+    "name" : "Summerhill neighborhood/Summerhill Race Riot",
+    "text" : "Summary",
+    "longlat" : [33.73768, -84.38688],
+    "location" : "Summerhill",
+  },
+  {
+    "name" : "Fulton County Stadium",
+    "text" : "Summary",
+    "longlat" : [33.73981, -84.38973],
+    "location" : "Fulton",
+  },
+
+  {
+    "name" : "Ivan Allen College of Liberal Arts",
+    "text" : "Summary",
+    "longlat" : [33.77396, -84.40425],
+    "location" : "empty",
+	  
+  },
+
+  {
+    "name" : "Hemphill Avenue Northwest",
+    "text" : "Summary",
+    "longlat" : [33.78359, -84.40543],
+    "location" : "empty",
+	  
+  },
+
+  {
+    "name" : "National Center for Civil and Human Rights",
+    "text" : "Summary",
+    "longlat" : [33.76402, -84.39307],
+	  "location" : "empty",
+  },
+
+
+  {
+    "name" : "International Civil Rights Walk of Fame",
+    "text" : "Summary",
+    "longlat" : [33.75704, -84.37333],
+	  "location" : "empty",
+  },
+
+
+  {
+    "name" : "Ebenezer Baptist Church",
+    "text" : "Summary",
+    "longlat" : [33.75537, -84.3742],
+	  "location" : "empty",
+  },
+
+  {
+    "name" : "Sweet Auburn",
+    "text" : "Summary",
+    "longlat" : [33.75378, -84.37654],
+	  "location" : "empty",
+  },
+
+  {
+    "name" : "SNCC Headquarters",
+    "text" : "Summary",
+    "longlat" : [33.75109, -84.39916],
+	  "location" : "empty",
+  },
+
+  {
+    "name" : "Peyton Road Wall",
+    "text" : "Summary",
+    "longlat" : [33.74796, -84.4745],
+	  "location" : "empty",
+  },
+
+  {
+    "name" : "Proctor Creek",
+    "text" : "Summary",
+    "longlat" : [33.77709, -84.4424],
+	  "location" : "empty",
+  },
+
+  {
+    "name" : "Perry Homes Community",
+    "text" : "Summary",
+    "longlat" : [33.79341, -84.4527],
+	  "location" : "empty",
+  },
+
+  {
+    "name" : "Ivan Allen Jr. Residence",
+    "text" : "Summary",
+    "longlat" : [33.82559, -84.38771],
+	  "location" : "empty",
+  },
+
+  {
+    "name" : "Atlanta History Center",
+    "text" : "Summary",
+    "longlat" : [33.84218, -84.38598],
+	  "location" : "empty",
+  },
+
+  {
+    "name" : "East Point Transit Station",
+    "text" : "Summary",
+    "longlat" : [33.67742, -84.44054],
+	  "location" : "empty",
+  },
+];
+
+
 export default class Maps extends Component<Props> {
   render() {
     return (
@@ -26,22 +138,29 @@ export default class Maps extends Component<Props> {
             longitudeDelta: 0.024,
         }}>
 
-            <MapView.Marker
-              coordinate={{latitude: 33.736773,
-              longitude: -84.384715}}
-              title={"title"}
-              description={"description"}>
+		{markers.map((marker, i) =>
+      <MapView.Marker 
+      key={i}
+			coordinate={{latitude: marker.longlat[0],
+			            longitude: marker.longlat[1]}}>
 
-              <MapView.Callout
-                onPress={() => {
-                  this.props.navigation.navigate("Information", {location: 'Summerhill'});
-                  return false;
-                }}>
-                <View>
-                  <Text>This is a test callout</Text>
-                </View>
-             </MapView.Callout>
-            </MapView.Marker>
+				<MapView.Callout
+					onPress={() => {
+						this.props.navigation.navigate("Information", {location: marker.location});
+						return;
+					}}>
+					  
+            <View>
+              <View>
+							  <Text style={styles.header}>{marker.name}</Text>
+						  </View>
+						    <Text>{marker.text}</Text>
+					  </View>
+				</MapView.Callout>
+			</MapView.Marker>
+		)}
+
+		
      </MapView>
    </View>
     );
@@ -56,6 +175,10 @@ const styles = StyleSheet.create({
   },
   map: {
     ...StyleSheet.absoluteFillObject,
+  },
+  header: {
+	fontWeight: 'bold',
+	
   },
   border: {
     borderWidth: 10,

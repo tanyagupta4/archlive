@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, Image} from 'react-native';
 import ImageSlider from 'react-native-image-slider';
+//import { SplashScreen } from 'expo';
+import SplashScreen from 'react-native-splash-screen';
 
 const instructions = Platform.select({
   ios: 'ios Home',
@@ -9,6 +11,11 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class HomeScreen extends Component<Props> {
+
+  componentDidMount() {
+    SplashScreen.hide()
+  }
+
   render() {
     const images = [
         require('../Images/IvanAllen.jpg'),
