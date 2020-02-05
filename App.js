@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component, useEffect } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native'
 import { createAppContainer } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
@@ -6,6 +6,7 @@ import 'react-native-gesture-handler'
 import HomeScreen from './Screens/home.js'
 import Map from './Screens/Maps.js'
 import Information from './Screens/Information.js'
+import SplashScreen from 'react-native-splash-screen'
 
 type Props = {};
 
