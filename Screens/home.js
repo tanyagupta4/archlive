@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, Image} from 'react-native';
-import ImageSlider from 'react-native-image-slider';
-//import { SplashScreen } from 'expo';
+import { Platform, StyleSheet, Text, View, Button, Image, ImageBackground, Dimensions} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
 const instructions = Platform.select({
   ios: 'ios Home',
   android: 'Android home',
 });
+
+//might be time to start playing around with these
+const screen = Dimensions.get('window');
+const ASPECT_RATIO = screen.width / screen.height;
+const mapPaddingBottom = screen.height * 0.1;
+const mapPaddingTop = screen.height * 0.1;
+
+var width = Dimensions.get("window").width;
+
 
 type Props = {};
 export default class HomeScreen extends Component<Props> {
@@ -17,55 +24,53 @@ export default class HomeScreen extends Component<Props> {
   }
 
   render() {
-    const images = [
-        require('../Images/IvanAllen.jpg'),
-        require('../Images/IvanAllen2.jpg'),
-        require('../Images/IvanAllen3.png'),
-    ];
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>IVAN ALLEN</Text>
-        <Button title="Map" style={styles.instructions} onPress={()=> this.props.navigation.navigate('Map')} />
-        <ImageSlider
-            style={styles.pic}
-            loop
-            autoPlayWithInterval={2000}
-            images={images}
-        />
-      </View>
+      <ImageBackground source={require('../Images/home.png')} style={styles.imageBackground}>
+        <View style={styles.hiddentextB}>
+          <Text style={styles.hiddentext}>The Ivan Allen {"\n"}Civil Rights Tour</Text>
+        </View>
+        <View style={styles.textLocation}>
+          <Text style={styles.textStyle}>The Ivan Allen {"\n"}Civil Rights Tour</Text>
+        </View>
+        <View style={styles.button}>
+          <Button title="Begin" onPress={()=> this.props.navigation.navigate('Map')} />
+        </View>
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#002D56',
-    justifyContent: 'flex-end',
-  },
-  welcome: {
+  hiddentext: {
     fontSize: 40,
-    textAlign: 'center',
-    margin: 10,
-    color: '#EED000',
     fontWeight: 'bold',
-//    fontFamily: 'serif',
-    textAlignVertical: 'top',
+    color: 'bisque',
+    opacity: 0.0,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#EED000',
-    marginBottom: 5,
+  hiddentextB: {
+    position: 'absolute',
+    marginTop: 85,
+    backgroundColor: 'gray',
+    opacity: 0.6,
   },
-  pic: {
-    marginBottom: 150,
-    width: 400,
-    height: 400,
-    top: 40,
+  textStyle: {
+    fontSize: 39,
+    color: 'bisque',
+    fontFamily: 'didot',
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
+  },
+  textLocation: {
+    position: 'absolute',
+    marginTop: 85,
+  },
+  imageBackground: {
+    width: '100%',
+    height: '100%',
   },
   button: {
-    height: 50,
-    marginBottom: 50,
+    position: 'absolute',
+    bottom:150,
+    left: 180,
   }
 });

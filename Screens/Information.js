@@ -32,7 +32,7 @@ let selectedLocation = {
 } 
 
 //in case we don't have the location entered yet
-let emptyLocation = {
+const emptyLocation = {
   location : "empty",
   date : "date not yet added",
   description: "location & description not yet added",
