@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, Image} from 'react-native';
-import ImageSlider from 'react-native-image-slider';
-//import { SplashScreen } from 'expo';
+import { Platform, StyleSheet, Text, View, Button, Image, ImageBackground, Dimensions, TouchableOpacity} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
 const instructions = Platform.select({
   ios: 'ios Home',
   android: 'Android home',
 });
+
+//might be time to start playing around with these
+const screen = Dimensions.get('window');
+const ASPECT_RATIO = screen.width / screen.height;
+const mapPaddingBottom = screen.height * 0.18;
+const mapPaddingTop = screen.height * 0.11;
+const mapPaddingLeft = screen.width * 0.02;
+
+const width = Dimensions.get("window").width;
+
 
 type Props = {};
 export default class HomeScreen extends Component<Props> {
@@ -16,56 +24,85 @@ export default class HomeScreen extends Component<Props> {
     SplashScreen.hide()
   }
 
+  constructor(props) {
+    super(props);
+    //not using this for now, could implement later
+    //this.state = { myButtonOpacity: 1, };
+  }
+
   render() {
-    const images = [
-        require('../Images/IvanAllen.jpg'),
-        require('../Images/IvanAllen2.jpg'),
-        require('../Images/IvanAllen3.png'),
-    ];
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>IVAN ALLEN</Text>
-        <Button title="Map" style={styles.instructions} onPress={()=> this.props.navigation.navigate('Map')} />
-        <ImageSlider
-            style={styles.pic}
-            loop
-            autoPlayWithInterval={2000}
-            images={images}
-        />
-      </View>
+      <ImageBackground source={require('../Images/home.png')} style={styles.imageBackground}>
+        <View style={styles.transparentTextBackground}>
+        </View>
+        <View style={styles.textLocation}>
+          <Text style={styles.textStyle}>The Ivan Allen {"\n"}Civil Rights Tour</Text>
+        </View>
+        <View style={styles.transparentButtonBackground}>
+        </View>
+        <TouchableOpacity style={styles.touchable} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate('Map')}>
+          <Text style={styles.button}>Start</Text>
+        </TouchableOpacity>
+      </ImageBackground>
     );
   }
 }
 
+//<Text style={styles.hiddentext}>The Ivan Allen {"\n"}Civil Rights Tour</Text>
+
+// <Button title="Begin" color={'black'} onPress={()=> this.props.navigation.navigate('Map')}/>
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#002D56',
-    justifyContent: 'flex-end',
+  transparentTextBackground: {
+    position: 'absolute',
+    marginTop: mapPaddingTop,
+    marginLeft: mapPaddingLeft - 2,
+    height: 100,
+    width: 295,
+    backgroundColor: 'black',
+    opacity: 0.4,
   },
-  welcome: {
-    fontSize: 40,
-    textAlign: 'center',
-    margin: 10,
-    color: '#EED000',
+  textStyle: {
+    fontSize: 39,
+    color: 'bisque',
+    fontFamily: 'didot',
     fontWeight: 'bold',
-//    fontFamily: 'serif',
-    textAlignVertical: 'top',
+    textDecorationLine: 'underline',
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#EED000',
-    marginBottom: 5,
+  textLocation: {
+    position: 'absolute',
+    marginTop: mapPaddingTop,
+    marginLeft: mapPaddingLeft,
   },
-  pic: {
-    marginBottom: 150,
-    width: 400,
-    height: 400,
-    top: 40,
+  imageBackground: {
+    width: '100%',
+    height: '100%',
+  },
+  touchable: {
+    position: 'absolute',
+    width: 100,
+    height: 50,
+    bottom: mapPaddingBottom,
+    left: width/2 - 50,
+  },
+  transparentButtonBackground: {
+    position: 'absolute',
+    width: 100,
+    height: 50,
+    bottom: mapPaddingBottom,
+    left: width/2 - 50,
+    backgroundColor: 'seashell',
+    opacity: 0.7,
   },
   button: {
-    height: 50,
-    marginBottom: 50,
+    position: 'absolute',
+    top: 3,
+    left: 13,
+    fontSize: 32,
+    fontFamily: 'didot',
+    fontWeight: 'bold',
+    color: 'black',
+    opacity: 0.8,
+    textDecorationLine: 'underline',
   }
 });
