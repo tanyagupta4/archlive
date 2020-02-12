@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   transparentSettingsBackground: {
     flex: 1,
     backgroundColor: 'black',
-    opacity: 0.8,
+    opacity: 0.7,
   },
   linkStyle: {
       top: 200,
