@@ -44,12 +44,6 @@ export default class HomeScreen extends Component<Props> {
           <Text style={styles.textStyle}>Touring the {"\n"}Ivan Allen {"\n"}Archives</Text>
         </View>
 
-        <View style={styles.transparentButtonBackground}>
-        </View>
-        <TouchableOpacity style={styles.touchable} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate('AboutScreen')}>
-          <Text style={styles.button}>Start</Text>
-        </TouchableOpacity>
-
         <TouchableOpacity style={styles.settings} activeOpacity={0.3} onPress={()=> this.setState({showSettings: true})}>
           <Text style={styles.settingsButton}>External Links</Text>
         </TouchableOpacity>
@@ -64,15 +58,18 @@ export default class HomeScreen extends Component<Props> {
             </Text>
           </TouchableOpacity> 
         }
-        
+
       </ImageBackground>
     );
   }
 }
 
-//<Text style={styles.hiddentext}>The Ivan Allen {"\n"}Civil Rights Tour</Text>
+// <View style={styles.transparentButtonBackground}>
+// </View>
+// <TouchableOpacity style={styles.touchable} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate('AboutScreen')}>
+// <Text style={styles.button}>Start</Text>
+// </TouchableOpacity>
 
-// <Button title="Begin" color={'black'} onPress={()=> this.props.navigation.navigate('Map')}/>
 
 const styles = StyleSheet.create({
   transparentTextBackground: {
