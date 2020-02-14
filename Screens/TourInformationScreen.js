@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native'
+import { Platform, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 import ImageSlider from 'react-native-image-slider';
 

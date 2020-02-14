@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native'
+import { Platform, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 
@@ -158,9 +158,7 @@ export default class TourScreen extends Component<Props> {
 					  </View>
 				</MapView.Callout>
 			</MapView.Marker>
-		)}
-
-		
+    )}
      </MapView>
    </View>
     );
