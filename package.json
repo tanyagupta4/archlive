@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.6",
+    "@react-navigation/material-top-tabs": "^5.0.4",
     "expo": "~36.0.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
@@ -19,10 +20,12 @@
     "react-native-safe-area-context": "^0.6.2",
     "react-native-screens": "2.0.0-alpha.12",
     "react-native-splash-screen": "^3.2.0",
+    "react-native-tab-view": "^2.13.0",
     "react-native-unimodules": "~0.7.0",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.0.10",
-    "react-navigation-stack": "^2.0.15"
+    "react-navigation-stack": "^2.0.15",
+    "react-navigation-tabs": "^2.7.0"
   },
   "devDependencies": {
     "@babel/core": "~7.6.0",

@@ -122,7 +122,7 @@ const markers = [
 ];
 
 
-export default class Maps extends Component<Props> {
+export default class TourScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
@@ -146,7 +146,7 @@ export default class Maps extends Component<Props> {
 
 				<MapView.Callout
 					onPress={() => {
-						this.props.navigation.navigate("Information", {location: marker.location});
+						this.props.navigation.navigate("TourInformationScreen", {location: marker.location});
 						return;
 					}}>
 					  

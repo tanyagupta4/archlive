@@ -14,9 +14,9 @@ const instructions = Platform.select({
 //could be a cool idea to do a slideshow of images on information page
 const events = [
   {
-    location : "Summerhill",
-    date : "Date: 1966 September 6",
-    description : "Description: View of part of the crowd gathered in the Summerhill neighborhood of Atlanta, Georgia during a riot, including people identified as members of the Student Nonviolent Coordinating Committee speaking into microphones, while Atlanta Mayor Ivan Allen, Jr. (not pictured) attempts to lead people to Atlanta Stadium to calm the situation.",
+    location : "Test",
+    date : "Test",
+    description : "Test",
     images : [require('../Images/summerhill_riot.jpg')],
   },
 ]
@@ -39,7 +39,7 @@ const emptyLocation = {
   images : [require('../Images/nophoto.png')],
 } 
 
-export default class Information extends Component<Props> {
+export default class ExploreInformationScreen extends Component<Props> {
   
   render() {
     //iterating through event list and finding the location we want or else it'll be set to empty state
