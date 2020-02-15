@@ -3,7 +3,6 @@ import { Platform, StyleSheet, Text, View } from 'react-native'
 import { createAppContainer } from 'react-navigation'
 import 'react-native-gesture-handler'
 
-
 import SplashScreen from 'react-native-splash-screen'
 import HomeScreen from './Screens/HomeScreen.js'
 import AboutScreen from './Screens/AboutScreen.js'
