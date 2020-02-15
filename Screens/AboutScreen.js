@@ -12,29 +12,29 @@ const width = Dimensions.get("window").width;
 
 export default class AboutScreen extends Component<Props> {
 
-render() {
-		return(
-			<View style={styles.container}>
-			<ImageBackground source={require('../Images/IvanAllenRunThisCity.png')} style={styles.imageBackground}>
-				<Text style={styles.placeholder}>Two paragraphs here about Ivan Allen/the archives. Details about each tour.</Text>
-					<View style={styles.transparentTour}></View>
-						<TouchableOpacity style={styles.TourButton} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate(NavigationActions.navigate({
-								routeName: 'tourStack',
-								action: NavigationActions.navigate({ routeName: 'TourScreen' })
+	render() {
+			return(
+				<View style={styles.container}>
+				<ImageBackground source={require('../Images/IvanAllenRunThisCity.png')} style={styles.imageBackground}>
+					<Text style={styles.placeholder}>Two paragraphs here about Ivan Allen/the archives. Details about each tour.</Text>
+						<View style={styles.transparentTour}></View>
+							<TouchableOpacity style={styles.TourButton} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate(NavigationActions.navigate({
+									routeName: 'tourStack',
+									action: NavigationActions.navigate({ routeName: 'TourScreen' })
+									}))}>
+									<Text style={styles.guidedText}>Take our guided tour!</Text>
+							</TouchableOpacity>
+						<View style={styles.transparentGuide}></View>
+							<TouchableOpacity style={styles.ExploreButton} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate(NavigationActions.navigate({
+								routeName: 'exploreStack',
+								action: NavigationActions.navigate({ routeName: 'ExploreScreen' })
 								}))}>
-								<Text style={styles.guidedText}>Take our guided tour!</Text>
-						</TouchableOpacity>
-					<View style={styles.transparentGuide}></View>
-						<TouchableOpacity style={styles.ExploreButton} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate(NavigationActions.navigate({
-							routeName: 'exploreStack',
-							action: NavigationActions.navigate({ routeName: 'ExploreScreen' })
-							}))}>
-								<Text style={styles.tourText}>Explore on your own!</Text>
-						</TouchableOpacity>
-			</ImageBackground>
-			</View>
-		);
-}
+									<Text style={styles.tourText}>Explore on your own!</Text>
+							</TouchableOpacity>
+				</ImageBackground>
+				</View>
+			);
+		}
 }
 
 const styles = StyleSheet.create({

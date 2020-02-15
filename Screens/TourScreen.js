@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
-
 const instructions = Platform.select({
   ios: 'ios Home',
   android: 'Android home',
