@@ -12,9 +12,9 @@ const instructions = Platform.select({
 //might be time to start playing around with these
 const screen = Dimensions.get('window');
 const ASPECT_RATIO = screen.width / screen.height;
-const mapPaddingBottom = screen.height * 0.18;
-const mapPaddingTop = screen.height * 0.05;
-const mapPaddingLeft = screen.width * 0.10;
+const mapPaddingBottom = screen.height * 0.01;
+const mapPaddingTop = screen.height * 0.01;
+const mapPaddingLeft = screen.width * 0.01;
 
 const width = Dimensions.get("window").width;
 
@@ -45,7 +45,7 @@ export default class HomeScreen extends Component<Props> {
         </View>
 
         <TouchableOpacity style={styles.settings} activeOpacity={0.3} onPress={()=> this.setState({showSettings: true})}>
-          <Text style={styles.settingsButton}>External Links</Text>
+          <Text style={styles.settingsButton}>Acknowledgements</Text>
         </TouchableOpacity>
       
         {this.state.showSettings &&
@@ -76,14 +76,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     marginTop: mapPaddingTop,
     marginLeft: mapPaddingLeft - 2,
-    height: 150,
-    width: 215,
+    height: 190,
+    width: 285,
     backgroundColor: 'black',
     opacity: 0.4,
   },
   textStyle: {
-    fontSize: 39,
-    color: 'bisque',
+    fontSize: 52,
+    color: 'white',
     fontFamily: 'didot',
     fontWeight: 'bold',
     textDecorationLine: 'underline',
@@ -94,8 +94,8 @@ const styles = StyleSheet.create({
     marginLeft: mapPaddingLeft,
   },
   imageBackground: {
-    width: '100%',
     height: '100%',
+    width: '111%',
   },
   touchable: {
     position: 'absolute',
@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
   },
   settings: {
     position: 'absolute',
+    bottom: mapPaddingBottom,
   },
   settingsButton: {
     fontSize: 20,
@@ -136,16 +137,15 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   linkStyle: {
-      top: 200,
+      top: 500,
       fontSize: 25,
-      color: 'blue',
+      textDecorationLine: 'underline',
+      color: 'aqua',
   },
   archivesLink: {
-      top: 190,
+      top: 495,
       fontSize: 30,
       textDecorationLine: 'underline',
       color: 'white',
-
-
   }
 });
