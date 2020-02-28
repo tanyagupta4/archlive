@@ -60,6 +60,7 @@ const main = createStackNavigator({
   homeTabs,
   tourStack,
   exploreStack,
+  
   },
   {
     headerMode: () => null

@@ -1,186 +1,265 @@
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, Dimensions, Image } from 'react-native'
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
+import React, { Component } from "react";
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Animated,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
 
-const screen = Dimensions.get('window');
-const mapPaddingBottom = screen.height * 0.01;
-const boxSize = screen.width/5 * 0.95;
+import MapView from "react-native-maps";
 
-const markers = [
-	{
-		"name" : "Test",
-		"text" : "Test",
-		"longlat" : [33.73768, -84.38688],
-		"location" : "Test",
-	},
-];
+const Images = [
+  require('../Images/IvanAllen3.png'),
+  require('../Images/IvanAllen3.png'),
+  require('../Images/IvanAllen3.png'),
+  require('../Images/IvanAllen3.png')
+]
 
-const testMarkers = [
-	{
-		"name" : "Test",
-		"text" : "Test",
-		"longlat" : [33.7408023, -84.3813697,],
-		"location" : "Test",
-	}, 
-	{
-		"name" : "Test",
-		"text" : "Test",
-		"longlat" : [33.7911489, -84.3103276],
-		"location" : "Test",
-	}, 
-	{
-		"name" : "Test",
-		"text" : "Test",
-		"longlat" : [33.7394969, -84.4361509],
-		"location" : "Test",
-	}, 
-	{
-		"name" : "Test",
-		"text" : "Test",
-		"longlat" : [33.784299, -84.3714672],
-		"location" : "Test",
-	}, 
-	{
-		"name" : "Test",
-		"text" : "Test",
-		"longlat" : [33.7394969, -84.4361509],
-		"location" : "Test",
-	}, 
-];
+const { width, height } = Dimensions.get("window");
 
+const CARD_HEIGHT = height / 2.8;
+const CARD_WIDTH = CARD_HEIGHT - 50;
 
-export default class ExploreScreen extends Component<Props> {
+export default class screens extends Component<Props> {
+  state = {
+    markers: [
+      {
+        coordinate: {
+          latitude: 33.73981,
+          longitude: -84.38973,
+        },
+        title: "Fulton County Stadium",
+        description: "Summary",
+        image: Images[0],
+      },
+      {
+        coordinate: {
+          latitude: 33.73768,
+          longitude: -84.38688,
+        },
+        title: "Summerhill neighborhood/Summerhill Race Riot",
+        description: "Summary",
+        image: Images[1],
+      },
+      {
+        coordinate: {
+          latitude: 33.77396,
+          longitude: -84.40425,
+        },
+        title: "Ivan Allen College of Liberal Arts",
+        description: "Summary",
+        image: Images[2],
+      },
+      {
+        coordinate: {
+          latitude: 33.78359,
+          longitude: -84.40543,
+        },
+        title: "Hemphill Avenue Northwest",
+        description: "Summary",
+        image: Images[3],
+      },
+    ],
+    region: {
+		latitude: 33.7420,
+		longitude: -84.3880,
+		latitudeDelta: 0.120,
+		longitudeDelta: 0.096,
+    },
+  };
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			displayGlobalMap: true,
-			displayBox: true,
-			seeLetters: false,
-			showLetters: false,
-			//what else do we show?
-		};
-	}
+  componentWillMount() {
+    this.index = 0;
+    this.animation = new Animated.Value(0);
+  }
+  componentDidMount() {
+    // We should detect when scrolling has stopped then animate
+    // We should just debounce the event listener here
+    this.animation.addListener(({ value }) => {
+      let index = Math.floor(value / width); // animate 30% away from landing on the next item
+      if (index >= this.state.markers.length) {
+        index = this.state.markers.length - 1;
+      }
+      if (index <= 0) {
+        index = 0;
+      }
 
-	render() {
-		return (
-			<View style={styles.container}>
-			{this.state.displayBox &&
-				<View style={styles.containerBox}>
-					<View style={styles.transparentBox}>
-						<TouchableOpacity style={styles.letters} onPress={()=> this.setState({displayGlobalMap: false, displayBox: false, seeLetters: true})}>
-							<Image style={styles.letterImage} source={require('../Images/letter.png')}>
-							</Image>
-						</TouchableOpacity>
-					</View>
-				</View>
-			}
+      clearTimeout(this.regionTimeout);
+      this.regionTimeout = setTimeout(() => {
+        if (this.index != index) {
+          this.index = index;
+          const { coordinate } = this.state.markers[index];
+          this.map.animateToRegion(
+            {
+              ...coordinate,
+              latitudeDelta: this.state.region.latitudeDelta,
+              longitudeDelta: this.state.region.longitudeDelta,
+            },
+            350
+          );
+        }
+      }, 10);
+    });
+  }
 
-			{this.state.seeLetters && 
-				<View style={styles.container}>
-				<TouchableOpacity onPress={()=> this.setState({displayGlobalMap: true, displayBox: true, seeLetters: false})}>
-					<Text style={{fontSize: 18}}>This is a display of all the letters in support or opposition of Allen's testimony on behalf of the Civil Rights Act. Click here to go back.</Text>
-				</TouchableOpacity>
-				<MapView
-				style={styles.map}
-				provider={PROVIDER_GOOGLE}
-				showsTraffic={false}
-				showsUserLocation={true}
-				region={{
-					latitude: 33.7500,
-					longitude: -84.3880,
-					latitudeDelta: 0.240,
-					longitudeDelta: 0.192,
-			}}>
+  render() {
+    const interpolations = this.state.markers.map((marker, index) => {
+      const inputRange = [
+		(index-1) * width,
+		index * width,
+		(index+1) * width,
+      ];
+      const scale = this.animation.interpolate({
+        inputRange,
+        outputRange: [0.5, 1, 0.5],
+        extrapolate: "clamp",
+      });
+      const opacity = this.animation.interpolate({
+        inputRange,
+        outputRange: [0.1, 1.5, 0.1],
+        extrapolate: "clamp",
+      });
+      return { scale, opacity };
+    });
 
-			{testMarkers.map((marker, i) =>
-				<MapView.Marker 
-				key={i}
-				coordinate={{latitude: marker.longlat[0],
-										longitude: marker.longlat[1]}}>
-					<MapView.Callout
-						onPress={() => {
-							this.props.navigation.navigate("ExploreInformationScreen", {location: marker.location});
-							return;
-						}}>
-							
-							<View>
-								<View>
-									<Text style={styles.header}>{marker.name}</Text>
-								</View>
-									<Text>{marker.text}</Text>
-							</View>
-					</MapView.Callout>
-				</MapView.Marker>
-			)}
-
-			</MapView>
-			</View>
-			}
-
-			{this.state.displayGlobalMap &&
-			<MapView
-				style={styles.map}
-				provider={PROVIDER_GOOGLE}
-				showsTraffic={false}
-				showsUserLocation={true}
-				region={{
-					latitude: 33.7500,
-					longitude: -84.3880,
-					latitudeDelta: 0.030,
-					longitudeDelta: 0.024,
-			}}>
-
-			{markers.map((marker, i) =>
-				<MapView.Marker 
-				key={i}
-				coordinate={{latitude: marker.longlat[0],
-										longitude: marker.longlat[1]}}>
-					<MapView.Callout
-						onPress={() => {
-							this.props.navigation.navigate("ExploreInformationScreen", {location: marker.location});
-							return;
-						}}>
-							
-							<View>
-								<View>
-									<Text style={styles.header}>{marker.name}</Text>
-								</View>
-									<Text>{marker.text}</Text>
-							</View>
-					</MapView.Callout>
-				</MapView.Marker>
-			)}
-			</MapView>
-		}
-
-		</View>
-		);
-	}
+    return (
+      <View style={styles.container}>
+        <MapView
+          ref={map => this.map = map}
+          initialRegion={this.state.region}
+          style={styles.container}
+        >
+          {this.state.markers.map((marker, index) => {
+            const scaleStyle = {
+              transform: [
+                {
+                  scale: interpolations[index].scale,
+                },
+              ],
+            };
+            const opacityStyle = {
+              opacity: interpolations[index].opacity,
+            };
+            return (
+              <MapView.Marker key={index} coordinate={marker.coordinate}>
+                <Animated.View style={[styles.markerWrap, opacityStyle]}>
+                  <Animated.View style={[styles.ring, scaleStyle]} />
+                  <View style={styles.marker} />
+                </Animated.View>
+              </MapView.Marker>
+            );
+          })}
+        </MapView>
+        <Animated.ScrollView
+          horizontal
+		  scrollEventThrottle={0}
+		  decelerationRate={0}
+		  snapToAlignment={"center"}
+          showsHorizontalScrollIndicator={false}
+          snapToInterval={width}
+          onScroll={Animated.event(
+            [
+              {
+                nativeEvent: {
+                  contentOffset: {
+                    x: this.animation,
+                  },
+                },
+              },
+            ],
+            { useNativeDriver: true }
+          )}
+          style={styles.scrollView}
+          contentContainerStyle={styles.endPadding}
+        >
+          {this.state.markers.map((marker, index) => (
+            <View style={styles.card} key={index}>
+              <Image
+                source={marker.image}
+                style={styles.cardImage}
+                resizeMode="cover"
+              />
+              <View style={styles.textContent}>
+                <Text numberOfLines={1} style={styles.cardtitle}>{marker.title}</Text>
+                <Text numberOfLines={1} style={styles.cardDescription}>
+                  {marker.description}
+                </Text>
+              </View>
+            </View>
+          ))}
+        </Animated.ScrollView>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-	container: {
-	...StyleSheet.absoluteFillObject,
-		flex: 1,
-	},
-	map: {
-	...StyleSheet.absoluteFillObject,
-	zIndex: -1,
-	},
-	transparentBox: {
-		width: screen.width,
-		height: 80,
-		backgroundColor: 'black',
-		opacity: 0.5,
-		flexDirection: 'row',
-	},
-	letters: {
-		backgroundColor: 'black',
-		width: boxSize,
-	},
-	letterImage: {
-		width: "100%",
-		height: "100%",
-	}
+  container: {
+    flex: 1,
+  },
+  scrollView: {
+    position: "absolute",
+    bottom: 30,
+    left: 0,
+    right: 0,
+    paddingVertical: 10,
+  },
+  endPadding: {
+    paddingRight: width - CARD_WIDTH,
+  },
+  card: {
+    padding: 10,
+    elevation: 2,
+    backgroundColor: "seashell",
+    marginHorizontal: (width - CARD_WIDTH)/2,
+    shadowColor: "#000",
+    shadowRadius: 5,
+    shadowOpacity: 0.3,
+    shadowOffset: { x: 2, y: -2 },
+    height: CARD_HEIGHT,
+    width: CARD_WIDTH,
+    overflow: "hidden",
+  },
+  cardImage: {
+    flex: 3,
+    width: "100%",
+    height: "100%",
+    alignSelf: "center",
+  },
+  textContent: {
+    flex: 1,
+  },
+  cardtitle: {
+    fontSize: 12,
+    marginTop: 5,
+    fontWeight: "bold",
+  },
+  cardDescription: {
+    fontSize: 12,
+    color: "#444",
+  },
+  markerWrap: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  marker: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: "rgba(130,4,150, 0.9)",
+  },
+  ring: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: "rgba(130,4,150, 0.3)",
+    position: "absolute",
+    borderWidth: 1,
+    borderColor: "rgba(130,4,150, 0.5)",
+  },
 });

@@ -28,7 +28,6 @@ export default class HomeScreen extends Component<Props> {
 
   constructor(props) {
     super(props);
-    //not using this for now, could implement later
     this.state = { showSettings: false, };
   }
   
@@ -47,7 +46,7 @@ export default class HomeScreen extends Component<Props> {
         <TouchableOpacity style={styles.settings} activeOpacity={0.3} onPress={()=> this.setState({showSettings: true})}>
           <Text style={styles.settingsButton}>Acknowledgements</Text>
         </TouchableOpacity>
-      
+
         {this.state.showSettings &&
           <TouchableOpacity style={styles.transparentSettingsBackground} activeOpacity={0} onPress={()=> this.setState({showSettings: false})}>
             <Text style={styles.archivesLink}>The Ivan Allen Archives
