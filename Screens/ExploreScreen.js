@@ -81,7 +81,7 @@ export default class screens extends Component<Props> {
     // We should detect when scrolling has stopped then animate
     // We should just debounce the event listener here
     this.animation.addListener(({ value }) => {
-      let index = Math.floor(value / width); // animate 30% away from landing on the next item
+      let index = Math.floor(value / width + 0.3); // animate 30% away from landing on the next item
       if (index >= this.state.markers.length) {
         index = this.state.markers.length - 1;
       }
@@ -116,12 +116,12 @@ export default class screens extends Component<Props> {
       ];
       const scale = this.animation.interpolate({
         inputRange,
-        outputRange: [0.5, 1, 0.5],
+        outputRange: [0.5, 10, 0.5],
         extrapolate: "clamp",
       });
       const opacity = this.animation.interpolate({
         inputRange,
-        outputRange: [0.1, 1.5, 0.1],
+        outputRange: [0.3, 1.5, 0.3],
         extrapolate: "clamp",
       });
       return { scale, opacity };
@@ -146,7 +146,8 @@ export default class screens extends Component<Props> {
               opacity: interpolations[index].opacity,
             };
             return (
-              <MapView.Marker key={index} coordinate={marker.coordinate}>
+              <MapView.Marker key={index} coordinate={marker.coordinate} onPress={() => {
+				this.props.navigation.navigate("ExploreInformationScreen", {location: marker.location});}}>
                 <Animated.View style={[styles.markerWrap, opacityStyle]}>
                   <Animated.View style={[styles.ring, scaleStyle]} />
                   <View style={styles.marker} />
@@ -179,7 +180,7 @@ export default class screens extends Component<Props> {
         >
           {this.state.markers.map((marker, index) => (
             <View style={styles.card} key={index}>
-              <Image
+              <Image 
                 source={marker.image}
                 style={styles.cardImage}
                 resizeMode="cover"
