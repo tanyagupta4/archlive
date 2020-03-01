@@ -16,7 +16,7 @@ export default class AboutScreen extends Component<Props> {
 			return(
 				<View style={styles.container}>
 				<ImageBackground source={require('../Images/IvanAllenRunThisCity.png')} style={styles.imageBackground}>
-					<Text style={styles.placeholder}>Two paragraphs here about Ivan Allen/the archives. Details about each tour.</Text>
+					<Text style={styles.placeholder}>Welcome! Feel free to start a guided tour or explore on your own.</Text>
 						<View style={styles.transparentTour}></View>
 							<TouchableOpacity style={styles.TourButton} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate(NavigationActions.navigate({
 									routeName: 'tourStack',
@@ -45,10 +45,11 @@ const styles = StyleSheet.create({
 		height: '100%',
 	},
 	placeholder: {
-		fontSize: 22,	
+		fontSize: 22,
 		color: 'white',
 		backgroundColor: 'black',
 		opacity: 0.7,
+		top: 40,
 	},
 	guidedText: {
 		fontSize: 25,
@@ -71,14 +72,14 @@ const styles = StyleSheet.create({
 	TourButton: {
 		position: 'absolute',
 		top: mapPaddingTop,
-		left: width/2 - 125,
+		left: width/2 - 130,
 		height: 50,
-		width: 250,
+		width: 270,
 	},
 	ExploreButton: {
 		position: 'absolute',
 		top: mapPaddingTop * 1.12,
-		left: width/2 - 125,
+		left: width/2 - 130,
 		height: 50,
 		width: 250,
 	},
@@ -101,4 +102,3 @@ const styles = StyleSheet.create({
 		opacity: 0.4,
 	},
 });
-

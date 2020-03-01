@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, Image, ImageBackground, Dimensions, TouchableOpacity, Linking} from 'react-native';
+import { Platform, StyleSheet, Text, View, Button, Image, ImageBackground, Dimensions, TouchableOpacity, Linking, Animated, Easing} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
 //const Tab = createMaterialTopTabNavigator();
@@ -17,30 +17,43 @@ const mapPaddingTop = screen.height * 0.01;
 const mapPaddingLeft = screen.width * 0.01;
 
 const width = Dimensions.get("window").width;
-
+const arrow = require('../Images/arrow.png');
 
 type Props = {};
 export default class HomeScreen extends Component<Props> {
 
   componentDidMount() {
+    this.animate()
     SplashScreen.hide()
   }
 
   constructor(props) {
     super(props);
-    this.state = { showSettings: false, };
+    this.state = { showSettings: false};
+    this.fadeAnim = new Animated.Value(0);
   }
-  
+
+  animate () {
+    this.fadeAnim.setValue(0)
+    Animated.timing(
+      this.fadeAnim,
+      {
+        toValue: 1,
+        duration: 2000,
+        easing: Easing.linear,
+      }
+    ).start(() => this.animate())
+  }
 
   render() {
     return (
       //image background wraps everything
       <ImageBackground source={require('../Images/home.png')} style={styles.imageBackground}>
-      
+
         <View style={styles.transparentTextBackground}>
         </View>
         <View style={styles.textLocation}>
-          <Text style={styles.textStyle}>Touring the {"\n"}Ivan Allen {"\n"}Archives</Text>
+          <Text style={styles.textStyle}>Touring {"\n"}Ivan Allen's {"\n"}Atlanta</Text>
         </View>
 
         <TouchableOpacity style={styles.settings} activeOpacity={0.3} onPress={()=> this.setState({showSettings: true})}>
@@ -55,9 +68,23 @@ export default class HomeScreen extends Component<Props> {
                 onPress={() => Linking.openURL('http://allenarchive.iac.gatech.edu/')}>
                 http://allenarchive.iac.gatech.edu/
             </Text>
-          </TouchableOpacity> 
+          </TouchableOpacity>
         }
+        <View style={styles.arrows}>
+        <Animated.Image source={arrow} style={{width: 50, resizeMode:'contain', top: 495, marginLeft: this.fadeAnim.interpolate({
+              inputRange: [0, 0.5, 1],
+              outputRange: [50, 70, 50]
+            })}} />
+            <Animated.Image source={arrow} style={{width: 50, resizeMode:'contain', top: 495, marginLeft: this.fadeAnim.interpolate({
+                  inputRange: [0, 0.5, 1],
+                  outputRange: [50, 70, 50]
+                })}} />
+        <Animated.Image source={arrow} style={{width: 50, resizeMode:'contain', top: 495, marginLeft: this.fadeAnim.interpolate({
+              inputRange: [0, 0.5, 1],
+              outputRange: [50, 70, 50]
+            })}} />
 
+        </View>
       </ImageBackground>
     );
   }
@@ -73,10 +100,10 @@ export default class HomeScreen extends Component<Props> {
 const styles = StyleSheet.create({
   transparentTextBackground: {
     position: 'absolute',
-    marginTop: mapPaddingTop,
+    marginTop: 80,
     marginLeft: mapPaddingLeft - 2,
-    height: 190,
-    width: 285,
+    height: 215,
+    width: 290,
     backgroundColor: 'black',
     opacity: 0.4,
   },
@@ -89,7 +116,7 @@ const styles = StyleSheet.create({
   },
   textLocation: {
     position: 'absolute',
-    marginTop: mapPaddingTop,
+    marginTop: 79,
     marginLeft: mapPaddingLeft,
   },
   imageBackground: {
@@ -129,6 +156,8 @@ const styles = StyleSheet.create({
   },
   settingsButton: {
     fontSize: 20,
+    color: "black",
+    marginLeft: mapPaddingLeft + 10,
   },
   transparentSettingsBackground: {
     flex: 1,
@@ -146,5 +175,14 @@ const styles = StyleSheet.create({
       fontSize: 30,
       textDecorationLine: 'underline',
       color: 'white',
+  },
+  arrow: {
+  width: 50,
+  resizeMode: 'contain',
+  top: 495,
+},
+  arrows: {
+    flex:1,
+    flexDirection: 'row',
   }
 });

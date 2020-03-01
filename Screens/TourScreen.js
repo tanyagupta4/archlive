@@ -29,7 +29,7 @@ const markers = [
     "text" : "Summary",
     "longlat" : [33.77396, -84.40425],
     "location" : "empty",
-	  
+
   },
 
   {
@@ -37,7 +37,7 @@ const markers = [
     "text" : "Summary",
     "longlat" : [33.78359, -84.40543],
     "location" : "empty",
-	  
+
   },
 
   {
@@ -127,7 +127,7 @@ export default class TourScreen extends Component<Props> {
       <View style={styles.container}>
         <MapView
           style={styles.map}
-          provider={PROVIDER_GOOGLE}
+          provider= {PROVIDER_GOOGLE}
           showsTraffic={false}
           showsUserLocation={true}
           region={{
@@ -138,7 +138,7 @@ export default class TourScreen extends Component<Props> {
         }}>
 
 		{markers.map((marker, i) =>
-      <MapView.Marker 
+      <MapView.Marker
       key={i}
 			coordinate={{latitude: marker.longlat[0],
 			            longitude: marker.longlat[1]}}>
@@ -148,7 +148,7 @@ export default class TourScreen extends Component<Props> {
 						this.props.navigation.navigate("TourInformationScreen", {location: marker.location});
 						return;
 					}}>
-					  
+
             <View>
               <View>
 							  <Text style={styles.header}>{marker.name}</Text>
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   },
   header: {
 	fontWeight: 'bold',
-	
+
   },
   border: {
     borderWidth: 10,
