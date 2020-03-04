@@ -8,6 +8,7 @@ import HomeScreen from './Screens/HomeScreen.js'
 import AboutScreen from './Screens/AboutScreen.js'
 import TourScreen from './Screens/TourScreen.js'
 import TourInformationScreen from './Screens/TourInformationScreen.js'
+import ExploreEvents from './Screens/ExploreEvents.js'
 import ExploreScreen from './Screens/ExploreScreen.js'
 import ExploreInformationScreen from './Screens/ExploreInformationScreen.js'
 
@@ -21,6 +22,7 @@ type Props = {};
 
 const exploreStack = createStackNavigator(
   { 
+    ExploreEvents: ExploreEvents,
     ExploreScreen: ExploreScreen,
     ExploreInformationScreen: ExploreInformationScreen,
   },

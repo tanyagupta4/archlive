@@ -27,7 +27,7 @@ export default class AboutScreen extends Component<Props> {
 						<View style={styles.transparentGuide}></View>
 							<TouchableOpacity style={styles.ExploreButton} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate(NavigationActions.navigate({
 								routeName: 'exploreStack',
-								action: NavigationActions.navigate({ routeName: 'ExploreScreen' })
+								action: NavigationActions.navigate({ routeName: 'ExploreEvents' })
 								}))}>
 									<Text style={styles.tourText}>Explore on your own!</Text>
 							</TouchableOpacity>
