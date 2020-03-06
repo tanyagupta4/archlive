@@ -12,15 +12,16 @@ import {
   TouchableWithoutFeedback
 } from "react-native";
 
-import Video from "react-native-video";
 
-import Carousel from 'react-native-snap-carousel';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
+import Video from 'react-native-video';
+
 
 const { width, height } = Dimensions.get("window");
 
 export default class ExploreEvents extends Component<Props> {
 
-    
+
 
     constructor(props){
         super();
@@ -37,22 +38,27 @@ export default class ExploreEvents extends Component<Props> {
             events: [
             {
                 id: "PeytonRoad",
-                image: require('../Images/IvanAllen3.png')
+                image: require('../Images/peytonroad.jpg'),
+                name: "Peyton Road Wall"
             }, {
                 id: "CivilRights",
-                image: require('../Images/IvanAllen2.jpg')
+                image: require('../Images/civilrights.jpg'),
+                name: "The Civil Rights Act"
             },
                 {
                 id: "LesterMaddox",
-                image: require('../Images/IvanAllen2.jpg')
+                image: require('../Images/lestermaddox.jpg'),
+                name: "Lester Maddox"
             },
                 {
                 id: "Stadium",
-                image: require('../Images/IvanAllen2.jpg')
+                image: require('../Images/fultonstadium.jpg'),
+                name: "Atlanta-Fulton County Stadium"
             },
                 {
                 id: "SummerhillRiot",
-                image: require('../Images/IvanAllen2.jpg')
+                image: require('../Images/summerhill.jpg'),
+                name: "The so-called Summerhill Riot"
             },
             ]
         };
@@ -66,58 +72,91 @@ export default class ExploreEvents extends Component<Props> {
         console.log("rendering,", index, item)
         return (
             <View style={styles.cardContainer} >
-                <TouchableWithoutFeedback onPress={ () => { 
+                <TouchableOpacity activeOpacity={.8} onPress={ () => {
                     console.log("test")
                 this.props.navigation.navigate(item.id);
                 }}>
-                    <Image style={styles.card}
-                        source={item.image}>
-                    </Image>
-                </TouchableWithoutFeedback>
-                <Text>{item.id}</Text>
+                    <View style={styles.card}>
+                        <Image style={styles.image}
+                            source={item.image}>
+                        </Image>
+                    </View>
+                </TouchableOpacity>
+
+                    <View style={styles.titleBackground}>
+                        <Text style={styles.title}>{item.name}</Text>
+                    </View>
+
+
             </View>
+
         );
         }
 
     render = () => {
 
         console.log("videos: updating")
-    
+
         return (
 
-        <View>
+            <View>
 
-            <Video
-                source={require('../Images/video.mp4')}
+                <Video
+                source={require('../Images/atlantaskyline.mp4')}
                 style={styles.backgroundVideo}
                 muted={true}
                 repeat={true}
                 resizeMode={"cover"}
                 rate={1.0}
-                ignoreSilentSwitch={"obey"}
-            />
-        
+                ignoreSilentSwitch={"obey"}/>
 
-            <Carousel
-            ref={ (c) => { this._carousel = c; } }
-            data={this.state.events}
-            renderItem={this._renderItem.bind(this)}
-            sliderWidth={width}
-            sliderHeight={height}
-            itemWidth={width}
-            itemHeight={height}
-            layout={'stack'}
-            firstItem={0}
-            background
-            />
-        </View>
+                <Carousel
+                ref={ (c) => { this._carousel = c; } }
+                data={this.state.events}
+                renderItem={this._renderItem.bind(this)}
+                sliderWidth={width}
+                sliderHeight={height}
+                itemWidth={width}
+                itemHeight={height}
+                layout={'stack'}
+                firstItem={0}
+                background/>
+            </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
 
-
+    image: {
+        flex: 1,
+        width: "100%",
+        height: "100%"
+    },
+	card: {
+        width: width * .7,
+        height: height * .3,
+        overflow: "hidden"
+    },
+    cardContainer: {
+        top: height * .27,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: width,
+        height: height
+    },
+    title: {
+        fontSize: 45,
+        color: 'white',
+        fontFamily: 'didot',
+        fontWeight: 'bold',
+    },
+    titleBackground: {
+        top: -height * .7,
+        width: width * .9,
+        backgroundColor: "black",
+        opacity: 0.75
+    },
     backgroundVideo: {
         height: height,
         position: "absolute",
@@ -126,16 +165,5 @@ const styles = StyleSheet.create({
         alignItems: "stretch",
         bottom: 0,
         right: 0
-      },
-
-	card: {
-        width: 300,
-        height: 400
-    },
-    cardContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: width,
-        height: height
-    }
+      }
 })
