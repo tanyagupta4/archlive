@@ -61,7 +61,7 @@ export default class ExploreEvents extends Component<Props> {
     _renderItem = ( {item, index} ) => {
         console.log("rendering,", index, item)
         return (
-            <View style={styles.test} >
+            <View style={styles.cardContainer} >
                 <TouchableWithoutFeedback onPress={ () => { 
                     console.log("test")
                 this.props.navigation.navigate(item.id);
@@ -88,7 +88,7 @@ export default class ExploreEvents extends Component<Props> {
             sliderHeight={height}
             itemWidth={width}
             itemHeight={height}
-            layout={'default'}
+            layout={'stack'}
             firstItem={0}
             background
             />
@@ -97,11 +97,13 @@ export default class ExploreEvents extends Component<Props> {
 }
 
 const styles = StyleSheet.create({
-	test: {
-        width: width,
-        height: height
+	card: {
+        width: 300,
+        height: 400
     },
-    card: {
+    cardContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
         width: width,
         height: height
     }
