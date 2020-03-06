@@ -1,0 +1,1 @@
+../../../../../node_modules/react-native-magic-move/ios/RCTMagicMoveCloneData.h

@@ -24,10 +24,10 @@ import { createStackNavigator } from 'react-navigation-stack'
 
 type Props = {};
 
-//insert any other navigators here 
+//insert any other navigators here
 
 const exploreStack = createStackNavigator(
-  { 
+  {
     ExploreEvents: ExploreEvents,
     ExploreScreen: ExploreScreen,
     ExploreInformationScreen: ExploreInformationScreen,
@@ -45,7 +45,7 @@ const exploreStack = createStackNavigator(
 );
 
 const tourStack = createStackNavigator(
-  { 
+  {
     TourScreen: TourScreen,
     TourInformationScreen: TourInformationScreen,
   },
@@ -74,13 +74,12 @@ const main = createStackNavigator({
   homeTabs,
   tourStack,
   exploreStack,
-  
+
   },
   {
     headerMode: () => null
-  },  
+  },
 );
 
 
 export default createAppContainer(main);
-
