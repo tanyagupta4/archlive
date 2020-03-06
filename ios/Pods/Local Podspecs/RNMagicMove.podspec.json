@@ -1,0 +1,24 @@
+{
+  "name": "RNMagicMove",
+  "version": "0.6.6",
+  "summary": "Create magical move transitions between scenes in react-native",
+  "license": "MIT",
+  "authors": {
+    "name": "IjzerenHein",
+    "email": "hrutjes@gmail.com"
+  },
+  "homepage": "https://github.com/IjzerenHein/react-native-magic-move#readme",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/IjzerenHein/react-native-magic-move.git",
+    "tag": "v0.6.6"
+  },
+  "source_files": "ios/**/*.{h,m}",
+  "dependencies": {
+    "React": [
+
+    ]
+  }
+}
