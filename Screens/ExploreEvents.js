@@ -12,11 +12,15 @@ import {
   TouchableWithoutFeedback
 } from "react-native";
 
+import Video from "react-native-video";
+
 import Carousel from 'react-native-snap-carousel';
 
 const { width, height } = Dimensions.get("window");
 
 export default class ExploreEvents extends Component<Props> {
+
+    
 
     constructor(props){
         super();
@@ -80,6 +84,20 @@ export default class ExploreEvents extends Component<Props> {
         console.log("videos: updating")
     
         return (
+
+        <View>
+
+            <Video
+                source={require('../Images/video.mp4')}
+                style={styles.backgroundVideo}
+                muted={true}
+                repeat={true}
+                resizeMode={"cover"}
+                rate={1.0}
+                ignoreSilentSwitch={"obey"}
+            />
+        
+
             <Carousel
             ref={ (c) => { this._carousel = c; } }
             data={this.state.events}
@@ -92,11 +110,24 @@ export default class ExploreEvents extends Component<Props> {
             firstItem={0}
             background
             />
+        </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
+
+
+    backgroundVideo: {
+        height: height,
+        position: "absolute",
+        top: 0,
+        left: 0,
+        alignItems: "stretch",
+        bottom: 0,
+        right: 0
+      },
+
 	card: {
         width: 300,
         height: 400
