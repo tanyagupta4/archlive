@@ -29,9 +29,9 @@ const CARD_WIDTH = CARD_HEIGHT - 50;
 export default class screens extends Component<Props> {
 
   render() {
-    return (<Carousel
-      data={Cards}/>
-      )
+    return (<View>
+    <Text>test</Text>
+    </View>);
   }
 
 

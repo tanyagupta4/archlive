@@ -12,6 +12,12 @@ import ExploreEvents from './Screens/ExploreEvents.js'
 import ExploreScreen from './Screens/ExploreScreen.js'
 import ExploreInformationScreen from './Screens/ExploreInformationScreen.js'
 
+import PeytonRoad from './Screens/ExplorePages/PeytonRoad.js'
+import CivilRights from './Screens/ExplorePages/CivilRights.js'
+import LesterMaddox from './Screens/ExplorePages/LesterMaddox.js'
+import Stadium from './Screens/ExplorePages/Stadium.js'
+import SummerhillRiot from './Screens/ExplorePages/SummerhillRiot.js'
+
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs'
 import { createStackNavigator } from 'react-navigation-stack'
 
@@ -25,6 +31,12 @@ const exploreStack = createStackNavigator(
     ExploreEvents: ExploreEvents,
     ExploreScreen: ExploreScreen,
     ExploreInformationScreen: ExploreInformationScreen,
+
+    PeytonRoad: PeytonRoad,
+    CivilRights: CivilRights,
+    LesterMaddox: LesterMaddox,
+    Stadium: Stadium,
+    SummerhillRiot: SummerhillRiot
   },
   {
     initialRouteName: 'ExploreScreen',
