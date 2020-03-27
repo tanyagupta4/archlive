@@ -21,8 +21,6 @@ const { width, height } = Dimensions.get("window");
 
 export default class ExploreEvents extends Component<Props> {
 
-
-
     constructor(props){
         super();
         this.state = {

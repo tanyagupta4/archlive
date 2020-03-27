@@ -145,7 +145,8 @@ export default class Stadium extends Component<Props> {
             <View>
                 <Button
             title="CLick to MAP"
-            accessibilityLabel="Go to map to see more"/>
+            accessibilityLabel="Go to map to see more"
+            onPress={()=> this.props.navigation.navigate('ExploreScreen')}/>
             </View>
         </View>
 
