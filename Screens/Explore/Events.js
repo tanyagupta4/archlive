@@ -12,14 +12,12 @@ import {
   TouchableWithoutFeedback
 } from "react-native";
 
-
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import Video from 'react-native-video';
 
-
 const { width, height } = Dimensions.get("window");
 
-export default class ExploreEvents extends Component<Props> {
+export default class Events extends Component<Props> {
 
     constructor(props){
         super();
@@ -36,26 +34,26 @@ export default class ExploreEvents extends Component<Props> {
             events: [
             {
                 id: "PeytonRoad",
-                image: require('../Images/peytonroad.jpg'),
+                image: require('../../Images/peytonroad.jpg'),
                 name: "Peyton Road Wall"
             }, {
                 id: "CivilRights",
-                image: require('../Images/civilrights.jpg'),
+                image: require('../../Images/civilrights.jpg'),
                 name: "The Civil Rights Act"
             },
                 {
                 id: "LesterMaddox",
-                image: require('../Images/lestermaddox.jpg'),
+                image: require('../../Images/lestermaddox.jpg'),
                 name: "Lester Maddox"
             },
                 {
                 id: "Stadium",
-                image: require('../Images/fultonstadium.jpg'),
+                image: require('../../Images/fultonstadium.jpg'),
                 name: "Atlanta-Fulton County Stadium"
             },
                 {
                 id: "SummerhillRiot",
-                image: require('../Images/summerhill.jpg'),
+                image: require('../../Images/summerhill.jpg'),
                 name: "The so-called Summerhill Riot"
             },
             ]
@@ -71,7 +69,6 @@ export default class ExploreEvents extends Component<Props> {
         return (
             <View style={styles.cardContainer} >
                 <TouchableOpacity activeOpacity={.8} onPress={ () => {
-                    console.log("test")
                 this.props.navigation.navigate(item.id);
                 }}>
                     <View style={styles.card}>
@@ -100,7 +97,7 @@ export default class ExploreEvents extends Component<Props> {
             <View>
 
                 <Video
-                source={require('../Images/atlantaskyline.mp4')}
+                source={require('../../Images/atlantaskyline.mp4')}
                 style={styles.backgroundVideo}
                 muted={true}
                 repeat={true}

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, Image, ImageBackground, Dimensions, TouchableOpacity, Linking, Animated, Easing} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
-//const Tab = createMaterialTopTabNavigator();
-
 const instructions = Platform.select({
   ios: 'ios Home',
   android: 'Android home',
@@ -95,7 +93,6 @@ export default class HomeScreen extends Component<Props> {
 // <TouchableOpacity style={styles.touchable} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate('AboutScreen')}>
 // <Text style={styles.button}>Start</Text>
 // </TouchableOpacity>
-
 
 const styles = StyleSheet.create({
   transparentTextBackground: {

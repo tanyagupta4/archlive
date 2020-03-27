@@ -17,7 +17,7 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 const { width, height } = Dimensions.get("window");
 
-export default class ExploreScreen extends Component<Props> {
+export default class ExploreMap extends Component<Props> {
 
     constructor(props){
         super();
@@ -34,19 +34,19 @@ export default class ExploreScreen extends Component<Props> {
             events: [
             {
                 id: "PeytonRoad",
-                image: require('../Images/peytonroad.jpg'),
+                image: require('../../Images/peytonroad.jpg'),
                 name: "Peyton Road Wall",
 				longlat: [33.73768, -84.38688],
             }, 
             {
                 id: "CivilRights",
-                image: require('../Images/civilrights.jpg'),
+                image: require('../../Images/civilrights.jpg'),
                 name: "The Civil Rights Act",
 				longlat: [33.73981, -84.38973],
             },
             {
                 id: "LesterMaddox",
-                image: require('../Images/lestermaddox.jpg'),
+                image: require('../../Images/lestermaddox.jpg'),
                 name: "Lester Maddox",
 				longlat: [33.77396, -84.40425],
             },
