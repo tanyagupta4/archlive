@@ -37,7 +37,7 @@ export default class ExploreMap extends Component<Props> {
                 image: require('../../Images/peytonroad.jpg'),
                 name: "Peyton Road Wall",
 				longlat: [33.73768, -84.38688],
-            }, 
+            },
             {
                 id: "CivilRights",
                 image: require('../../Images/civilrights.jpg'),
@@ -104,16 +104,16 @@ export default class ExploreMap extends Component<Props> {
 					{this.state.events.map((marker, i) =>
 						{let cord={latitude: this.state.events[this.state.index].longlat[0],
 								   longitude: this.state.events[this.state.index].longlat[1]}
-							return ( 
-								<MapView.Marker 
-								ref="marker"  
-								pinColor="red" 
-								key={i} 
-								coordinate={cord} /> 
+							return (
+								<MapView.Marker
+								ref="marker"
+								pinColor="red"
+								key={i}
+								coordinate={cord} />
 					)})}
-					
+
      			</MapView>
-              
+
                 <Carousel
                 ref={ (c) => { this._carousel = c; } }
                 data={this.state.events}
@@ -169,4 +169,3 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     }
 })
-

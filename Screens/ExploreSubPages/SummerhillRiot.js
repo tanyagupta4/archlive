@@ -51,7 +51,7 @@ export default class SummerhillRiot extends Component<Props> {
             fontSize: 14
           }}>
           Amidst all the chaos and the so-called rioting that took place in Summerhill, two key players stick out as pivotal in the formation and handling of the complex situation: Mayor Ivan Allen, Jr., and Stokely Carmichael of the Student Nonviolent Coordinating Committee (SNCC). This section of the website primarily focuses on the role these two people played in the story of Summerhill and how the citizens of Atlanta and beyond responded to their actions.
-          The vast majority of documents found within the Ivan Allen Digital Archive regarding Summerhill are letters or telegrams from a multitude of Atlanta citizens and organizations of all backgrounds. They offer their opinions and responses to the events that occurred, spanning from complete approval to complete disapproval regarding the actions of Allen, Carmichael, SNCC, or some combination of these parties. It is worth noting that the digital archive contains more letters and documents on Summerhill than anything else, surpassing all other major events that happened throughout Allen's two terms as mayor. With this, the archive shows just how many citizens felt compelled to respond to the event and how big of an effect the Summerhill Riot had on Allen’s administration, the city of Atlanta, and the evolving Civil Rights Movement. 
+          The vast majority of documents found within the Ivan Allen Digital Archive regarding Summerhill are letters or telegrams from a multitude of Atlanta citizens and organizations of all backgrounds. They offer their opinions and responses to the events that occurred, spanning from complete approval to complete disapproval regarding the actions of Allen, Carmichael, SNCC, or some combination of these parties. It is worth noting that the digital archive contains more letters and documents on Summerhill than anything else, surpassing all other major events that happened throughout Allen's two terms as mayor. With this, the archive shows just how many citizens felt compelled to respond to the event and how big of an effect the Summerhill Riot had on Allen’s administration, the city of Atlanta, and the evolving Civil Rights Movement.
 ​           These documents create an interesting narrative about Summerhill that expresses an overall favorability of Allen’s handling of the situation, even among those generally opposed to his mayorship, as well as deteriorating support for young, radical civil rights organizations like SNCC. Though many Atlantans began to express a growing concern over Carmichael’s leadership abilities and the activities of SNCC, the Summerhill Riot deepened some people’s loyalties to SNCC who felt that their grievances needed to be heard. Furthermore, despite most people praising Allen as a hero for his actions, the involvement of the police during the "riot" and the arrest of Carmichael gave citizens a chance to criticize Allen’s neglect of Black communities like Summerhill and his failure to understand the systemic inequities that continued to dominate the lives of Black Atlantans after the passage of the Civil Rights Act of 1964.
           </Text>
           <View style ={{
@@ -66,10 +66,10 @@ export default class SummerhillRiot extends Component<Props> {
           People
           </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.SubmitButtonStyle}>
+          <TouchableOpacity style={styles.SubmitButtonStyle}   onPress={()=> this.props.navigation.navigate('ExploreMap')}>
           <Text
           style={styles.TextStyle}>
-          Letters
+          Maps
           </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.SubmitButtonStyle}>
