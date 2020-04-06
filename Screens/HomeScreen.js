@@ -39,6 +39,7 @@ export default class HomeScreen extends Component<Props> {
         toValue: 1,
         duration: 2000,
         easing: Easing.linear,
+        useNativeDriver: false,
       }
     ).start(() => this.animate())
   }

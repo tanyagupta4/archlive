@@ -12,7 +12,7 @@
     "expo": "~36.0.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
-    "react-native": "~0.61.4",
+    "react-native": "^0.62.1",
     "react-native-gesture-handler": "^1.5.3",
     "react-native-image-slider": "^2.0.3",
     "react-native-magic-move": "^0.6.6",
