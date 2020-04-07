@@ -113,7 +113,7 @@ export default class Events extends Component<Props> {
                 sliderHeight={height}
                 itemWidth={width}
                 itemHeight={height}
-                layout={'stack'}
+                layout={'default'}
                 firstItem={0}
                 background/>
             </View>

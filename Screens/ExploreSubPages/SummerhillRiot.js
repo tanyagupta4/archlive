@@ -12,11 +12,14 @@ import {
     Button,
   } from "react-native";
 
+const { width, height } = Dimensions.get("window");
+
 export default class SummerhillRiot extends Component<Props> {
 
 
     render() {
       return (
+        <>
         <ScrollView scrollEventThrottle={16}>
         <View style={{ flex: 1, backgroundColor: "white", paddingTop: 50 }}>
           <Text
@@ -63,24 +66,31 @@ export default class SummerhillRiot extends Component<Props> {
           <TouchableOpacity style={styles.SubmitButtonStyle}>
           <Text
           style={styles.TextStyle}>
-          People
-          </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SubmitButtonStyle}   onPress={()=> this.props.navigation.navigate('ExploreMap')}>
-          <Text
-          style={styles.TextStyle}>
-          Maps
+          Links
           </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.SubmitButtonStyle}>
           <Text
           style={styles.TextStyle}>
-          Documents
+          Multimedia
           </Text>
           </TouchableOpacity>
           </View>
         </View>
+        
       </ScrollView>
+
+        <View style={styles.fabMenuStyle}>
+            <View>
+                <TouchableOpacity style={styles.MapButton} 
+                onPress={()=> this.props.navigation.navigate('ExploreMap5')}>
+                <Text style={styles.MapButtonText}>Explore the Interactive Map!</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+
+      </>
+      
     )
     }
 
@@ -92,8 +102,8 @@ const styles = {
     marginTop:15,
       paddingTop:15,
       paddingBottom:15,
-      paddingLeft:30,
-      paddingRight:30,
+      paddingLeft:50,
+      paddingRight:50,
       backgroundColor:'#6a7fa1',
       borderRadius:10,
       borderWidth: 1,
@@ -104,4 +114,29 @@ TextStyle:{
      fontWeight: "400",
      textAlign:'center',
  },
+fabMenuStyle: {
+    flexDirection: 'row',
+    position: 'absolute',
+    top: -5,
+    right:0,
+    justifyContent: 'center',
+    alignItems: 'center',
+},
+
+MapButton: {
+  marginTop:10,
+    paddingTop:10,
+    paddingBottom:10,
+    paddingLeft:15,
+    paddingRight:15,
+    backgroundColor:'darkslategray',
+    borderRadius:10,
+    borderWidth: 1,
+    borderColor: '#fff'
+},
+
+MapButtonText: {
+  color: 'white',
+  fontSize: 20,
+}
 }

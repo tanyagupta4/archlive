@@ -12,9 +12,9 @@ import {
     Button,
   } from "react-native";
 
+const { width, height } = Dimensions.get("window");
+
 export default class Stadium extends Component<Props> {
-
-
     render() {
       return (
           <>
@@ -120,68 +120,76 @@ export default class Stadium extends Component<Props> {
             alignItems: 'center',
             justifyContent: 'center'}}>
 
-            <View style={[{ width: 70, margin: 10}]}>
-                <Button color="green" title="some" />
-
-            </View>
-
-
-            <View style={[{ width: 70, margin: 10}]}>
-                <Button color="red" title="More" />
-
-            </View>
-          
-            <View style={[{ width: 70, margin: 10}]}>
-                <Button title="Video" />
-
-            </View>
-
-
+          <TouchableOpacity style={styles.SubmitButtonStyle}>
+          <Text
+          style={styles.TextStyle}>
+          Links
+          </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.SubmitButtonStyle}>
+          <Text
+          style={styles.TextStyle}>
+          Multimedia
+          </Text>
+          </TouchableOpacity>
           </View>
-        </View>
+          </View>
       </ScrollView>
 
-        <View style={styles.fabMenuStyle}>
-            <View>
-                <Button
-            title="CLick to MAP"
-            accessibilityLabel="Go to map to see more"
-            onPress={()=> this.props.navigation.navigate('ExploreMap')}/>
-            </View>
-        </View>
+          <View style={styles.fabMenuStyle}>
+          <View>
+              <TouchableOpacity style={styles.MapButton} 
+              onPress={()=> this.props.navigation.navigate('ExploreMap4')}>
+              <Text style={styles.MapButtonText}>Explore the Interactive Map!</Text>
+              </TouchableOpacity>
+          </View>
+      </View>
 
         </>
     )}
-
 }
 
 const styles = {
-
-  SubmitButtonStyle: {
+SubmitButtonStyle: {
     marginTop:15,
       paddingTop:15,
       paddingBottom:15,
-      paddingLeft:30,
-      paddingRight:30,
+      paddingLeft:50,
+      paddingRight:50,
       backgroundColor:'#6a7fa1',
       borderRadius:10,
       borderWidth: 1,
       borderColor: '#fff'
 },
-
-
-fabMenuStyle: {
-    flexDirection: 'row',
-    position: 'absolute',
-    top: 5,
-    right:0,
-    justifyContent: 'center',
-    alignItems: 'center',
-},
-
 TextStyle:{
      color:'white',
      fontWeight: "400",
      textAlign:'center',
  },
+
+ fabMenuStyle: {
+  flexDirection: 'row',
+  position: 'absolute',
+  top: -5,
+  right:0,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+
+MapButton: {
+marginTop:10,
+  paddingTop:10,
+  paddingBottom:10,
+  paddingLeft:15,
+  paddingRight:15,
+  backgroundColor:'darkslategray',
+  borderRadius:10,
+  borderWidth: 1,
+  borderColor: '#fff'
+},
+
+MapButtonText: {
+color: 'white',
+fontSize: 20,
+}
 }
