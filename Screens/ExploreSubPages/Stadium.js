@@ -124,7 +124,7 @@ export default class Stadium extends Component<Props> {
           </View>
       </ScrollView>
 
-	  <<View style={styles.fabMenuStyle}>
+	  <View style={styles.fabMenuStyle}>
 
 				<TouchableOpacity style={styles.SubmitButtonStyle}>
 				<Text
