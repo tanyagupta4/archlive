@@ -114,36 +114,37 @@ export default class Stadium extends Component<Props> {
                 "and made them realize that getting the stadium built in less than one year had … saved us from spiraling construction costs" (Allen 132). 
           </Text>
 
-          <View style ={{
-            flex: 1,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center'}}>
-
-          <TouchableOpacity style={styles.SubmitButtonStyle}>
-          <Text
-          style={styles.TextStyle}>
-          Links
+          <Text >
+          
+              {"\n"}
+              {"\n"}
+              {"\n"}
+          
           </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SubmitButtonStyle}>
-          <Text
-          style={styles.TextStyle}>
-          Multimedia
-          </Text>
-          </TouchableOpacity>
-          </View>
           </View>
       </ScrollView>
 
-          <View style={styles.fabMenuStyle}>
-          <View>
-              <TouchableOpacity style={styles.MapButton} 
-              onPress={()=> this.props.navigation.navigate('ExploreMap4')}>
-              <Text style={styles.MapButtonText}>Explore the Interactive Map!</Text>
-              </TouchableOpacity>
-          </View>
-      </View>
+	  <<View style={styles.fabMenuStyle}>
+
+				<TouchableOpacity style={styles.SubmitButtonStyle}>
+				<Text
+				style={styles.TextStyle}>
+				People
+				</Text>
+				</TouchableOpacity>
+				<TouchableOpacity style={styles.SubmitButtonStyle}   onPress={()=> this.props.navigation.navigate('ExploreMap')}>
+				<Text
+				style={styles.TextStyle}>
+				Maps
+				</Text>
+				</TouchableOpacity>
+				<TouchableOpacity style={styles.SubmitButtonStyle}>
+				<Text
+				style={styles.TextStyle}>
+				Documents
+				</Text>
+				</TouchableOpacity>
+				</View>
 
         </>
     )}
@@ -170,7 +171,7 @@ TextStyle:{
  fabMenuStyle: {
   flexDirection: 'row',
   position: 'absolute',
-  top: -5,
+  bottom: -5,
   right:0,
   justifyContent: 'center',
   alignItems: 'center',
