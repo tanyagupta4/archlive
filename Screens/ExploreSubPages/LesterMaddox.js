@@ -83,36 +83,37 @@ export default class LesterMaddox extends Component<Props> {
             Maddox’s upbringing where he was taught to look out for himself and his own interests endowed him with traits that continued into his adulthood. By keeping African Americans separate from whites and viewing them as inferior and dangerous, he was able to stay ahead of them and maintain a perceived sense of superiority. Segregation, in this sense, was a method of self preservation in the eyes of Maddox that was cultivated in him by his upbringing. 
           </Text>
 
-          <View style ={{
-            flex: 1,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center'}}>
-
-          <TouchableOpacity style={styles.SubmitButtonStyle}>
-          <Text
-          style={styles.TextStyle}>
-          Links
+          <Text >
+          
+              {"\n"}
+              {"\n"}
+              {"\n"}
+          
           </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SubmitButtonStyle}>
-          <Text
-          style={styles.TextStyle}>
-          Multimedia
-          </Text>
-          </TouchableOpacity>
-          </View>
         </View>
       </ScrollView>
 
       <View style={styles.fabMenuStyle}>
-      <View>
-          <TouchableOpacity style={styles.MapButton} 
-          onPress={()=> this.props.navigation.navigate('ExploreMap2')}>
-          <Text style={styles.MapButtonText}>Explore the Interactive Map!</Text>
+
+          <TouchableOpacity style={styles.SubmitButtonStyle}>
+          <Text
+          style={styles.TextStyle}>
+          People
+          </Text>
           </TouchableOpacity>
-      </View>
-  </View>
+          <TouchableOpacity style={styles.SubmitButtonStyle}   onPress={()=> this.props.navigation.navigate('ExploreMap')}>
+          <Text
+          style={styles.TextStyle}>
+          Maps
+          </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.SubmitButtonStyle}>
+          <Text
+          style={styles.TextStyle}>
+          Documents
+          </Text>
+          </TouchableOpacity>
+          </View>
 
         </>
     )}
@@ -134,15 +135,6 @@ const styles = {
 },
 
 
-fabMenuStyle: {
-    flexDirection: 'row',
-    position: 'absolute',
-    top: 5,
-    right:0,
-    justifyContent: 'center',
-    alignItems: 'center',
-},
-
 TextStyle:{
      color:'white',
      fontWeight: "400",
@@ -152,7 +144,7 @@ TextStyle:{
  fabMenuStyle: {
   flexDirection: 'row',
   position: 'absolute',
-  top: -5,
+  bottom: -5,
   right:0,
   justifyContent: 'center',
   alignItems: 'center',
