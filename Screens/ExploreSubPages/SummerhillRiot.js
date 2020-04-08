@@ -57,37 +57,38 @@ export default class SummerhillRiot extends Component<Props> {
           The vast majority of documents found within the Ivan Allen Digital Archive regarding Summerhill are letters or telegrams from a multitude of Atlanta citizens and organizations of all backgrounds. They offer their opinions and responses to the events that occurred, spanning from complete approval to complete disapproval regarding the actions of Allen, Carmichael, SNCC, or some combination of these parties. It is worth noting that the digital archive contains more letters and documents on Summerhill than anything else, surpassing all other major events that happened throughout Allen's two terms as mayor. With this, the archive shows just how many citizens felt compelled to respond to the event and how big of an effect the Summerhill Riot had on Allen’s administration, the city of Atlanta, and the evolving Civil Rights Movement.
 ​           These documents create an interesting narrative about Summerhill that expresses an overall favorability of Allen’s handling of the situation, even among those generally opposed to his mayorship, as well as deteriorating support for young, radical civil rights organizations like SNCC. Though many Atlantans began to express a growing concern over Carmichael’s leadership abilities and the activities of SNCC, the Summerhill Riot deepened some people’s loyalties to SNCC who felt that their grievances needed to be heard. Furthermore, despite most people praising Allen as a hero for his actions, the involvement of the police during the "riot" and the arrest of Carmichael gave citizens a chance to criticize Allen’s neglect of Black communities like Summerhill and his failure to understand the systemic inequities that continued to dominate the lives of Black Atlantans after the passage of the Civil Rights Act of 1964.
           </Text>
-          <View style ={{
-            flex: 1,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center'}}>
-
-          <TouchableOpacity style={styles.SubmitButtonStyle}>
-          <Text
-          style={styles.TextStyle}>
-          Links
+          <Text >
+          
+              {"\n"}
+              {"\n"}
+              {"\n"}
+          
           </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SubmitButtonStyle}>
-          <Text
-          style={styles.TextStyle}>
-          Multimedia
-          </Text>
-          </TouchableOpacity>
-          </View>
         </View>
         
       </ScrollView>
 
-        <View style={styles.fabMenuStyle}>
-            <View>
-                <TouchableOpacity style={styles.MapButton} 
-                onPress={()=> this.props.navigation.navigate('ExploreMap5')}>
-                <Text style={styles.MapButtonText}>Explore the Interactive Map!</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
+	  <View style={styles.fabMenuStyle}>
+
+			<TouchableOpacity style={styles.SubmitButtonStyle}>
+			<Text
+			style={styles.TextStyle}>
+			People
+			</Text>
+			</TouchableOpacity>
+			<TouchableOpacity style={styles.SubmitButtonStyle}   onPress={()=> this.props.navigation.navigate('ExploreMap')}>
+			<Text
+			style={styles.TextStyle}>
+			Maps
+			</Text>
+			</TouchableOpacity>
+			<TouchableOpacity style={styles.SubmitButtonStyle}>
+			<Text
+			style={styles.TextStyle}>
+			Documents
+			</Text>
+			</TouchableOpacity>
+			</View>
 
       </>
       
@@ -117,7 +118,7 @@ TextStyle:{
 fabMenuStyle: {
     flexDirection: 'row',
     position: 'absolute',
-    top: -5,
+    bottom: -5,
     right:0,
     justifyContent: 'center',
     alignItems: 'center',
