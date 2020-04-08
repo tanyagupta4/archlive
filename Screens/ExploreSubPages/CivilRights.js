@@ -82,17 +82,17 @@ export default class CivilRights extends Component<Props> {
           </Text>
 
           <Text >
-          
+
               {"\n"}
               {"\n"}
               {"\n"}
-          
+
           </Text>
         </View>
       </ScrollView>
 
       <View style={styles.fabMenuStyle}>
-      
+
           <TouchableOpacity style={styles.SubmitButtonStyle}>
               <Text
               style={styles.TextStyle}>
@@ -105,12 +105,12 @@ export default class CivilRights extends Component<Props> {
               Multimedia
               </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.SubmitButtonStyle}   onPress={()=> this.props.navigation.navigate('ExploreMap')}>
+          <TouchableOpacity style={styles.SubmitButtonStyle}   onPress={()=> this.props.navigation.navigate('ExploreMap2')}>
 				      <Text style={styles.TextStyle}>
 			        	Maps
 				      </Text>
 				  </TouchableOpacity>
-    
+
   </View>
 
         </>

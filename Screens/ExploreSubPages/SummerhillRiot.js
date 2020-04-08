@@ -58,14 +58,14 @@ export default class SummerhillRiot extends Component<Props> {
 ​           These documents create an interesting narrative about Summerhill that expresses an overall favorability of Allen’s handling of the situation, even among those generally opposed to his mayorship, as well as deteriorating support for young, radical civil rights organizations like SNCC. Though many Atlantans began to express a growing concern over Carmichael’s leadership abilities and the activities of SNCC, the Summerhill Riot deepened some people’s loyalties to SNCC who felt that their grievances needed to be heard. Furthermore, despite most people praising Allen as a hero for his actions, the involvement of the police during the "riot" and the arrest of Carmichael gave citizens a chance to criticize Allen’s neglect of Black communities like Summerhill and his failure to understand the systemic inequities that continued to dominate the lives of Black Atlantans after the passage of the Civil Rights Act of 1964.
           </Text>
           <Text >
-          
+
               {"\n"}
               {"\n"}
               {"\n"}
-          
+
           </Text>
         </View>
-        
+
       </ScrollView>
 
 	  <View style={styles.fabMenuStyle}>
@@ -76,7 +76,7 @@ export default class SummerhillRiot extends Component<Props> {
 			People
 			</Text>
 			</TouchableOpacity>
-			<TouchableOpacity style={styles.SubmitButtonStyle}   onPress={()=> this.props.navigation.navigate('ExploreMap')}>
+			<TouchableOpacity style={styles.SubmitButtonStyle}   onPress={()=> this.props.navigation.navigate('ExploreMap5')}>
 			<Text
 			style={styles.TextStyle}>
 			Maps
@@ -91,7 +91,7 @@ export default class SummerhillRiot extends Component<Props> {
 			</View>
 
       </>
-      
+
     )
     }
 
