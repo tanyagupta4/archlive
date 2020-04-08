@@ -154,36 +154,37 @@ export default class PeytonRoad extends Component<Props> {
 ​            However, the lack of lasting reminders of the wall presents an interesting, yet worrying conundrum. How could it be that there exist so few historical records about an event that seemed to have captivated worldwide attention? Since politics is inherently intertwined with the media, we considered the possibility that there was some connection between the mayoral bureaucracy and the media outlets reporting on the controversy. In fact, in curating the Ivan Allen Digital Archive, we came across several letters from the City of Atlanta to media conglomerates. The content of this correspondence often directly related to how the Peyton Road affair was described in each media group’s respective articles. For example, magazines like Time that had treated the controversy in a manner beneficial to the city received heaping praise, while those who had called Atlanta out for its haphazardly thought-out plan were addressed in an admonishing and reprehending tone. Perhaps the city’s influence on the press implicitly informed the way the Peyton Road Wall has been historically presented, thereby illustrating the lack of a variety of sources on the matter
           </Text>
 
-          <View style ={{
-            flex: 1,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center'}}>
-
-          <TouchableOpacity style={styles.SubmitButtonStyle}>
-          <Text
-          style={styles.TextStyle}>
-          Links
+          <Text >
+          
+              {"\n"}
+              {"\n"}
+              {"\n"}
+          
           </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SubmitButtonStyle}>
-          <Text
-          style={styles.TextStyle}>
-          Multimedia
-          </Text>
-          </TouchableOpacity>
-          </View>
         </View>
       </ScrollView>
 
-      <View style={styles.fabMenuStyle}>
-      <View>
-          <TouchableOpacity style={styles.MapButton} 
-          onPress={()=> this.props.navigation.navigate('ExploreMap3')}>
-          <Text style={styles.MapButtonText}>Explore the Interactive Map!</Text>
+      <<View style={styles.fabMenuStyle}>
+
+          <TouchableOpacity style={styles.SubmitButtonStyle}>
+          <Text
+          style={styles.TextStyle}>
+          People
+          </Text>
           </TouchableOpacity>
-      </View>
-  </View>
+          <TouchableOpacity style={styles.SubmitButtonStyle}   onPress={()=> this.props.navigation.navigate('ExploreMap')}>
+          <Text
+          style={styles.TextStyle}>
+          Maps
+          </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.SubmitButtonStyle}>
+          <Text
+          style={styles.TextStyle}>
+          Documents
+          </Text>
+          </TouchableOpacity>
+          </View>
 
         </>
     )}
@@ -205,15 +206,6 @@ const styles = {
 },
 
 
-fabMenuStyle: {
-    flexDirection: 'row',
-    position: 'absolute',
-    top: 5,
-    right:0,
-    justifyContent: 'center',
-    alignItems: 'center',
-},
-
 TextStyle:{
      color:'white',
      fontWeight: "400",
@@ -222,7 +214,7 @@ TextStyle:{
  fabMenuStyle: {
   flexDirection: 'row',
   position: 'absolute',
-  top: -5,
+  bottom: -5,
   right:0,
   justifyContent: 'center',
   alignItems: 'center',
