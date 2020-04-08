@@ -25,6 +25,7 @@ export default class CivilRights extends Component<Props> {
               fontSize: 48,
               fontWeight: "700",
               paddingHorizontal: 20,
+              paddingTop: 10,
               textAlign: 'center',
               color: "#6e6262"
             }}
@@ -51,7 +52,7 @@ export default class CivilRights extends Component<Props> {
             color: "#6e6262",
             fontSize: 14
           }}>
-          The Public Accommodations Bill states that discrimination of minority groups based on race, color, religion, or national origin is outlawed. When President Kennedy first reached to Allen about testifying for the Public Accommodations Bill, Allen was hesitant. Allen knew how polarized the political climate of Atlanta was, and saw his potential testimony as a serious threat to his chances of winning reelection for mayor, which is seen when Allen writes in his memoir, Mayor; Notes on the Sixties, "Please tell the president what I said and ask him to weigh it. Discuss it with him personally, Morris, and be sure he fully understands all of the angles. And then if calls on me and still wants me to do it, If he recognizes that I can’t be re-elected and that my testimony isn’t going to pass the bill, then I’ll go” (105). Allen believed that this testimony was a sort of self sacrifice of his political career for the Civil Rights Movement, and his willingness to do this shows how deeply Allen cared about the movement. 
+          The Public Accommodations Bill states that discrimination of minority groups based on race, color, religion, or national origin is outlawed. When President Kennedy first reached to Allen about testifying for the Public Accommodations Bill, Allen was hesitant. Allen knew how polarized the political climate of Atlanta was, and saw his potential testimony as a serious threat to his chances of winning reelection for mayor, which is seen when Allen writes in his memoir, Mayor; Notes on the Sixties, "Please tell the president what I said and ask him to weigh it. Discuss it with him personally, Morris, and be sure he fully understands all of the angles. And then if calls on me and still wants me to do it, If he recognizes that I can’t be re-elected and that my testimony isn’t going to pass the bill, then I’ll go” (105). Allen believed that this testimony was a sort of self sacrifice of his political career for the Civil Rights Movement, and his willingness to do this shows how deeply Allen cared about the movement.
             In July of 1963, Allen gave the testimony in front of a Senate Committee in favor of this bill to end segregation throughout the nation.
           </Text>
 
@@ -104,7 +105,7 @@ export default class CivilRights extends Component<Props> {
 
       <View style={styles.fabMenuStyle}>
       <View>
-          <TouchableOpacity style={styles.MapButton} 
+          <TouchableOpacity style={styles.MapButton}
           onPress={()=> this.props.navigation.navigate('ExploreMap1')}>
           <Text style={styles.MapButtonText}>Explore the Interactive Map!</Text>
           </TouchableOpacity>
@@ -155,12 +156,12 @@ TextStyle:{
 
 MapButton: {
 marginTop:10,
-  paddingTop:10,
+  paddingTop:25,
   paddingBottom:10,
   paddingLeft:15,
   paddingRight:15,
   backgroundColor:'darkslategray',
-  borderRadius:10,
+  borderRadius:5,
   borderWidth: 1,
   borderColor: '#fff'
 },

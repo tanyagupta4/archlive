@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
+import MapView,{ PROVIDER_GOOGLE, OverlayComponent } from 'react-native-maps'
 
 const instructions = Platform.select({
   ios: 'ios Home',
@@ -120,25 +120,39 @@ const markers = [
   },
 ];
 
+let r = {
+    latitude: 33.7500,
+    longitude: -84.3880,
+    latitudeDelta: 0.030,
+    longitudeDelta: 0.024,
+  };
+
+
+
 
 export default class TourScreen extends Component<Props> {
+
+  constructor(props) {
+    super(props);
+    this.state = { showSettings: false};
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <MapView
+          loadingEnabled = {true}
+          ref = {(ref)=>this.mapView=ref}
           style={styles.map}
           provider= {PROVIDER_GOOGLE}
-          showsTraffic={false}
           showsUserLocation={true}
-          region={{
-            latitude: 33.7500,
-            longitude: -84.3880,
-            latitudeDelta: 0.030,
-            longitudeDelta: 0.024,
-        }}>
+          initialRegion={r}
+        >
+
 
 		{markers.map((marker, i) =>
       <MapView.Marker
+      ref= {markerRef}
       key={i}
 			coordinate={{latitude: marker.longlat[0],
 			            longitude: marker.longlat[1]}}>
@@ -188,5 +202,10 @@ const styles = StyleSheet.create({
     borderLeftColor: '#faa',
     borderRightWidth: 10,
     borderRightColor: '#faa',
-  }
+  },
+  overlay: {
+  position: 'absolute',
+  bottom: 50,
+  backgroundColor: 'rgba(255, 255, 255, 1)',
+},
  });
