@@ -81,35 +81,36 @@ export default class CivilRights extends Component<Props> {
             After his testimony, Allen received similar reactions from his friends and family as he received from the strangers in these letters. According to Allen, when he went to North Carolina the weekend following the testimony, he "began to see how deeply the animosity toward the bill and my testimony and myself really ran. I could see my friends that weekend off in the corner by themselves, obviously deeply concerned about what I had done" (114). Allen's family openly criticized his choices which is seen when Allen writes, "Even some of my relatives got into the act, letting it be known that this was the last insult-that there was no way they could deny what Ivan had done this time" (115). While Allen anticipated the backlash from the community as a whole, he did not expect the isolation he felt from his friends and family.
           </Text>
 
-          <View style ={{
-            flex: 1,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center'}}>
-
-          <TouchableOpacity style={styles.SubmitButtonStyle}>
-          <Text
-          style={styles.TextStyle}>
-          Links
+          <Text >
+          
+              {"\n"}
+              {"\n"}
+              {"\n"}
+          
           </Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.SubmitButtonStyle}>
-          <Text
-          style={styles.TextStyle}>
-          Multimedia
-          </Text>
-          </TouchableOpacity>
-          </View>
         </View>
       </ScrollView>
 
       <View style={styles.fabMenuStyle}>
-      <View>
-          <TouchableOpacity style={styles.MapButton}
-          onPress={()=> this.props.navigation.navigate('ExploreMap1')}>
-          <Text style={styles.MapButtonText}>Explore the Interactive Map!</Text>
+      
+          <TouchableOpacity style={styles.SubmitButtonStyle}>
+              <Text
+              style={styles.TextStyle}>
+              Links
+              </Text>
           </TouchableOpacity>
-      </View>
+          <TouchableOpacity style={styles.SubmitButtonStyle}>
+              <Text
+              style={styles.TextStyle}>
+              Multimedia
+              </Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.SubmitButtonStyle}   onPress={()=> this.props.navigation.navigate('ExploreMap')}>
+				      <Text style={styles.TextStyle}>
+			        	Maps
+				      </Text>
+				  </TouchableOpacity>
+    
   </View>
 
         </>
@@ -132,14 +133,6 @@ const styles = {
 },
 
 
-fabMenuStyle: {
-    flexDirection: 'row',
-    position: 'absolute',
-    top: 5,
-    right:0,
-    justifyContent: 'center',
-    alignItems: 'center',
-},
 TextStyle:{
      color:'white',
      fontWeight: "400",
@@ -148,7 +141,7 @@ TextStyle:{
  fabMenuStyle: {
   flexDirection: 'row',
   position: 'absolute',
-  top: -5,
+  bottom: -5,
   right:0,
   justifyContent: 'center',
   alignItems: 'center',
