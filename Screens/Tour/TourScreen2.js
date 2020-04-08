@@ -11,18 +11,18 @@ type Props = {};
 
 
 const markers = [
-  {
-    "name" : "Summerhill neighborhood/Summerhill Race Riot",
-    "text" : "Summary",
-    "longlat" : [33.73768, -84.38688],
-    "location" : "Summerhill",
-  },
   // {
-  //   "name" : "Fulton County Stadium",
+  //   "name" : "Summerhill neighborhood/Summerhill Race Riot",
   //   "text" : "Summary",
-  //   "longlat" : [33.73981, -84.38973],
-  //   "location" : "Fulton",
+  //   "longlat" : [33.73768, -84.38688],
+  //   "location" : "Summerhill",
   // },
+  {
+    "name" : "Fulton County Stadium",
+    "text" : "Summary",
+    "longlat" : [33.73981, -84.38973],
+    "location" : "Fulton",
+  },
   //
   // {
   //   "name" : "Ivan Allen College of Liberal Arts",
@@ -122,7 +122,7 @@ const markers = [
 
 const markerRef = null;
 
-export default class TourScreen extends Component<Props> {
+export default class TourScreen2 extends Component<Props> {
 
   constructor(props) {
     super(props);
@@ -175,7 +175,7 @@ export default class TourScreen extends Component<Props> {
           </Text>
           <View style={{width: 300, flexDirection:'row', flex: 1, flexWrap: 'wrap'}}>
           <Text>
-          Welcome to stop number 1! On August 16, 1970..... Click here to learn more!
+          Stop number 2! Stop 1 and 2 are related.. click to learn more!
           </Text>
           </View>
           </TouchableOpacity>
