@@ -15,11 +15,11 @@ import TourScreen2 from './Screens/Tour/TourScreen2.js'
 
 //Explore
 import Events from './Screens/Explore/Events.js'
-import ExploreMap1 from './Screens/Explore/ExploreMap1.js'
-import ExploreMap2 from './Screens/Explore/ExploreMap2.js'
-import ExploreMap3 from './Screens/Explore/ExploreMap3.js'
-import ExploreMap4 from './Screens/Explore/ExploreMap4.js'
-import ExploreMap5 from './Screens/Explore/ExploreMap5.js'
+import ExploreMapCR from './Screens/Explore/ExploreMapCR.js'
+import ExploreMapFCS from './Screens/Explore/ExploreMapFCS.js'
+import ExploreMapLM from './Screens/Explore/ExploreMapLM.js'
+import ExploreMapPR from './Screens/Explore/ExploreMapPR.js'
+import ExploreMapSR from './Screens/Explore/ExploreMapSR.js'
 import ExploreInfo from './Screens/Explore/ExploreInfo.js'
 
 //ExploreSubPages
@@ -40,11 +40,11 @@ type Props = {};
 const exploreStack = createStackNavigator(
   {
     Events: Events,
-    ExploreMap1: ExploreMap1,
-    ExploreMap2: ExploreMap2,
-    ExploreMap3: ExploreMap3,
-    ExploreMap4: ExploreMap4,
-    ExploreMap5: ExploreMap5,
+    ExploreMapCR: ExploreMapCR,
+    ExploreMapFCS: ExploreMapFCS,
+    ExploreMapLM: ExploreMapLM,
+    ExploreMapPR: ExploreMapPR,
+    ExploreMapSR: ExploreMapSR,
     ExploreInfo: ExploreInfo,
 
     PeytonRoad: PeytonRoad,
@@ -54,7 +54,7 @@ const exploreStack = createStackNavigator(
     SummerhillRiot: SummerhillRiot
   },
   {
-    initialRouteName: 'ExploreMap',
+    initialRouteName: 'Events',
     headerMode: () => null
   },
 );
@@ -71,19 +71,15 @@ const tourStack = createStackNavigator(
   },
 );
 
-const homeTabs = createMaterialTopTabNavigator(
+const homeTabs = createStackNavigator(
   {
     HomeScreen: HomeScreen,
     AboutScreen: AboutScreen,
   },
   {
     initialRouteName: 'HomeScreen',
-    swipeEnabled: true,
-    headerMode: () => null,
-    tabBarOptions: {
-      style: { display: "none" }
-    }
-  }
+    headerMode: () => null
+  },
 );
 
 const main = createStackNavigator({

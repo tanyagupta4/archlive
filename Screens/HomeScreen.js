@@ -10,7 +10,7 @@ const instructions = Platform.select({
 //might be time to start playing around with these
 const screen = Dimensions.get('window');
 const ASPECT_RATIO = screen.width / screen.height;
-const mapPaddingBottom = screen.height * 0.01;
+const mapPaddingBottom = screen.height * 0.1;
 const mapPaddingTop = screen.height * 0.01;
 const mapPaddingLeft = screen.width * 0.01;
 
@@ -23,6 +23,7 @@ export default class HomeScreen extends Component<Props> {
   componentDidMount() {
     this.animate()
     SplashScreen.hide()
+    
   }
 
   constructor(props) {
@@ -47,6 +48,7 @@ export default class HomeScreen extends Component<Props> {
   render() {
     return (
       //image background wraps everything
+      <View style={styles.container}>
       <ImageBackground source={require('../Images/home.png')} style={styles.imageBackground}>
 
         <View style={styles.transparentTextBackground}>
@@ -59,6 +61,10 @@ export default class HomeScreen extends Component<Props> {
           <Text style={styles.settingsButton}>Acknowledgements</Text>
         </TouchableOpacity>
 
+        <TouchableOpacity style={styles.SubmitButtonStyle} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate('AboutScreen')}>
+          <Text style={styles.button}>Begin Touring</Text>
+        </TouchableOpacity>
+
         {this.state.showSettings &&
           <TouchableOpacity style={styles.transparentSettingsBackground} activeOpacity={0} onPress={()=> this.setState({showSettings: false})}>
             <Text style={styles.archivesLink}>The Ivan Allen Archives
@@ -67,120 +73,144 @@ export default class HomeScreen extends Component<Props> {
                 onPress={() => Linking.openURL('http://allenarchive.iac.gatech.edu/')}>
                 http://allenarchive.iac.gatech.edu/
             </Text>
+            <Text style={styles.drmadden}>& Dr. Madden!
+            </Text>
           </TouchableOpacity>
         }
-        <View style={styles.arrows}>
-        <Animated.Image source={arrow} style={{width: 50, resizeMode:'contain', top: 495, marginLeft: this.fadeAnim.interpolate({
-              inputRange: [0, 0.5, 1],
-              outputRange: [50, 70, 50]
-            })}} />
-            <Animated.Image source={arrow} style={{width: 50, resizeMode:'contain', top: 495, marginLeft: this.fadeAnim.interpolate({
-                  inputRange: [0, 0.5, 1],
-                  outputRange: [50, 70, 50]
-                })}} />
-        <Animated.Image source={arrow} style={{width: 50, resizeMode:'contain', top: 495, marginLeft: this.fadeAnim.interpolate({
-              inputRange: [0, 0.5, 1],
-              outputRange: [50, 70, 50]
-            })}} />
-
-        </View>
+        
       </ImageBackground>
+      </View>
     );
   }
 }
 
-// <View style={styles.transparentButtonBackground}>
-// </View>
-// <TouchableOpacity style={styles.touchable} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate('AboutScreen')}>
-// <Text style={styles.button}>Start</Text>
-// </TouchableOpacity>
+
+
+// <View style={styles.arrows}>
+//         <Animated.Image source={arrow} style={{width: 50, resizeMode:'contain', top: 495, marginLeft: this.fadeAnim.interpolate({
+//               inputRange: [0, 0.5, 1],
+//               outputRange: [50, 70, 50]
+//             })}} />
+//             <Animated.Image source={arrow} style={{width: 50, resizeMode:'contain', top: 495, marginLeft: this.fadeAnim.interpolate({
+//                   inputRange: [0, 0.5, 1],
+//                   outputRange: [50, 70, 50]
+//                 })}} />
+//         <Animated.Image source={arrow} style={{width: 50, resizeMode:'contain', top: 495, marginLeft: this.fadeAnim.interpolate({
+//               inputRange: [0, 0.5, 1],
+//               outputRange: [50, 70, 50]
+//             })}} />
+
+//         </View>
+
 
 const styles = StyleSheet.create({
-  transparentTextBackground: {
-    position: 'absolute',
-    marginTop: 80,
-    marginLeft: mapPaddingLeft - 2,
-    height: 215,
-    width: 290,
-    backgroundColor: 'black',
-    opacity: 0.4,
-  },
-  textStyle: {
-    fontSize: 52,
-    color: 'white',
-    fontFamily: 'didot',
-    fontWeight: 'bold',
-    textDecorationLine: 'underline',
-  },
-  textLocation: {
-    position: 'absolute',
-    marginTop: 79,
-    marginLeft: mapPaddingLeft,
-  },
-  imageBackground: {
-    height: '100%',
-    width: '111%',
-  },
-  touchable: {
-    position: 'absolute',
-    width: 100,
-    height: 50,
-    bottom: mapPaddingBottom,
-    left: width/2 - 50,
-  },
-  transparentButtonBackground: {
-    position: 'absolute',
-    width: 100,
-    height: 50,
-    bottom: mapPaddingBottom,
-    left: width/2 - 50,
-    backgroundColor: 'seashell',
-    opacity: 0.7,
-  },
-  button: {
-    position: 'absolute',
-    top: 3,
-    left: 13,
-    fontSize: 32,
-    fontFamily: 'didot',
-    fontWeight: 'bold',
-    color: 'black',
-    opacity: 0.8,
-    textDecorationLine: 'underline',
-  },
-  settings: {
-    position: 'absolute',
-    bottom: mapPaddingBottom,
-  },
-  settingsButton: {
-    fontSize: 20,
-    color: "black",
-    marginLeft: mapPaddingLeft + 10,
-  },
-  transparentSettingsBackground: {
+  container: {
     flex: 1,
-    backgroundColor: 'black',
-    opacity: 0.7,
   },
-  linkStyle: {
-      top: 500,
-      fontSize: 25,
-      textDecorationLine: 'underline',
-      color: 'aqua',
+transparentTextBackground: {
+  position: 'absolute',
+  marginTop: mapPaddingTop,
+  marginLeft: mapPaddingLeft - 2,
+  height: 200,
+  width: 290,
+  backgroundColor: 'black',
+  opacity: 0.4,
+},
+textStyle: {
+  fontSize: 52,
+  color: 'white',
+  fontFamily: 'didot',
+  fontWeight: 'bold',
+  textDecorationLine: 'underline',
+},
+textLocation: {
+  position: 'absolute',
+  marginTop: mapPaddingTop,
+  marginLeft: mapPaddingLeft,
+},
+imageBackground: {
+  height: '100%',
+  width: '111%',
+},
+touchable: {
+  position: 'absolute',
+  width: 100,
+  height: 50,
+  bottom: mapPaddingBottom,
+  left: width/2 - 50,
+},
+transparentButtonBackground: {
+  flexDirection: 'row',
+  position: 'absolute',
+  right: 0,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+button: {
+  position: 'absolute',
+  top: -7,
+  left: 10,
+  fontSize: 34,
+  fontFamily: 'didot',
+  fontWeight: 'bold',
+  color: 'white',
+  textDecorationLine: 'underline',
+  textAlign:'center',
+},
+settings: {
+  position: 'absolute',
+  bottom: mapPaddingBottom * .1,
+},
+settingsButton: {
+  fontSize: 20,
+  color: "black",
+  marginLeft: mapPaddingLeft,
+},
+transparentSettingsBackground: {
+  flex: 1,
+  backgroundColor: 'black',
+  opacity: 0.7,
+},
+linkStyle: {
+    top: 300,
+    fontSize: 25,
+    textDecorationLine: 'underline',
+    color: 'aqua',
+},
+archivesLink: {
+    top: 295,
+    fontSize: 30,
+    textDecorationLine: 'underline',
+    color: 'white',
   },
-  archivesLink: {
-      top: 495,
-      fontSize: 30,
-      textDecorationLine: 'underline',
-      color: 'white',
+drmadden: {
+    top: 305,
+    fontSize: 30,
+    color: 'white',
   },
-  arrow: {
+arrow: {
   width: 50,
   resizeMode: 'contain',
   top: 495,
 },
-  arrows: {
-    flex:1,
-    flexDirection: 'row',
-  }
+arrows: {
+  flex:1,
+  flexDirection: 'row',
+},
+SubmitButtonStyle: {
+    paddingTop:15,
+    paddingBottom:15,
+    paddingLeft:15,
+    paddingRight:15,
+    backgroundColor:'#6a7fa1',
+    borderRadius:10,
+    borderWidth: 1,
+    borderColor: '#fff',
+    alignItems: 'center',
+    position: 'absolute',
+    width: 160,
+    height: 80,
+    bottom: mapPaddingBottom,
+    left: width/2 - 80,
+}
 });

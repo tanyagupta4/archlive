@@ -14,6 +14,12 @@ import {
 
 const { width, height } = Dimensions.get("window");
 
+const screen = Dimensions.get('window');
+const ASPECT_RATIO = screen.width / screen.height;
+const mapPaddingBottom = screen.height * 0.1;
+const mapPaddingTop = screen.height * 0.01;
+const mapPaddingLeft = screen.width * 0.01;
+
 export default class SummerhillRiot extends Component<Props> {
 
 
@@ -64,80 +70,102 @@ export default class SummerhillRiot extends Component<Props> {
               {"\n"}
 
           </Text>
-        </View>
+          <TouchableOpacity style={styles.linksnmedia}>
+          <Text
+          style={styles.TextStyle}>
+          Links & Multimedia
+          </Text>
+      </TouchableOpacity>
+    </View>
 
-      </ScrollView>
+    
+  </ScrollView>
 
-	  <View style={styles.fabMenuStyle}>
+  <View style={styles.fabMenuStyle}>
+      
+      <TouchableOpacity style={styles.SubmitButtonStyle}  onPress={()=> this.props.navigation.navigate('ExploreMapSR')}>
+          <Text style={styles.TextStyle}>
+            Explore the Interactive Map!
+          </Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity style={styles.backpress} onPress={ () => {
+        this.props.navigation.goBack(null);
+        }}>
+        <Image style={styles.backimage}
+          source={require('../../Images/backbutton.png')}>
+        </Image>
+      </TouchableOpacity>
 
-			<TouchableOpacity style={styles.SubmitButtonStyle}>
-			<Text
-			style={styles.TextStyle}>
-			People
-			</Text>
-			</TouchableOpacity>
-			<TouchableOpacity style={styles.SubmitButtonStyle}   onPress={()=> this.props.navigation.navigate('ExploreMap5')}>
-			<Text
-			style={styles.TextStyle}>
-			Maps
-			</Text>
-			</TouchableOpacity>
-			<TouchableOpacity style={styles.SubmitButtonStyle}>
-			<Text
-			style={styles.TextStyle}>
-			Documents
-			</Text>
-			</TouchableOpacity>
-			</View>
+  </View>
 
-      </>
-
-    )
-    }
-
+    </>
+)}
 }
 
 const styles = {
-
+  linksnmedia: {
+    flex: 1,
+    paddingTop:8,
+    paddingBottom:8,
+    paddingLeft:8,
+    paddingRight:8,
+    backgroundColor:'slategray',
+    borderRadius:8,
+    borderWidth: 1,
+    borderColor: '#fff',
+},
   SubmitButtonStyle: {
-    marginTop:15,
-      paddingTop:15,
-      paddingBottom:15,
-      paddingLeft:50,
-      paddingRight:50,
-      backgroundColor:'#6a7fa1',
-      borderRadius:10,
+      paddingTop:12,
+      paddingBottom:12,
+      paddingLeft:8,
+      paddingRight:8,
+      left: 0,
+      top: mapPaddingTop * 1,
+      backgroundColor:'lightslategray',
+      borderRadius:8,
       borderWidth: 1,
-      borderColor: '#fff'
+      borderColor: '#fff',
+      justifyContent: 'center',
+      alignItems: 'center',
+},
+backpress: {
+  width: "20%",
+  height: "115%",
+  top: mapPaddingTop * -8.2,
+  right: mapPaddingLeft * -82.5,
+  alignItems: "center",
+  justifyContent: "center"
+},
+backimage: {
+  backgroundColor: 'black',
+  width: "100%",
+  height: "100%",
 },
 TextStyle:{
      color:'white',
      fontWeight: "400",
-     textAlign:'center',
+     fontSize: 25,
+     textAlign:'center', 
+     textDecorationLine: 'underline',
+     fontFamily: 'didot',
  },
-fabMenuStyle: {
-    flexDirection: 'row',
-    position: 'absolute',
-    bottom: -5,
-    right:0,
-    justifyContent: 'center',
-    alignItems: 'center',
+ fabMenuStyle: {
+  position: 'absolute',
 },
-
 MapButton: {
   marginTop:10,
-    paddingTop:10,
-    paddingBottom:10,
-    paddingLeft:15,
-    paddingRight:15,
-    backgroundColor:'darkslategray',
-    borderRadius:10,
-    borderWidth: 1,
-    borderColor: '#fff'
+  paddingTop:25,
+  paddingBottom:10,
+  paddingLeft:15,
+  paddingRight:15,
+  backgroundColor:'darkslategray',
+  borderRadius:5,
+  borderWidth: 1,
+  borderColor: '#fff'
 },
-
 MapButtonText: {
   color: 'white',
   fontSize: 20,
-}
-}
+}}
+
