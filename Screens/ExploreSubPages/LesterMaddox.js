@@ -114,7 +114,7 @@ export default class LesterMaddox extends Component<Props> {
           
           <TouchableOpacity style={styles.SubmitButtonStyle}  onPress={()=> this.props.navigation.navigate('ExploreMapLM')}>
 				      <Text style={styles.TextStyle}>
-			        	Explore the Interactive Map!
+			        	Explore Interactive Map!
 				      </Text>
           </TouchableOpacity>
           
@@ -125,6 +125,14 @@ export default class LesterMaddox extends Component<Props> {
 							source={require('../../Images/backbutton.png')}>
 						</Image>
 					</TouchableOpacity>
+
+          <TouchableOpacity style={styles.homepress} onPress={ () => {
+            this.props.navigation.navigate('AboutScreen');
+            }}>
+            <Image style={styles.homeImage}
+              source={require('../../Images/homebutton.png')}>
+            </Image>
+          </TouchableOpacity>
 
       </View>
 
@@ -161,9 +169,9 @@ const styles = {
 },
 backpress: {
   width: "20%",
-  height: "115%",
-  top: mapPaddingTop * -8.2,
-  right: mapPaddingLeft * -82.5,
+  height: "90%",
+  top: mapPaddingTop * -8.0,
+  right: mapPaddingLeft * -71.5,
   alignItems: "center",
   justifyContent: "center"
 },
@@ -171,6 +179,21 @@ backimage: {
   backgroundColor: 'black',
   width: "100%",
   height: "100%",
+},
+
+homeImage: {
+  backgroundColor: 'white',
+  width: "100%",
+  height: "100%",
+},
+
+homepress: {
+  width: "20%",
+  height: "90%",
+  top: mapPaddingTop * -17,
+  right: mapPaddingLeft * -85.7,
+  alignItems: "center",
+  justifyContent: "center"
 },
 TextStyle:{
      color:'white',

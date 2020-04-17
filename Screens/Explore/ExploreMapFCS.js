@@ -134,6 +134,14 @@ export default class ExploreMapFCS extends Component<Props> {
                     </Image>
                 </TouchableOpacity>
 
+                <TouchableOpacity style={styles.homepress} onPress={ () => {
+                    this.props.navigation.navigate('AboutScreen');
+                    }}>
+                    <Image style={styles.image}
+                    source={require('../../Images/homebutton.png')}>
+                    </Image>
+                </TouchableOpacity>
+
                 <Carousel
                 ref={ (c) => { this._carousel = c; } }
                 data={this.state.events}
@@ -216,12 +224,21 @@ const styles = StyleSheet.create({
 		width: "16%",
 		height: "10.5%",
 		top: mapPaddingTop * .8,
-		right: mapPaddingLeft * -40,
+		right: mapPaddingLeft * -22,
 		alignItems: "center",
 		justifyContent: "center"
 	},
 	backimage: {
 		width: "80%",
 		height: "80%",
+    },
+    
+    homepress: {
+		width: "17.5%",
+		height: "12%",
+		top: mapPaddingTop * -11,
+		right: mapPaddingLeft * -41,
+		alignItems: "center",
+		justifyContent: "center"
 	},
 })

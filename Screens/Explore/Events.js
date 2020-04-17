@@ -121,6 +121,14 @@ export default class Events extends Component<Props> {
                     </Image>
                 </TouchableOpacity>
 
+                <TouchableOpacity style={styles.homepress} onPress={ () => {
+                    this.props.navigation.navigate('AboutScreen');
+                    }}>
+                    <Image style={styles.image}
+                    source={require('../../Images/homebutton.png')}>
+                    </Image>
+                </TouchableOpacity>
+
                 </ImageBackground>
 
             </View>
@@ -142,6 +150,14 @@ const styles = StyleSheet.create({
         height: "100%"
     },
     backpress: {
+		width: "17.5%",
+		height: "11%",
+		top: mapPaddingTop * -71.8,
+		right: mapPaddingLeft * -61,
+		alignItems: "center",
+		justifyContent: "center"
+    },
+    homepress: {
 		width: "17.5%",
 		height: "12%",
 		top: mapPaddingTop * -83.8,
