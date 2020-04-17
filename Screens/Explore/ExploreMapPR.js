@@ -16,6 +16,13 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 const { width, height } = Dimensions.get("window");
+const arrow = require('../../Images/arrow.png');
+
+const screen = Dimensions.get('window');
+const ASPECT_RATIO = screen.width / screen.height;
+const mapPaddingBottom = screen.height * 0.1;
+const mapPaddingTop = screen.height * 0.01;
+const mapPaddingLeft = screen.width * 0.01;
 
 export default class ExploreMapPR extends Component<Props> {
 
@@ -70,6 +77,10 @@ export default class ExploreMapPR extends Component<Props> {
                         </Image>
                     </View>
                 </TouchableOpacity>
+                <Image source={arrow} style={styles.arrowR}>
+                    </Image>
+                <Image source={arrow} style={styles.arrowL}>
+                    </Image>
 			</View>
 		);
     }
@@ -81,7 +92,8 @@ export default class ExploreMapPR extends Component<Props> {
 
     render = () => {
         return (
-			<View style={styles.container}>
+            <View style={styles.container}>
+            
 				<MapView
 				style={styles.map}
 				provider= {PROVIDER_GOOGLE}
@@ -125,16 +137,39 @@ export default class ExploreMapPR extends Component<Props> {
                 useScrollView={true}
                 onSnapToItem={this._onSnapToItem}
                 firstItem={0}/>
+                
+                
+                
             </View>
         );
     }
 }
 
+// <TouchableOpacity style={styles.backpress} onPress={ () => {
+//     this.props.navigation.goBack(null);
+//     }}>
+//     <Image style={styles.image}
+//         source={require('../../Images/backbutton.png')}>
+//     </Image>
+// </TouchableOpacity>
+
 const styles = StyleSheet.create({
     image: {
-        flex: 1,
         width: "100%",
         height: "100%"
+    },
+    arrowR: {
+        width: "10%",
+        height: "10%",
+        left: width/2 * .85,
+        bottom: height * .12
+    },
+    arrowL: {
+        width: "10%",
+        height: "10%",
+        rotation: 180,
+        left: -width/2 * .85,
+        bottom: height * .22
     },
 	card: {
         paddingTop:10,
@@ -147,6 +182,7 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         width: width * .7,
         height: height * .3,
+        bottom: -height * .08,
         overflow: "hidden"
     },
     cardContainer: {
@@ -175,5 +211,17 @@ const styles = StyleSheet.create({
     },
     header: {
     fontWeight: 'bold',
-    }
+    },
+    backpress: {
+		width: "17.5%",
+		height: "12%",
+		top: mapPaddingTop * -83.8,
+		right: mapPaddingLeft * -81,
+		alignItems: "center",
+		justifyContent: "center"
+	},
+	backimage: {
+		width: "80%",
+		height: "80%",
+	},
 })
