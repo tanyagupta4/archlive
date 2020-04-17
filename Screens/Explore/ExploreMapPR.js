@@ -124,7 +124,15 @@ export default class ExploreMapPR extends Component<Props> {
 								coordinate={cord} />
 					)})}
 
-     			</MapView>
+                 </MapView>
+                 
+                 <TouchableOpacity style={styles.backpress} onPress={ () => {
+                    this.props.navigation.goBack(null);
+                    }}>
+                    <Image style={styles.image}
+                        source={require('../../Images/backbutton.png')}>
+                    </Image>
+                </TouchableOpacity>
 
                 <Carousel
                 ref={ (c) => { this._carousel = c; } }
@@ -144,14 +152,6 @@ export default class ExploreMapPR extends Component<Props> {
         );
     }
 }
-
-// <TouchableOpacity style={styles.backpress} onPress={ () => {
-//     this.props.navigation.goBack(null);
-//     }}>
-//     <Image style={styles.image}
-//         source={require('../../Images/backbutton.png')}>
-//     </Image>
-// </TouchableOpacity>
 
 const styles = StyleSheet.create({
     image: {
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
         overflow: "hidden"
     },
     cardContainer: {
-        top: height * .27,
+        top: height * .17,
         justifyContent: 'center',
         alignItems: 'center',
         width: width,
@@ -213,10 +213,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     },
     backpress: {
-		width: "17.5%",
-		height: "12%",
-		top: mapPaddingTop * -83.8,
-		right: mapPaddingLeft * -81,
+		width: "16%",
+		height: "10.5%",
+		top: mapPaddingTop * .8,
+		right: mapPaddingLeft * -40,
 		alignItems: "center",
 		justifyContent: "center"
 	},

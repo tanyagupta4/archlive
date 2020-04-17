@@ -18,6 +18,12 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 const { width, height } = Dimensions.get("window");
 const arrow = require('../../Images/arrow.png');
 
+const screen = Dimensions.get('window');
+const ASPECT_RATIO = screen.width / screen.height;
+const mapPaddingBottom = screen.height * 0.1;
+const mapPaddingTop = screen.height * 0.01;
+const mapPaddingLeft = screen.width * 0.01;
+
 export default class ExploreMapFCS extends Component<Props> {
 
     constructor(props){
@@ -86,7 +92,8 @@ export default class ExploreMapFCS extends Component<Props> {
 
     render = () => {
         return (
-			<View style={styles.container}>
+            <View style={styles.container}>
+            
 				<MapView
 				style={styles.map}
 				provider= {PROVIDER_GOOGLE}
@@ -117,7 +124,15 @@ export default class ExploreMapFCS extends Component<Props> {
 								coordinate={cord} />
 					)})}
 
-     			</MapView>
+                 </MapView>
+                 
+                 <TouchableOpacity style={styles.backpress} onPress={ () => {
+                    this.props.navigation.goBack(null);
+                    }}>
+                    <Image style={styles.image}
+                        source={require('../../Images/backbutton.png')}>
+                    </Image>
+                </TouchableOpacity>
 
                 <Carousel
                 ref={ (c) => { this._carousel = c; } }
@@ -130,7 +145,8 @@ export default class ExploreMapFCS extends Component<Props> {
                 useScrollView={true}
                 onSnapToItem={this._onSnapToItem}
                 firstItem={0}/>
-
+                
+                
                 
             </View>
         );
@@ -170,7 +186,7 @@ const styles = StyleSheet.create({
         overflow: "hidden"
     },
     cardContainer: {
-        top: height * .27,
+        top: height * .17,
         justifyContent: 'center',
         alignItems: 'center',
         width: width,
@@ -195,5 +211,17 @@ const styles = StyleSheet.create({
     },
     header: {
     fontWeight: 'bold',
-    }
+    },
+    backpress: {
+		width: "16%",
+		height: "10.5%",
+		top: mapPaddingTop * .8,
+		right: mapPaddingLeft * -40,
+		alignItems: "center",
+		justifyContent: "center"
+	},
+	backimage: {
+		width: "80%",
+		height: "80%",
+	},
 })
