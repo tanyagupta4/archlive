@@ -62,4 +62,119 @@ Besides this one known defect, the rest of the application functions as expected
 
 Installation Guide
 ------------------
+#### System Requirements and Prerequisties ####
+In order to run this application on either a computer simulator or to have it installed to your phone, please install either the newest version of xcode to run the iOS version of the application or the newest version of Android Visual Studio to run the android version of the application. The installation for xcode can be found [here](https://developer.apple.com/xcode/resources/ "here") (*Please note: you will need to sign in with your Apple ID to install xcode*), while the installation for android visual studio can be found [here](https://visualstudio.microsoft.com/vs/android/ "here").
+
+#### Dependent Libraries ####
+For the application to run properly on either iOS or Android, please install the following:
+
+* [Node](https://nodejs.org/en/ "Node")
+
+To make sure that this installation worked, paste the following two commands into your terminal:
+
+	node -v
+	npm - v
+	
+ Both commands should return the version that was installed, thus signaling that the installation was successful.
+
+
+#### Build and Run Instructions ####
+Now that you have either Android Studio or Xcode installed as well as Node, please follow these steps to run the application on the simulator provided by either xcode or android visual studio. 
+
+##### iOS #####
+
+Please make sure xcode and node is installed before continuing.
+
+1.Clone this repository using the clone or download button at the top right of this page. Copy the HTTPS link, and then, in your terminal type in the following command: 
+
+	git clone <replace with the copied link>
+	
+2.Now, navigate to inside the archlive folder we just created using the git clone command above.
+	
+	cd <path of where you created the repository/archlive>
+
+3.Now that you are inside the archlive folder, please type the following command in: 
+
+	sudo gem install cocoapods
+
+4.After this, cd into the iOS folder from inside the archlive repository by using the following command:
+
+	cd ios
+
+5.Once you are inside the ios folder, please type in the following command into the terminal:
+	
+	pod install
+
+6.Now we cd back into the main archive folder by using the following command in terminal: 
+
+	cd ..
+
+7.We know install all of our dependencies using the following:
+	
+	npm install
+
+8.You should be ready to run the application now. Please type in the following command:
+	
+	react-native run-ios
+9.If you wish to run the application on your iPhone, please plug your iPhone into the computer and run this command instead:
+	
+	react-native run-ios --device --configuration Release
+
+##### Android ######
+
+Please make sure Android Visual Studio and Node are downloaded before continuing. 
+
+1.Clone this repository using the clone or download button at the top right of this page. Copy the HTTPS link, and then, in your terminal type in the following command: 
+
+	git clone <replace with the copied link>
+	
+2.Now, navigate to inside the archlive folder we just created using the git clone command above.
+	
+	cd <path of where you created the repository/archlive>
+	
+3.After this, cd into the android folder from inside the archlive repository by using the following command:
+
+	cd android
+
+4.Now that you are inside the android folder, please type the following command in: 
+
+	./gradlew clean
+
+
+5.Now we cd back into the main archive folder by using the following command in terminal: 
+
+	cd ..
+
+6.We know install all of our dependencies using the following:
+	
+	npm install
+
+7.You should be ready to run the application now. Please type in the following command:
+	
+	react-native run-android
+
+#### Troubleshooting ####
+
+If you face any troubles using the appropriate set of instructions above, then try these following troubleshooting guidelines. 
+
+**iOS**
+* Application fails to build very quickly (within a few milliseconds)
+
+	* Open up the Xcode application
+	* Open the archlive project workspace: This is found inside the archlive/ios folder
+	* Open up the workspace
+	* Click on signing and capabilities (this is located in different places depending in the version of xcode you are using. Google where you can find this for your version).
+	* Assign your Apple ID as the development team
+	* Try rebuilding
+
+* Build fails due to a "cannot resolve ..." error
+	
+	* Try running npm-install again
+	* Cd into the iOS folder and run pod install again
+	* Try rebuilding
+
+
+**Android**
+	
+
 
