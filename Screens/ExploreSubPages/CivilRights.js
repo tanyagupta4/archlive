@@ -116,7 +116,7 @@ export default class CivilRights extends Component<Props> {
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.backpress} onPress={ () => {
-						this.props.navigation.goBack(null);
+            this.props.navigation.goBack(null);
 						}}>
 						<Image style={styles.backimage} resizeMode='contain'
 							source={require('../../Images/backbutton2.png')}>
@@ -187,7 +187,7 @@ homepress: {
   width: "100%",
   height: "100%",
   top: -(height * 0.06),
-  right: mapPaddingLeft * -56,
+  right: mapPaddingLeft * -59,
   alignItems: "center",
   justifyContent: "center"
 },

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button } from 'react-native'
+import { Platform, StyleSheet, Text, View, Button, Dimensions } from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 import ImageSlider from 'react-native-image-slider';
 
+const { width, height } = Dimensions.get("window");
 
 // const instructions = Platform.select({
 //   ios: 'ios Home',
@@ -20,7 +21,7 @@ import ImageSlider from 'react-native-image-slider';
 //     images : [require('../../Images/summerhill_riot.jpg')],
 //   },
 // ]
-  
+
 // type Props = {};
 
 // //initalize the selectedLocation to empty location
@@ -29,7 +30,7 @@ import ImageSlider from 'react-native-image-slider';
 //   date : "date not yet added",
 //   description: "location & description not yet added",
 //   images : [require('../Images/nophoto.png')],
-// } 
+// }
 
 // //in case we don't have the location entered yet
 // const emptyLocation = {
@@ -37,17 +38,17 @@ import ImageSlider from 'react-native-image-slider';
 //   date : "date not yet added",
 //   description: "location & description not yet added",
 //   images : [require('../Images/nophoto.png')],
-// } 
+// }
 
 export default class ExploreInfo extends Component<Props> {
-  
+
   render() {
   //   //iterating through event list and finding the location we want or else it'll be set to empty state
   //   let location = this.props.navigation.getParam('location');
   //   console.log(location);
   //   for (let i = 0, l = events.length; i < l; i++) {
   //     if (events[i].location == location) {
-  //       selectedLocation = { 
+  //       selectedLocation = {
   //         location: events[i].location,
   //         date: events[i].date,
   //         description: events[i].description,
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top',
   },
   pic: {
-    marginBottom: 100,
+    marginBottom: height * 0.1,
     width: 400,
     height: 400,
     top: 0,

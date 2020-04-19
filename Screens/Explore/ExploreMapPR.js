@@ -129,7 +129,7 @@ export default class ExploreMapPR extends Component<Props> {
                  <TouchableOpacity style={styles.backpress} onPress={ () => {
                     this.props.navigation.goBack(null);
                     }}>
-                    <Image style={styles.image}
+                    <Image style={styles.image} resizeMode='contain'
                         source={require('../../Images/backbutton2.png')}>
                     </Image>
                 </TouchableOpacity>
@@ -137,10 +137,13 @@ export default class ExploreMapPR extends Component<Props> {
                 <TouchableOpacity style={styles.homepress} onPress={ () => {
                     this.props.navigation.navigate('AboutScreen');
                     }}>
-                    <Image style={styles.image}
+                    <Image style={styles.image} resizeMode='contain'
                     source={require('../../Images/homebutton.png')}>
                     </Image>
                 </TouchableOpacity>
+
+								<View style={styles.column}>
+								<Text style={styles.instructionText}> Artifacts about the Peyton Road Wall</Text>
 
                 <Carousel
                 ref={ (c) => { this._carousel = c; } }
@@ -154,6 +157,7 @@ export default class ExploreMapPR extends Component<Props> {
                 onSnapToItem={this._onSnapToItem}
                 firstItem={0}/>
 
+								</View>
 
 
             </View>
@@ -166,24 +170,25 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%"
     },
-    arrowR: {
+		arrowR: {
         width: "10%",
         height: "10%",
         left: width/2 * .85,
-        bottom: height * .12
+        bottom: height * .22
     },
     arrowL: {
         width: "10%",
         height: "10%",
         rotation: 180,
         left: -width/2 * .85,
-        bottom: height * .22
+        bottom: height * .32
     },
 	card: {
         paddingTop:10,
         paddingBottom:10,
         paddingLeft:10,
         paddingRight:10,
+				marginBottom: height * 0.15,
         backgroundColor:'lightslategray',
         borderRadius:10,
         borderWidth: 1,
@@ -221,12 +226,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     },
     backpress: {
-		width: "16%",
-		height: "10.5%",
-		top: mapPaddingTop * .8,
-		right: mapPaddingLeft * -22,
-		alignItems: "center",
-		justifyContent: "center"
+			width: "16%",
+			height: "10.5%",
+			top: height * 0.05,
+			right: mapPaddingLeft * -22,
+			alignItems: "center",
+			justifyContent: "center"
 	},
 	backimage: {
 		width: "80%",
@@ -234,11 +239,27 @@ const styles = StyleSheet.create({
     },
 
     homepress: {
-		width: "17.5%",
-		height: "12%",
-		top: mapPaddingTop * -11,
-		right: mapPaddingLeft * -41,
-		alignItems: "center",
-		justifyContent: "center"
+			width: "17.5%",
+			height: "12%",
+			top: -(height * 0.067),
+			right: mapPaddingLeft * -41,
+			alignItems: "center",
+			justifyContent: "center"
 	},
+	column:{
+	flex: 1,
+	flexDirection: 'column',
+	alignItems: 'center',
+	paddingLeft: 10,
+},
+instructionText: {
+	marginTop: -(height * 0.05),
+	backgroundColor:'lightslategray',
+	width: width * .9,
+	color: "white",
+	alignItems: "center",
+	justifyContent: "center",
+	textAlign: 'center',
+	marginLeft: width * .05,
+},
 })
