@@ -27,9 +27,10 @@ export default class PeytonRoad extends Component<Props> {
       return (
           <>
         <ScrollView scrollEventThrottle={16}>
-        <View style={{ flex: 1, backgroundColor: "white", paddingTop: 50 }}>
+        <View style={styles.column, { flex: 1, backgroundColor: "white", paddingTop: 50 }}>
           <Text
             style={{
+              marginTop: height * 0.063,
               fontSize: 48,
               fontWeight: "700",
               paddingHorizontal: 20,
@@ -177,35 +178,36 @@ export default class PeytonRoad extends Component<Props> {
           </TouchableOpacity>
         </View>
 
-        
+
       </ScrollView>
 
+
+
       <View style={styles.fabMenuStyle}>
-          
-          <TouchableOpacity style={styles.SubmitButtonStyle}  onPress={()=> this.props.navigation.navigate('ExploreMapPR')}>
+    <TouchableOpacity style={styles.SubmitButtonStyle}  onPress={()=> this.props.navigation.navigate('ExploreMapPR')}>
 				      <Text style={styles.TextStyle}>
 			        	Explore Interactive Map!
 				      </Text>
           </TouchableOpacity>
-          
-          <TouchableOpacity style={styles.backpress} onPress={ () => {
-						this.props.navigation.goBack(null);
-						}}>
-						<Image style={styles.backimage}
-							source={require('../../Images/backbutton.png')}>
-						</Image>
-					</TouchableOpacity>
 
+              <TouchableOpacity style={styles.backpress} onPress={ () => {
+                    this.props.navigation.goBack(null);
+                }}>
 
-          <TouchableOpacity style={styles.homepress} onPress={ () => {
-            this.props.navigation.navigate('AboutScreen');
-            }}>
-            <Image style={styles.homeImage}
-              source={require('../../Images/homebutton.png')}>
-            </Image>
-          </TouchableOpacity>
+              <Image style={styles.backimage} resizeMode='contain'
+                      source={require('../../Images/backbutton2.png')}>
+              </Image>
+              </TouchableOpacity>
 
-      </View>
+              <TouchableOpacity style={styles.homepress} onPress={ () => {
+                  this.props.navigation.navigate('AboutScreen');
+                }}>
+              <Image style={styles.backimage} resizeMode='contain'
+                      source={require('../../Images/homebutton.png')}>
+                    </Image>
+                </TouchableOpacity>
+
+  </View>
 
         </>
     )}
@@ -216,7 +218,7 @@ const styles = {
   linksnmedia: {
     flex: 1,
     paddingTop:8,
-    paddingBottom:8,
+    paddingBottom: 8,
     paddingLeft:8,
     paddingRight:8,
     backgroundColor:'slategray',
@@ -230,7 +232,7 @@ const styles = {
       paddingLeft:8,
       paddingRight:8,
       left: 0,
-      top: mapPaddingTop * 1,
+      top: height * 0.05,
       backgroundColor:'lightslategray',
       borderRadius:8,
       borderWidth: 1,
@@ -239,38 +241,37 @@ const styles = {
       alignItems: 'center',
 },
 backpress: {
-  width: "20%",
-  height: "90%",
-  top: mapPaddingTop * -8.0,
-  right: mapPaddingLeft * -71.5,
+  width: "100%",
+  height: "100%",
+ right: mapPaddingLeft * -40,
   alignItems: "center",
   justifyContent: "center"
 },
 backimage: {
-  backgroundColor: 'black',
+  flex: 1,
   width: "100%",
   height: "100%",
 },
 
 homeImage: {
-  backgroundColor: 'white',
+  flex: 1,
   width: "100%",
   height: "100%",
 },
 
 homepress: {
-  width: "20%",
-  height: "90%",
-  top: mapPaddingTop * -17,
-  right: mapPaddingLeft * -85.7,
+  width: "100%",
+  height: "100%",
+  top: -(height * 0.06),
+  right: mapPaddingLeft * -56,
   alignItems: "center",
   justifyContent: "center"
 },
 TextStyle:{
      color:'white',
      fontWeight: "400",
-     fontSize: 25,
-     textAlign:'center', 
+     fontSize: 20,
+     textAlign:'center',
      textDecorationLine: 'underline',
      fontFamily: 'didot',
  },
@@ -291,4 +292,16 @@ MapButton: {
 MapButtonText: {
   color: 'white',
   fontSize: 20,
+},
+column:{
+flex: 1,
+flexDirection: 'column',
+alignItems: 'center',
+paddingLeft: 10,
+},
+column:{
+flex: 1,
+flexDirection: 'row',
+alignItems: 'center',
+paddingLeft: 10,
 }}

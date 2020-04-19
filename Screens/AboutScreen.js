@@ -24,7 +24,7 @@ export default class AboutScreen extends Component<Props> {
 								routeName: 'tourStack',
 								action: NavigationActions.navigate({ routeName: 'TourScreen' })
 								}))}>
-								<Text style={styles.guidedText}>Take our guided tour!</Text>
+								<Text style={styles.tourText}>Take our guided tour!</Text>
 						</TouchableOpacity>
 
 						<TouchableOpacity style={styles.ExploreButton} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate(NavigationActions.navigate({
@@ -66,6 +66,9 @@ const styles = StyleSheet.create({
 		backgroundColor: 'black',
 		opacity: 0.7,
 		top: height - (height * 0.95),
+		width: (width * 0.50),
+		alignSelf: "flex-end",
+		textAlign: "left"
 	},
 	guidedText: {
 		fontSize: 28,
@@ -77,26 +80,24 @@ const styles = StyleSheet.create({
 		bottom: 8,
 	},
 	tourText: {
-		fontSize: 28,
+		fontSize: 20,
 		color: 'white',
 		fontFamily: 'didot',
 		fontWeight: 'bold',
-		textDecorationLine: 'underline',
-		left: 3,
-		bottom: 8,
+		textAlign: "center",
 	},
 	imageBackground: {
 		width: '100%',
 		height: '100%',
 	},
 	TourButton: {
-		paddingTop:15,
-		paddingBottom:15,
+		paddingTop:10,
+		paddingBottom:10,
 		paddingLeft:15,
 		paddingRight:15,
 		backgroundColor:'slategray',
 		borderRadius:10,
-		borderWidth: 1,
+		borderWidth: 2,
 		borderColor: '#fff',
 		position: 'absolute',
 		top: mapPaddingTop * .95,
@@ -105,13 +106,13 @@ const styles = StyleSheet.create({
 		width: 300,
 	},
 	ExploreButton: {
-		paddingTop:15,
-		paddingBottom:15,
+		paddingTop:10,
+		paddingBottom:10,
 		paddingLeft:15,
 		paddingRight:15,
 		backgroundColor:'slategray',
 		borderRadius:10,
-		borderWidth: 1,
+		borderWidth: 2,
 		borderColor: '#fff',
 		position: 'absolute',
 		top: mapPaddingTop * 1.10,

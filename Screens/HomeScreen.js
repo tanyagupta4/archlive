@@ -14,6 +14,7 @@ const mapPaddingBottom = screen.height * 0.1;
 const mapPaddingTop = screen.height * 0.01;
 const mapPaddingLeft = screen.width * 0.01;
 
+const height = Dimensions.get("window").height;
 const width = Dimensions.get("window").width;
 const arrow = require('../Images/arrow.png');
 
@@ -23,7 +24,7 @@ export default class HomeScreen extends Component<Props> {
   componentDidMount() {
     this.animate()
     SplashScreen.hide()
-    
+
   }
 
   constructor(props) {
@@ -62,7 +63,7 @@ export default class HomeScreen extends Component<Props> {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.SubmitButtonStyle} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate('AboutScreen')}>
-          <Text style={styles.button}>Begin Touring</Text>
+          <Text style={styles.button}>Let's Go!</Text>
         </TouchableOpacity>
 
         {this.state.showSettings &&
@@ -77,7 +78,7 @@ export default class HomeScreen extends Component<Props> {
             </Text>
           </TouchableOpacity>
         }
-        
+
       </ImageBackground>
       </View>
     );
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
   },
 transparentTextBackground: {
   position: 'absolute',
-  marginTop: mapPaddingTop,
+  marginTop: height * 0.1,
   marginLeft: mapPaddingLeft - 2,
   height: 200,
   width: 290,
@@ -117,6 +118,7 @@ transparentTextBackground: {
   opacity: 0.4,
 },
 textStyle: {
+  marginTop: height * 0.090,
   fontSize: 52,
   color: 'white',
   fontFamily: 'didot',
@@ -148,13 +150,11 @@ transparentButtonBackground: {
 },
 button: {
   position: 'absolute',
-  top: -7,
-  left: 10,
-  fontSize: 34,
+  fontSize: 30,
+  top: 2,
   fontFamily: 'didot',
   fontWeight: 'bold',
   color: 'white',
-  textDecorationLine: 'underline',
   textAlign:'center',
 },
 settings: {
@@ -198,18 +198,18 @@ arrows: {
   flexDirection: 'row',
 },
 SubmitButtonStyle: {
-    paddingTop:15,
-    paddingBottom:15,
+    paddingTop:10,
+    paddingBottom:10,
     paddingLeft:15,
     paddingRight:15,
-    backgroundColor:'#6a7fa1',
+    backgroundColor:'slategray',
     borderRadius:10,
     borderWidth: 1,
     borderColor: '#fff',
     alignItems: 'center',
     position: 'absolute',
     width: 160,
-    height: 80,
+    height: 45,
     bottom: mapPaddingBottom,
     left: width/2 - 80,
 }

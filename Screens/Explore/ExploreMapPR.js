@@ -93,7 +93,7 @@ export default class ExploreMapPR extends Component<Props> {
     render = () => {
         return (
             <View style={styles.container}>
-            
+
 				<MapView
 				style={styles.map}
 				provider= {PROVIDER_GOOGLE}
@@ -125,12 +125,12 @@ export default class ExploreMapPR extends Component<Props> {
 					)})}
 
                  </MapView>
-                 
+
                  <TouchableOpacity style={styles.backpress} onPress={ () => {
                     this.props.navigation.goBack(null);
                     }}>
                     <Image style={styles.image}
-                        source={require('../../Images/backbutton.png')}>
+                        source={require('../../Images/backbutton2.png')}>
                     </Image>
                 </TouchableOpacity>
 
@@ -153,9 +153,9 @@ export default class ExploreMapPR extends Component<Props> {
                 useScrollView={true}
                 onSnapToItem={this._onSnapToItem}
                 firstItem={0}/>
-                
-                
-                
+
+
+
             </View>
         );
     }
@@ -232,7 +232,7 @@ const styles = StyleSheet.create({
 		width: "80%",
 		height: "80%",
     },
-    
+
     homepress: {
 		width: "17.5%",
 		height: "12%",

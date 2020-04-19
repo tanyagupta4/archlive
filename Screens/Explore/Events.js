@@ -99,9 +99,11 @@ export default class Events extends Component<Props> {
 
             <View style={styles.container}>
 
+
                 <ImageBackground source={require('../../Images/restoredatl.jpg')} style={styles.imageBackground}>
 
-                <View style={styles.column}>
+
+
                 <Carousel
                 ref={ (c) => { this._carousel = c; } }
                 data={this.state.events}
@@ -114,7 +116,7 @@ export default class Events extends Component<Props> {
                 firstItem={0}
                 background/>
                 <Text style={styles.instructionText}> Click on the above image to learn more! </Text>
-                </View>
+
 
                 <TouchableOpacity style={styles.backpress} onPress={ () => {
                     this.props.navigation.goBack(null);
@@ -199,6 +201,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
       textAlign: 'center',
+      marginLeft: width * .05,
     },
     cardContainer: {
         top: height * .45,
