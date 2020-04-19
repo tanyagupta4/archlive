@@ -9,6 +9,8 @@ const mapPaddingTop = screen.height * 0.65;
 const mapPaddingLeft = screen.width * 0.05;
 
 const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
+
 
 export default class AboutScreen extends Component<Props> {
 
@@ -17,30 +19,22 @@ export default class AboutScreen extends Component<Props> {
 			<View style={styles.container}>
 			<ImageBackground source={require('../Images/IvanAllenRunThisCity.png')} style={styles.imageBackground}>
 				<Text style={styles.placeholder}>Welcome to the Ivan Allen Digital Archives tour app! Explore Mayor Ivan Allen Jr.’s Atlanta by taking a guided tour or by exploring sites on your own. Browse archival material and connect with important Civil Rights sites and dive into the events of 1960s Atlanta.</Text>
-					
+
 						<TouchableOpacity style={styles.TourButton} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate(NavigationActions.navigate({
 								routeName: 'tourStack',
 								action: NavigationActions.navigate({ routeName: 'TourScreen' })
 								}))}>
 								<Text style={styles.guidedText}>Take our guided tour!</Text>
 						</TouchableOpacity>
-						
+
 						<TouchableOpacity style={styles.ExploreButton} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate(NavigationActions.navigate({
 							routeName: 'exploreStack',
 							action: NavigationActions.navigate({ routeName: 'Events' })
 							}))}>
 								<Text style={styles.tourText}>Explore on your own!</Text>
 						</TouchableOpacity>
-
-					<TouchableOpacity style={styles.backpress} onPress={ () => {
-						this.props.navigation.goBack(null);
-						}}>
-						<Image style={styles.backimage}
-							source={require('../Images/backbutton.png')}>
-						</Image>
-					</TouchableOpacity>
 			</ImageBackground>
-			
+
 			</View>
 		);
 	}
@@ -71,7 +65,7 @@ const styles = StyleSheet.create({
 		color: 'white',
 		backgroundColor: 'black',
 		opacity: 0.7,
-		top: 190,
+		top: height - (height * 0.95),
 	},
 	guidedText: {
 		fontSize: 28,
