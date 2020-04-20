@@ -45,11 +45,11 @@ const emptyLocation = {
   images : [require('../../Images/nophoto.png')],
 }
 
-
 export default class TourInformationScreen extends Component<Props> {
+
   render() {
     //iterating through event list and finding the location we want or else it'll be set to empty state
-    let location = this.props.navigation.getParam('location')
+    let location = this.props.navigation.getParam('location');
     console.log(location);
     for (let i = 0, l = events.length; i < l; i++) {
       if (events[i].location == location) {
@@ -59,7 +59,6 @@ export default class TourInformationScreen extends Component<Props> {
           description: events[i].description,
           images: events[i].images,
         }
-        i = events.length
       } else {
         selectedLocation = emptyLocation;
       }
