@@ -24,7 +24,7 @@ const mapPaddingBottom = screen.height * 0.1;
 const mapPaddingTop = screen.height * 0.01;
 const mapPaddingLeft = screen.width * 0.01;
 
-export default class ExploreMapSR extends Component<Props> {
+export default class ExploreMapSH extends Component<Props> {
 
     constructor(props){
         super();
@@ -38,26 +38,27 @@ export default class ExploreMapSR extends Component<Props> {
     init(){
         this.state = {
             index: 0,
+            showImage: false,
             events: [
-            {
-                id: "PeytonRoad",
-                image: require('../../Images/peytonroad.jpg'),
-                name: "Peyton Road Wall",
-				longlat: [33.73768, -84.38688],
-            },
-            {
-                id: "CivilRights",
-                image: require('../../Images/civilrights.jpg'),
-                name: "The Civil Rights Act",
-				longlat: [33.73981, -84.38973],
-            },
-            {
-                id: "LesterMaddox",
-                image: require('../../Images/lestermaddox.jpg'),
-                name: "Lester Maddox",
-				longlat: [33.77396, -84.40425],
-            },
-            ]
+                {
+                    id: "SummerhillRiot",
+                    image: require('../../Images/exploresh1.png'),
+                    name: "The So-Called Summerhill Riot",
+              longlat: [33.736898, -84.384103],
+                },
+                {
+                    id: "SNCCHQ",
+                    image: require('../../Images/exploresh2.png'),
+                    name: "SNCC Headquarters",
+              longlat: [33.75109, -84.39916],
+                },
+                {
+                    id: "Stokely",
+                    image: require('../../Images/exploresh3.jpg'),
+                    name: "Stokely Carmichael",
+              longlat: [39.188275, -77.085284],
+                },
+                ]
         };
     }
 
@@ -70,19 +71,23 @@ export default class ExploreMapSR extends Component<Props> {
     _renderItem = ( {item, index} ) => {
         return (
             <View style={styles.cardContainer}>
-                <TouchableOpacity activeOpacity={.8}>
+                <TouchableOpacity activeOpacity={.8} onPress={this._onPressCarousel}>
                     <View style={styles.card}>
                         <Image style={styles.image}
                             source={item.image}>
                         </Image>
                     </View>
                 </TouchableOpacity>
-                <Image source={arrow} style={styles.arrowR}>
+                <Image resizeMode="contain" source={arrow} style={styles.arrowR}>
                     </Image>
-                <Image source={arrow} style={styles.arrowL}>
+                <Image  resizeMode="contain" source={arrow} style={styles.arrowL}>
                     </Image>
 			</View>
 		);
+    }
+
+    _onPressCarousel = () => {
+        this.setState({showImage: true})
     }
 
 	//updates the index variable in state to reflect which card we're looking at
@@ -114,14 +119,15 @@ export default class ExploreMapSR extends Component<Props> {
 						</MapView.Marker>
 					)}
 					{this.state.events.map((marker, i) =>
-						{let cord={latitude: this.state.events[this.state.index].longlat[0],
+						{var cord={latitude: this.state.events[this.state.index].longlat[0],
 								   longitude: this.state.events[this.state.index].longlat[1]}
 							return (
 								<MapView.Marker
 								ref="marker"
 								pinColor="red"
 								key={i}
-								coordinate={cord} />
+                                coordinate={cord} />
+                                
 					)})}
 
                  </MapView>
@@ -129,7 +135,7 @@ export default class ExploreMapSR extends Component<Props> {
                  <TouchableOpacity style={styles.backpress} onPress={ () => {
                     this.props.navigation.goBack(null);
                     }}>
-                    <Image style={styles.image} resizeMode='contain'
+                    <Image style={styles.image} resizeMode="contain"
                         source={require('../../Images/backbutton2.png')}>
                     </Image>
                 </TouchableOpacity>
@@ -137,13 +143,13 @@ export default class ExploreMapSR extends Component<Props> {
                 <TouchableOpacity style={styles.homepress} onPress={ () => {
                     this.props.navigation.navigate('AboutScreen');
                     }}>
-                    <Image style={styles.image} resizeMode='contain'
+                    <Image style={styles.image} resizeMode="contain"
                     source={require('../../Images/homebutton.png')}>
                     </Image>
                 </TouchableOpacity>
 
 								<View style={styles.column}>
-								<Text style={styles.instructionText}> Artifacts about the Summerhill Riot</Text>
+								<Text style={styles.instructionText}> Artifacts about Civil Rights </Text>
 
                 <Carousel
                 ref={ (c) => { this._carousel = c; } }
@@ -156,20 +162,39 @@ export default class ExploreMapSR extends Component<Props> {
                 useScrollView={true}
                 onSnapToItem={this._onSnapToItem}
                 firstItem={0}/>
-
-              </View>
-
+                
+                </View>
+                {this.state.showImage &&
+                    <View style={styles.bigimagecontainer}>
+                        <TouchableOpacity activeOpacity={0} onPress={()=> this.setState({showImage: false})}>
+                            <Image style={styles.bigimage} source={this.state.events[this.state.index].image}>
+                            </Image>
+                        </TouchableOpacity>
+                    </View>
+                  }
             </View>
+                
         );
     }
 }
 
 const styles = StyleSheet.create({
     image: {
+        flex: 1,
         width: "100%",
         height: "100%"
     },
-		arrowR: {
+    bigimage: {
+        flex: 1,
+        
+    },
+    bigimagecontainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: "100%",
+        height: "100%"
+    },
+    arrowR: {
         width: "10%",
         height: "10%",
         left: width/2 * .85,
@@ -187,9 +212,9 @@ const styles = StyleSheet.create({
 	card: {
         paddingTop:10,
         paddingBottom:10,
+				marginBottom: height * 0.15,
         paddingLeft:10,
         paddingRight:10,
-				marginBottom: height * 0.15,
         backgroundColor:'lightslategray',
         borderRadius:10,
         borderWidth: 1,
@@ -200,7 +225,7 @@ const styles = StyleSheet.create({
         overflow: "hidden"
     },
     cardContainer: {
-        top: height * .17,
+        top: height * .14,
         justifyContent: 'center',
         alignItems: 'center',
         width: width,
@@ -227,25 +252,24 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     },
     backpress: {
-			width: "16%",
-			height: "10.5%",
-			top: height * 0.05,
-			right: mapPaddingLeft * -22,
-			alignItems: "center",
-			justifyContent: "center"
+		width: "16%",
+		height: "10.5%",
+		top: height * 0.05,
+		right: mapPaddingLeft * -22,
+		alignItems: "center",
+		justifyContent: "center"
 	},
 	backimage: {
 		width: "80%",
 		height: "80%",
     },
-
     homepress: {
-			width: "17.5%",
-			height: "12%",
-			top: -(height * 0.067),
-			right: mapPaddingLeft * -41,
-			alignItems: "center",
-			justifyContent: "center"
+		width: "17.5%",
+		height: "12%",
+		top: -(height * 0.067),
+		right: mapPaddingLeft * -41,
+		alignItems: "center",
+		justifyContent: "center"
 	},
 	column:{
 	flex: 1,
@@ -262,5 +286,11 @@ instructionText: {
 	justifyContent: "center",
 	textAlign: 'center',
 	marginLeft: width * .05,
+},
+column:{
+flex: 1,
+flexDirection: 'column',
+alignItems: 'center',
+paddingLeft: 10,
 },
 })

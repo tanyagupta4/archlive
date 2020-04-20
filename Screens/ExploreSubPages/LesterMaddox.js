@@ -113,7 +113,7 @@ export default class LesterMaddox extends Component<Props> {
 
       <View style={styles.fabMenuStyle}>
 
-          <TouchableOpacity style={styles.SubmitButtonStyle}  onPress={()=> this.props.navigation.navigate('ExploreMapCR')}>
+          <TouchableOpacity style={styles.SubmitButtonStyle}  onPress={()=> this.props.navigation.navigate('ExploreMapLM')}>
 				      <Text style={styles.TextStyle}>
 			        	Explore The Interactive Map!
 				      </Text>

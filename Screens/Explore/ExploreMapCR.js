@@ -138,7 +138,8 @@ export default class ExploreMapCR extends Component<Props> {
 								ref="marker"
 								pinColor="red"
 								key={i}
-								coordinate={cord} />
+                                coordinate={cord} />
+                                
 					)})}
 
                  </MapView>
@@ -183,8 +184,6 @@ export default class ExploreMapCR extends Component<Props> {
                         </TouchableOpacity>
                     </View>
                   }
-                
-                
             </View>
                 
         );
@@ -199,12 +198,13 @@ const styles = StyleSheet.create({
     },
     bigimage: {
         flex: 1,
+        
     },
     bigimagecontainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        width: width,
-        height: height,
+        width: "100%",
+        height: "100%"
     },
     arrowR: {
         width: "10%",
