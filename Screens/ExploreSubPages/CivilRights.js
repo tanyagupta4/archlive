@@ -28,6 +28,7 @@ export default class CivilRights extends Component<Props> {
         <View style={{ flex: 1, backgroundColor: "white", paddingTop: 50 }}>
           <Text
             style={{
+              marginTop: height * 0.063,
               fontSize: 48,
               fontWeight: "700",
               paddingHorizontal: 20,
@@ -103,24 +104,32 @@ export default class CivilRights extends Component<Props> {
           </TouchableOpacity>
         </View>
 
-        
+
       </ScrollView>
 
       <View style={styles.fabMenuStyle}>
-          
+
           <TouchableOpacity style={styles.SubmitButtonStyle}  onPress={()=> this.props.navigation.navigate('ExploreMapCR')}>
 				      <Text style={styles.TextStyle}>
-			        	Explore the Interactive Map!
+			        	Explore Interactive Map!
 				      </Text>
           </TouchableOpacity>
-          
+
           <TouchableOpacity style={styles.backpress} onPress={ () => {
-						this.props.navigation.goBack(null);
+            this.props.navigation.goBack(null);
 						}}>
-						<Image style={styles.backimage}
-							source={require('../../Images/backbutton.png')}>
+						<Image style={styles.backimage} resizeMode='contain'
+							source={require('../../Images/backbutton2.png')}>
 						</Image>
 					</TouchableOpacity>
+
+          <TouchableOpacity style={styles.homepress} onPress={ () => {
+            this.props.navigation.navigate('AboutScreen');
+            }}>
+            <Image style={styles.homeImage} resizeMode='contain'
+              source={require('../../Images/homebutton.png')}>
+            </Image>
+          </TouchableOpacity>
 
       </View>
 
@@ -142,37 +151,51 @@ const styles = {
     borderColor: '#fff',
 },
   SubmitButtonStyle: {
-      paddingTop:12,
-      paddingBottom:12,
-      paddingLeft:8,
-      paddingRight:8,
-      left: 0,
-      top: mapPaddingTop * 1,
-      backgroundColor:'lightslategray',
-      borderRadius:8,
-      borderWidth: 1,
-      borderColor: '#fff',
-      justifyContent: 'center',
-      alignItems: 'center',
+    paddingTop:12,
+    paddingBottom:12,
+    paddingLeft:8,
+    paddingRight:8,
+    left: 0,
+    top: height * 0.05,
+    backgroundColor:'lightslategray',
+    borderRadius:8,
+    borderWidth: 1,
+    borderColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
 },
 backpress: {
-  width: "20%",
-  height: "115%",
-  top: mapPaddingTop * -8.2,
-  right: mapPaddingLeft * -82.5,
+  width: "100%",
+  height: "100%",
+ right: mapPaddingLeft * -40,
   alignItems: "center",
   justifyContent: "center"
 },
 backimage: {
-  backgroundColor: 'black',
+  flex: 1,
   width: "100%",
   height: "100%",
+},
+
+homeImage: {
+  flex: 1,
+  width: "100%",
+  height: "100%",
+},
+
+homepress: {
+  width: "100%",
+  height: "100%",
+  top: -(height * 0.06),
+  right: mapPaddingLeft * -59,
+  alignItems: "center",
+  justifyContent: "center"
 },
 TextStyle:{
      color:'white',
      fontWeight: "400",
-     fontSize: 25,
-     textAlign:'center', 
+     fontSize: 20,
+     textAlign:'center',
      textDecorationLine: 'underline',
      fontFamily: 'didot',
  },
@@ -194,4 +217,3 @@ MapButtonText: {
   color: 'white',
   fontSize: 20,
 }}
-

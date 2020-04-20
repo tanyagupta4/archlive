@@ -9,6 +9,8 @@ const mapPaddingTop = screen.height * 0.65;
 const mapPaddingLeft = screen.width * 0.05;
 
 const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
+
 
 export default class AboutScreen extends Component<Props> {
 
@@ -17,30 +19,22 @@ export default class AboutScreen extends Component<Props> {
 			<View style={styles.container}>
 			<ImageBackground source={require('../Images/IvanAllenRunThisCity.png')} style={styles.imageBackground}>
 				<Text style={styles.placeholder}>Welcome to the Ivan Allen Digital Archives tour app! Explore Mayor Ivan Allen Jr.’s Atlanta by taking a guided tour or by exploring sites on your own. Browse archival material and connect with important Civil Rights sites and dive into the events of 1960s Atlanta.</Text>
-					
+
 						<TouchableOpacity style={styles.TourButton} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate(NavigationActions.navigate({
 								routeName: 'tourStack',
 								action: NavigationActions.navigate({ routeName: 'TourScreen' })
 								}))}>
-								<Text style={styles.guidedText}>Take our guided tour!</Text>
+								<Text style={styles.tourText}>Take our guided tour!</Text>
 						</TouchableOpacity>
-						
+
 						<TouchableOpacity style={styles.ExploreButton} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate(NavigationActions.navigate({
 							routeName: 'exploreStack',
 							action: NavigationActions.navigate({ routeName: 'Events' })
 							}))}>
 								<Text style={styles.tourText}>Explore on your own!</Text>
 						</TouchableOpacity>
-
-					<TouchableOpacity style={styles.backpress} onPress={ () => {
-						this.props.navigation.goBack(null);
-						}}>
-						<Image style={styles.backimage}
-							source={require('../Images/backbutton.png')}>
-						</Image>
-					</TouchableOpacity>
 			</ImageBackground>
-			
+
 			</View>
 		);
 	}
@@ -70,7 +64,10 @@ const styles = StyleSheet.create({
 		color: 'white',
 		backgroundColor: 'black',
 		opacity: 0.7,
-		top: 190,
+		top: height - (height * 0.95),
+		width: (width * 0.50),
+		alignSelf: "flex-end",
+		textAlign: "left"
 	},
 	guidedText: {
 		fontSize: 28,
@@ -82,26 +79,24 @@ const styles = StyleSheet.create({
 		bottom: 8,
 	},
 	tourText: {
-		fontSize: 28,
+		fontSize: 20,
 		color: 'white',
 		fontFamily: 'didot',
 		fontWeight: 'bold',
-		textDecorationLine: 'underline',
-		left: 3,
-		bottom: 8,
+		textAlign: "center",
 	},
 	imageBackground: {
 		width: '100%',
 		height: '100%',
 	},
 	TourButton: {
-		paddingTop:15,
-		paddingBottom:15,
+		paddingTop:10,
+		paddingBottom:10,
 		paddingLeft:15,
 		paddingRight:15,
 		backgroundColor:'slategray',
 		borderRadius:10,
-		borderWidth: 1,
+		borderWidth: 2,
 		borderColor: '#fff',
 		position: 'absolute',
 		top: mapPaddingTop * .95,
@@ -110,13 +105,13 @@ const styles = StyleSheet.create({
 		width: 300,
 	},
 	ExploreButton: {
-		paddingTop:15,
-		paddingBottom:15,
+		paddingTop:10,
+		paddingBottom:10,
 		paddingLeft:15,
 		paddingRight:15,
 		backgroundColor:'slategray',
 		borderRadius:10,
-		borderWidth: 1,
+		borderWidth: 2,
 		borderColor: '#fff',
 		position: 'absolute',
 		top: mapPaddingTop * 1.10,

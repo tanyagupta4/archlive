@@ -99,7 +99,10 @@ export default class Events extends Component<Props> {
 
             <View style={styles.container}>
 
+
                 <ImageBackground source={require('../../Images/restoredatl.jpg')} style={styles.imageBackground}>
+
+
 
                 <Carousel
                 ref={ (c) => { this._carousel = c; } }
@@ -112,12 +115,22 @@ export default class Events extends Component<Props> {
                 layout={'default'}
                 firstItem={0}
                 background/>
+                <Text style={styles.instructionText}> Click on the above image to learn more! </Text>
+
 
                 <TouchableOpacity style={styles.backpress} onPress={ () => {
                     this.props.navigation.goBack(null);
                     }}>
-                    <Image style={styles.image}
-                        source={require('../../Images/backbutton.png')}>
+                    <Image style={styles.backimage} resizeMode='contain'
+                        source={require('../../Images/backbutton2.png')}>
+                    </Image>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.homepress} onPress={ () => {
+                    this.props.navigation.navigate('AboutScreen');
+                    }}>
+                    <Image style={styles.backimage} resizeMode='contain'
+                    source={require('../../Images/homebutton.png')}>
                     </Image>
                 </TouchableOpacity>
 
@@ -139,10 +152,19 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         width: "100%",
-        height: "100%"
+        height: "100%",
     },
     backpress: {
-		width: "17.5%",
+		width: "15%",
+		height: "11%",
+		top: mapPaddingTop * -71.8,
+		right: mapPaddingLeft * -65,
+		alignItems: "center",
+		justifyContent: "center"
+    },
+
+    homepress: {
+		width: "15%",
 		height: "12%",
 		top: mapPaddingTop * -83.8,
 		right: mapPaddingLeft * -81,
@@ -150,8 +172,9 @@ const styles = StyleSheet.create({
 		justifyContent: "center"
 	},
 	backimage: {
-		width: "80%",
-		height: "80%",
+    flex: 1,
+		width: '100%',
+		height: "100%",
 	},
 	card: {
         paddingTop:10,
@@ -160,11 +183,25 @@ const styles = StyleSheet.create({
         paddingRight:10,
         backgroundColor:'lightslategray',
         borderRadius:10,
-        borderWidth: 1,
+        borderWidth: 2,
         borderColor: 'white',
         width: width * .9,
         height: height * .35,
         overflow: "hidden"
+    },
+    instructionText: {
+      flex: .10,
+      paddingTop:5,
+      paddingBottom:0,
+      paddingLeft:10,
+      paddingRight:10,
+      backgroundColor:'lightslategray',
+      width: width * .9,
+      color: "white",
+      alignItems: "center",
+      justifyContent: "center",
+      textAlign: 'center',
+      marginLeft: width * .05,
     },
     cardContainer: {
         top: height * .45,
@@ -185,7 +222,7 @@ const styles = StyleSheet.create({
         paddingRight:3,
         backgroundColor:'lightslategray',
         borderRadius:10,
-        borderWidth: 1,
+        borderWidth: 2.5,
         borderColor: 'white',
         top: -height * .52,
         width: width * .9,
@@ -200,5 +237,11 @@ const styles = StyleSheet.create({
         alignItems: "stretch",
         bottom: 0,
         right: 0
-      }
+      },
+      column:{
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    paddingLeft: 10,
+},
 })
