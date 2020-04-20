@@ -137,6 +137,9 @@ export default class TourScreen extends Component<Props> {
       };
   }
 
+  setMarkerRef = (ref) => {
+    this.marker = ref
+  }
 
   render() {
     return (
@@ -146,9 +149,9 @@ export default class TourScreen extends Component<Props> {
           ref = {(ref)=>this.mapView=ref}
           style={styles.map}
           provider= {PROVIDER_GOOGLE}
+          onRegionChangeComplete={() => this.marker.showCallout()}
           showsUserLocation={true}
           initialRegion={this.state.tour}
-          onMapReady={()=>this.markerRef.showCallout()}
           scrollEnabled = {false}
         >
 
@@ -156,7 +159,7 @@ export default class TourScreen extends Component<Props> {
 		{markers.map((marker, i) =>
       <MapView.Marker
       pinColor = '#73cdeb'
-      ref = {(ref)=>this.markerRef=ref}
+      ref={this.setMarkerRef}
       key={i}
 			coordinate={{latitude: marker.longlat[0],
 			            longitude: marker.longlat[1]}}>
@@ -167,19 +170,24 @@ export default class TourScreen extends Component<Props> {
 					onPress={() => {
 						this.props.navigation.navigate("TourInformationScreen", {location: marker.location});
 						return;
-					}}>
-          <TouchableOpacity >
-          <Text
-          style={styles.header}>
-          {marker.name}
-          </Text>
-          <View style={{width: 300, flexDirection:'row', flex: 1, flexWrap: 'wrap'}}>
-          <Text>
-          Welcome to stop number 1! On August 16, 1970..... Click here to learn more!
-          </Text>
-          </View>
-          </TouchableOpacity>
-				</MapView.Callout>
+          }}>
+          
+
+        {<TouchableOpacity >
+        <Text
+        style={styles.header}>
+        {marker.name}
+        </Text>
+        <View style={{width: 300, flexDirection:'row', flex: 1, flexWrap: 'wrap'}}>
+        <Text>
+        Welcome to stop number 1! On August 16, 1970..... Click here to learn more!
+        </Text>
+        </View>
+        </TouchableOpacity>}
+          
+        </MapView.Callout>
+        
+        
 			</MapView.Marker>
     )}
      </MapView>
@@ -187,6 +195,8 @@ export default class TourScreen extends Component<Props> {
     );
   }
 }
+
+
 
 const styles = StyleSheet.create({
   container: {

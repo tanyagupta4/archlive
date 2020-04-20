@@ -137,6 +137,9 @@ export default class TourScreen2 extends Component<Props> {
       };
   }
 
+  setMarkerRef = (ref) => {
+    this.marker = ref
+  }
 
   render() {
     return (
@@ -148,7 +151,7 @@ export default class TourScreen2 extends Component<Props> {
           provider= {PROVIDER_GOOGLE}
           showsUserLocation={true}
           initialRegion={this.state.tour}
-          onMapReady={()=>this.markerRef.showCallout()}
+          onRegionChangeComplete={() => this.marker.showCallout()}
           scrollEnabled = {false}
         >
 
@@ -156,7 +159,7 @@ export default class TourScreen2 extends Component<Props> {
 		{markers.map((marker, i) =>
       <MapView.Marker
       pinColor = '#73cdeb'
-      ref = {(ref)=>this.markerRef=ref}
+      ref={this.setMarkerRef}
       key={i}
 			coordinate={{latitude: marker.longlat[0],
 			            longitude: marker.longlat[1]}}>
