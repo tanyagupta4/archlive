@@ -38,24 +38,37 @@ export default class ExploreMapCR extends Component<Props> {
     init(){
         this.state = {
             index: 0,
+            showImage: false,
             events: [
             {
-                id: "PeytonRoad",
-                image: require('../../Images/peytonroad.jpg'),
-                name: "Peyton Road Wall",
-				longlat: [33.73768, -84.38688],
+                id: "IvanAllenTestimony",
+                image: require('../../Images/explorecr1.jpg'),
+                name: "Ivan Allen's Testimony at City Hall",
+				longlat: [33.7490, -84.3880],
             },
             {
-                id: "CivilRights",
-                image: require('../../Images/civilrights.jpg'),
-                name: "The Civil Rights Act",
-				longlat: [33.73981, -84.38973],
+                id: "Letter1",
+                image: require('../../Images/explorecr2.jpg'),
+                name: "Letter in Support of the Public Accomodations Act",
+				longlat: [40.758896, -73.985130],
             },
             {
-                id: "LesterMaddox",
-                image: require('../../Images/lestermaddox.jpg'),
-                name: "Lester Maddox",
-				longlat: [33.77396, -84.40425],
+                id: "Letter2",
+                image: require('../../Images/explorecr3.jpg'),
+                name: "Letter in Support of the Public Accomodations Act",
+				longlat: [32.614068, -83.638344],
+            },
+            {
+                id: "PoliticalCartoon",
+                image: require('../../Images/explorecr4.png'),
+                name: "Beat it, copper! Oh, that you, Mr. Mayor?",
+                longlat: [33.7490, -84.3860],
+            },
+            {
+                id: "PoliticalCartoon",
+                image: require('../../Images/explorecr5.jpg'),
+                name: "MLK Jr.'s Nobel Prize dinner",
+                longlat: [33.759411, -84.387917],
             },
             ]
         };
@@ -70,7 +83,7 @@ export default class ExploreMapCR extends Component<Props> {
     _renderItem = ( {item, index} ) => {
         return (
             <View style={styles.cardContainer}>
-                <TouchableOpacity activeOpacity={.8}>
+                <TouchableOpacity activeOpacity={.8} onPress={this._onPressCarousel}>
                     <View style={styles.card}>
                         <Image style={styles.image}
                             source={item.image}>
@@ -83,6 +96,10 @@ export default class ExploreMapCR extends Component<Props> {
                     </Image>
 			</View>
 		);
+    }
+
+    _onPressCarousel = () => {
+        this.setState({showImage: true})
     }
 
 	//updates the index variable in state to reflect which card we're looking at
@@ -114,7 +131,7 @@ export default class ExploreMapCR extends Component<Props> {
 						</MapView.Marker>
 					)}
 					{this.state.events.map((marker, i) =>
-						{let cord={latitude: this.state.events[this.state.index].longlat[0],
+						{var cord={latitude: this.state.events[this.state.index].longlat[0],
 								   longitude: this.state.events[this.state.index].longlat[1]}
 							return (
 								<MapView.Marker
@@ -146,6 +163,14 @@ export default class ExploreMapCR extends Component<Props> {
                 onSnapToItem={this._onSnapToItem}
                 firstItem={0}/>
                 
+                {this.state.showImage &&
+                    <View style={styles.bigimagecontainer}>
+                        <TouchableOpacity activeOpacity={0} onPress={()=> this.setState({showImage: false})}>
+                            <Image style={styles.bigimage} source={this.state.events[this.state.index].image}>
+                            </Image>
+                        </TouchableOpacity>
+                    </View>
+                  }
                 
                 
             </View>
@@ -155,8 +180,18 @@ export default class ExploreMapCR extends Component<Props> {
 
 const styles = StyleSheet.create({
     image: {
+        flex: 1,
         width: "100%",
         height: "100%"
+    },
+    bigimage: {
+        flex: 1,
+    },
+    bigimagecontainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: width,
+        height: height,
     },
     arrowR: {
         width: "10%",
@@ -167,7 +202,9 @@ const styles = StyleSheet.create({
     arrowL: {
         width: "10%",
         height: "10%",
-        rotation: 180,
+        transform: [
+            {"rotateY": "180deg"}
+        ],
         left: -width/2 * .85,
         bottom: height * .22
     },

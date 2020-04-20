@@ -167,7 +167,9 @@ const styles = StyleSheet.create({
     arrowL: {
         width: "10%",
         height: "10%",
-        rotation: 180,
+        transform: [
+            {"rotateY": "180deg"}
+        ],
         left: -width/2 * .85,
         bottom: height * .22
     },
