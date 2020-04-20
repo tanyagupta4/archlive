@@ -179,7 +179,7 @@ If you face any troubles using the appropriate set of instructions above, then t
 * Application fails to build for debug.java
 	* Go to ./android in cmd 
 	* Type "gradlew clean"
-	* Try running the app now
+	* Try rebuilding
 	
 
 
