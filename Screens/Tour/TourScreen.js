@@ -163,10 +163,10 @@ export default class TourScreen extends Component<Props> {
 
 				<MapView.Callout
           style ={styles.SubmitButtonStyle}
-          tooltip = {false}
+          tooltip = {true}
 					onPress={() => {
 						this.props.navigation.navigate("TourInformationScreen", {location: marker.location});
-						return;
+            return;
 					}}>
           <TouchableOpacity >
           <Text
