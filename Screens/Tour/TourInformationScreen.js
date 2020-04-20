@@ -20,9 +20,9 @@ const instructions = Platform.select({
 let events = [
   {
     location : "Summerhill Riot",
-    date : "Date: 1966 September 6",
-    description : "Description: View of part of the crowd gathered in the Summerhill neighborhood of Atlanta, Georgia during a riot, including people identified as members of the Student Nonviolent Coordinating Committee speaking into microphones, while Atlanta Mayor Ivan Allen, Jr. (not pictured) attempts to lead people to Atlanta Stadium to calm the situation.",
-    images : require('../../Images/summerhill_riot.jpg'),
+    date : "Date: September 6, 1966",
+    description : "Description: View of part of the crowd gathered in the Summerhill neighborhood of Atlanta, Georgia during a riot, including people identified as members of the Student Nonviolent Coordinating Committee speaking into microphones, while Atlanta Mayor Ivan Allen, Jr. (not pictured) attempts to lead people to Atlanta Stadium to calm the situation. \n \nThe Summerhill Riot is more heavily represented in the Ivan Allen Digital Archive than any other single event from the tenure of Mayor Allen. The number and range of documents in the archive reflect both the importance and the complexity of these events to Mayor Allen's legacy and the history of race relations in Atlanta. To date, there is no comphrensive resource on the events that became known as the Summerhill Riot. The Ivan Allen Digital Archive is the main repository of primary source material related to this historic event, making it a key resource in the development of the narratives about the Summerhill Riot. \n \n Here are some links to check out for more information: https://tomovalora.wixsite.com/mysite \n http://allenarchive.iac.gatech.edu/items/show/4208 \n http://allenarchive.iac.gatech.edu/exhibits/show/summerhill-riots",
+    images : require('../../Images/TourSummerhill2.jpg'),
   },
   {
     location : "Fulton County Stadium",
@@ -47,7 +47,7 @@ const emptyLocation = {
   location : "empty",
   date : "date not yet added",
   description: "location & description not yet added",
-  images : [require('../../Images/nophoto.png')],
+  images : require('../../Images/nophoto.png'),
 }
 
 
@@ -113,18 +113,21 @@ export default class TourInformationScreen extends Component<Props> {
         </Text>
 
 
-        <TouchableOpacity style={styles.nextStop} onPress={() => {
-            this.props.navigation.navigate('TourScreen2');
-          }}>
-            <Text
-            style={styles.TextStyle}>
-            Next Stop!
-            </Text>
-        </TouchableOpacity>
       </View>
 
 
     </ScrollView>
+
+    <View style={{position: 'absolute'}}>
+    <TouchableOpacity style={styles.nextStop} onPress={() => {
+        this.props.navigation.navigate('TourScreen2');
+      }}>
+        <Text
+        style={styles.TextStyle}>
+        Next Stop!
+        </Text>
+    </TouchableOpacity>
+    </View>
 
     <TouchableOpacity style={styles.homepress} onPress={ () => {
         this.props.navigation.goBack(null);
@@ -146,12 +149,15 @@ export default class TourInformationScreen extends Component<Props> {
   paddingBottom:8,
   paddingLeft:1,
   paddingRight:8,
-  marginLeft: width * 0.3,
+  marginLeft: width * 0.02,
   marginRight: width * 0.3,
   backgroundColor:'slategray',
   borderRadius:8,
   borderWidth: 2,
-  marginTop: height * 0.1,
+  alignSelf: "flex-end",
+  alignItems: "flex-end",
+  marginTop: (height * 0.06),
+  justifyContent: 'flex-end',
   borderColor: 'white',
   },
   SubmitButtonStyle: {
@@ -220,4 +226,18 @@ export default class TourInformationScreen extends Component<Props> {
   MapButtonText: {
   color: 'white',
   fontSize: 20,
-  }}
+},
+SubmitButtonStyle: {
+  paddingTop:12,
+  paddingBottom:12,
+  paddingLeft:8,
+  paddingRight:8,
+  left: mapPaddingLeft * 14,
+  top: height * 0.05,
+  backgroundColor:'lightslategray',
+  borderRadius:8,
+  borderWidth: 1,
+  borderColor: '#fff',
+  justifyContent: 'center',
+  alignItems: 'center',
+}}

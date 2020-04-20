@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
+import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, Image, Dimensions } from 'react-native'
 import MapView,{ PROVIDER_GOOGLE, OverlayComponent } from 'react-native-maps'
+const screen = Dimensions.get('window');
+const ASPECT_RATIO = screen.width / screen.height;
+const mapPaddingBottom = screen.height * 0.1;
+const mapPaddingTop = screen.height * 0.01;
+const mapPaddingLeft = screen.width * 0.01;
+const { width, height } = Dimensions.get("window");
 
 const instructions = Platform.select({
   ios: 'ios Home',
@@ -177,10 +183,11 @@ export default class TourScreen2 extends Component<Props> {
           style={styles.header}>
           {marker.name}
           </Text>
-          <View style={{width: 300, flexDirection:'row', flex: 1, flexWrap: 'wrap'}}>
-          <Text>
-          Stop number 2! Stop 1 and 2 are related.. click to learn more!
+          <View style={{width: 300, flexDirection:'column', flex: 1, flexWrap: 'wrap', alignItems: "center", justifyContent: 'center'}}>
+          <Text style={{textAlign: 'center', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+          Stop number 2! This is the Fulton County Stadium. Click to learn more!
           </Text>
+          <Image source={require('../../Images/TourFCS1.jpg')} style={{ justifyContent: 'center', alignItems: 'center', width: width * 0.75, height: height * 0.2}} resizeMode='contain'/>
           </View>
           </TouchableOpacity>
 				</MapView.Callout>
@@ -204,7 +211,7 @@ const styles = StyleSheet.create({
   header: {
 	fontWeight: 'bold',
   textAlign: "center",
-  marginBottom: 100,
+  marginBottom: 10,
 
   },
   border: {
@@ -231,7 +238,7 @@ const styles = StyleSheet.create({
   },
   SubmitButtonStyle: {
       paddingTop:10,
-      paddingBottom:30,
+      paddingBottom:10,
       paddingLeft:10,
       paddingRight:10,
       backgroundColor:'#73cdeb',

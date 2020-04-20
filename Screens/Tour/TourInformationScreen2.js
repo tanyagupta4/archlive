@@ -28,9 +28,9 @@ let events = [
   },
   {
     location : "Fulton County Stadium",
-    date : "Date: 1966 September 6",
-    description : "Description: View of part of the crowd gathered in the Summerhill neighborhood of Atlanta, Georgia during a riot, including people identified as members of the Student Nonviolent Coordinating Committee speaking into microphones, while Atlanta Mayor Ivan Allen, Jr. (not pictured) attempts to lead people to Atlanta Stadium to calm the situation.",
-    images : require('../../Images/summerhill_riot.jpg'),
+    date : "Date: 1964",
+    description : "To read more about the building of the stadium, please follow the following links. \n \n http://allenarchive.iac.gatech.edu/exhibits/show/atlanta-braves \n \n http://allenarchive.iac.gatech.edu/exhibits/show/atlanta-braves/item/5283",
+    images : require('../../Images/TourFCS1.jpg'),
     visited: 0,
   },
 ]
@@ -115,16 +115,21 @@ export default class TourInformationScreen2 extends Component<Props> {
         </Text>
 
 
-        <TouchableOpacity style={styles.nextStop} >
-            <Text
-            style={styles.TextStyle}>
-            End Of Tour!
-            </Text>
-        </TouchableOpacity>
       </View>
 
 
     </ScrollView>
+
+    <View style={{position: 'absolute'}}>
+    <TouchableOpacity style={styles.nextStop} onPress={() => {
+        this.props.navigation.navigate('AboutScreen');
+      }}>
+        <Text
+        style={styles.TextStyle}>
+        End of Tour!
+        </Text>
+    </TouchableOpacity>
+    </View>
 
     <TouchableOpacity style={styles.homepress} onPress={ () => {
         this.props.navigation.goBack(null);
@@ -140,84 +145,101 @@ export default class TourInformationScreen2 extends Component<Props> {
   }
 
   const styles = {
-  nextStop: {
-  flex: 1,
-  paddingTop:8,
-  paddingBottom:8,
-  paddingLeft:1,
-  paddingRight:8,
-  marginLeft: width * 0.3,
-  marginRight: width * 0.3,
-  backgroundColor:'slategray',
-  borderRadius:8,
-  borderWidth: 2,
-  marginTop: height * 0.1,
-  borderColor: 'white',
-  },
-  SubmitButtonStyle: {
-  paddingTop:12,
-  paddingBottom:12,
-  paddingLeft:8,
-  paddingRight:8,
-  left: mapPaddingLeft * 14,
-  top: height * 0.05,
-  backgroundColor:'lightslategray',
-  borderRadius:8,
-  borderWidth: 1,
-  borderColor: '#fff',
-  justifyContent: 'center',
-  alignItems: 'center',
-  },
-  backpress: {
-  width: "100%",
-  height: "100%",
-  top: height * 0.1,
-  alignItems: "center",
-  justifyContent: "center"
-  },
-  backimage: {
-  flex: 1,
-  width: "100%",
-  height: "100%",
-  },
-
-  homeImage: {
-  flex: 1,
-  width: "100%",
-  height: "100%",
-  },
-
-  homepress: {
-    width: "10%",
-    height: "10%",
-    top: height * -0.86,
-    right: width * -0.86,
+    nextStop: {
+    flex: 1,
+    paddingTop:8,
+    paddingBottom:8,
+    paddingLeft:1,
+    paddingRight:8,
+    marginLeft: width * 0.02,
+    marginRight: width * 0.3,
+    backgroundColor:'slategray',
+    borderRadius:8,
+    borderWidth: 2,
+    alignSelf: "flex-end",
+    alignItems: "flex-end",
+    marginTop: (height * 0.06),
+    justifyContent: 'flex-end',
+    borderColor: 'white',
+    },
+    SubmitButtonStyle: {
+    paddingTop:12,
+    paddingBottom:12,
+    paddingLeft:8,
+    paddingRight:8,
+    left: mapPaddingLeft * 14,
+    top: height * 0.05,
+    backgroundColor:'lightslategray',
+    borderRadius:8,
+    borderWidth: 1,
+    borderColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    },
+    backpress: {
+    width: "100%",
+    height: "100%",
+    top: height * 0.1,
     alignItems: "center",
     justifyContent: "center"
+    },
+    backimage: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    },
+
+    homeImage: {
+    flex: 1,
+    width: "100%",
+    height: "100%",
+    },
+
+    homepress: {
+      width: "10%",
+      height: "10%",
+      top: height * -0.86,
+      right: width * -0.86,
+      alignItems: "center",
+      justifyContent: "center"
+    },
+    TextStyle:{
+     color:'white',
+     fontWeight: "400",
+     fontSize: 20,
+     textAlign:'center',
+     textDecorationLine: 'underline',
+     fontFamily: 'didot',
+    },
+    fabMenuStyle: {
+    position: 'absolute',
+    },
+    MapButton: {
+    marginTop:10,
+    paddingTop:25,
+    paddingBottom:10,
+    paddingLeft:15,
+    paddingRight:15,
+    backgroundColor:'darkslategray',
+    borderRadius:5,
+    borderWidth: 1,
+    borderColor: '#fff'
+    },
+    MapButtonText: {
+    color: 'white',
+    fontSize: 20,
   },
-  TextStyle:{
-   color:'white',
-   fontWeight: "400",
-   fontSize: 20,
-   textAlign:'center',
-   textDecorationLine: 'underline',
-   fontFamily: 'didot',
-  },
-  fabMenuStyle: {
-  position: 'absolute',
-  },
-  MapButton: {
-  marginTop:10,
-  paddingTop:25,
-  paddingBottom:10,
-  paddingLeft:15,
-  paddingRight:15,
-  backgroundColor:'darkslategray',
-  borderRadius:5,
-  borderWidth: 1,
-  borderColor: '#fff'
-  },
-  MapButtonText: {
-  color: 'white',
-  fontSize: 20,
+  SubmitButtonStyle: {
+    paddingTop:12,
+    paddingBottom:12,
+    paddingLeft:8,
+    paddingRight:8,
+    left: mapPaddingLeft * 14,
+    top: height * 0.05,
+    backgroundColor:'lightslategray',
+    borderRadius:8,
+    borderWidth: 1,
+    borderColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
   }}

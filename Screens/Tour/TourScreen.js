@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, Dimensions } from 'react-native'
+import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, Dimensions, Image } from 'react-native'
 import MapView,{ PROVIDER_GOOGLE, OverlayComponent } from 'react-native-maps'
 
 const { width, height } = Dimensions.get("window");
@@ -180,10 +180,11 @@ export default class TourScreen extends Component<Props> {
         style={styles.header}>
         {marker.name}
         </Text>
-        <View style={{width: 300, flexDirection:'row', flex: 1, flexWrap: 'wrap'}}>
-        <Text>
-        Welcome to stop number 1! On August 16, 1970..... Click here to learn more!
+        <View style={{width: 300, flexDirection:'column', flex: 1, flexWrap: 'wrap', alignItems: "center", justifyContent: 'center'}}>
+        <Text style={{textAlign: 'center', flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        Welcome to stop number 1! This is the Summerhill Riot. Click to learn more!
         </Text>
+        <Image source={require('../../Images/ExploreSummerhill.jpg')} style={{ justifyContent: 'center', alignItems: 'center', width: width * 0.8, height: height * 0.2}} resizeMode='contain'/>
         </View>
         </TouchableOpacity>}
 
@@ -193,6 +194,7 @@ export default class TourScreen extends Component<Props> {
 			</MapView.Marker>
     )}
      </MapView>
+
    </View>
     );
   }
@@ -212,7 +214,7 @@ const styles = StyleSheet.create({
   header: {
 	fontWeight: 'bold',
   textAlign: "center",
-  marginBottom: 100,
+  marginBottom: 10,
 
   },
   border: {
@@ -232,6 +234,11 @@ const styles = StyleSheet.create({
   bottom: 50,
   backgroundColor: 'rgba(255, 255, 255, 1)',
 },
+backimage: {
+flex: 1,
+width: "100%",
+height: "100%",
+},
   calloutStyle: {
     backgroundColor: '#597b91',
      color: 'black',
@@ -239,7 +246,7 @@ const styles = StyleSheet.create({
   },
   SubmitButtonStyle: {
       paddingTop:10,
-      paddingBottom:30,
+      paddingBottom:10,
       paddingLeft:10,
       paddingRight:10,
       backgroundColor:'#73cdeb',
@@ -247,5 +254,13 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderColor: '#fff',
       marginLeft: 20,
+},
+homepress: {
+  width: "10%",
+  height: "10%",
+  top: height * -0.86,
+  right: width * -0.86,
+  alignItems: "center",
+  justifyContent: "center"
 },
  });

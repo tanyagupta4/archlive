@@ -63,7 +63,7 @@ export default class HomeScreen extends Component<Props> {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.SubmitButtonStyle} activeOpacity={0.3} onPress={()=> this.props.navigation.navigate('AboutScreen')}>
-          <Text style={styles.button}>Let's Go!</Text>
+          <Text style={styles.button}>Lets Go!</Text>
         </TouchableOpacity>
 
         {this.state.showSettings &&
