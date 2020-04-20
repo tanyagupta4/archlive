@@ -86,7 +86,9 @@ export default class CivilRights extends Component<Props> {
           Allen reflected on what it meant to be the Mayor of Atlanta during the Civil Rights Movement when he wrote, “A mayor is right on the scene, easily accessible, and the problems that come to him are immediate. There is sadly little time to theorize or pass the buck to a committee for study… So I had to claw and scratch my way through the civil-rights struggle and learn the hard way” (101). This shows that Allen understood that he had to act on what he thought was right, even if there were negative responses.
             When Allen decided that he was going to give his testimony on behalf of the Public Accommodations Bill, he knew that he would face a backlash from the Atlanta community and beyond. This is obvious in his memoir, Mayor: Notes on the Sixties, when he recalls himself saying to Morris, “if I go I won't stand a chance of getting re-elected in 'sixty-five. It would be suicide for me to go, and you know it” (105). While Allen anticipated the negative responses that are seen above, he also believed that sacrifices had to be made in order to achieve racial equality.
             After his testimony, Allen received similar reactions from his friends and family as he received from the strangers in these letters. According to Allen, when he went to North Carolina the weekend following the testimony, he "began to see how deeply the animosity toward the bill and my testimony and myself really ran. I could see my friends that weekend off in the corner by themselves, obviously deeply concerned about what I had done" (114). Allen's family openly criticized his choices which is seen when Allen writes, "Even some of my relatives got into the act, letting it be known that this was the last insult-that there was no way they could deny what Ivan had done this time" (115). While Allen anticipated the backlash from the community as a whole, he did not expect the isolation he felt from his friends and family.
-          </Text>
+          
+            https://ivanallendigitalarchive.weebly.com/civil-rights-act.html
+            </Text>
 
           <Text >
 

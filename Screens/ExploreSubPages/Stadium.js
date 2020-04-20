@@ -119,7 +119,9 @@ export default class Stadium extends Component<Props> {
                 After it was complete, the construction of the stadium cost the city of Atlanta approximately $18 million.
                 Allen had not only accomplished a major league stadium, but he also won over people’s approval
                 "and made them realize that getting the stadium built in less than one year had … saved us from spiraling construction costs" (Allen 132).
-          </Text>
+          
+                https://ivanallendigitalarchive.weebly.com/atlanta-stadium.html
+                </Text>
 
           <Text >
 

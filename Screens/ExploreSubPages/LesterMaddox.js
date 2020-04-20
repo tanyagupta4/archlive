@@ -90,7 +90,9 @@ export default class LesterMaddox extends Component<Props> {
             His upbringing in position of care for the community and engagement with others helped to cultivate his advocacy for civil rights, as it was a means by which he could improve the social and economic situation of Atlanta which he felt that as a prominent resident of the city, was his responsibility.
             Lester Maddox, on the other hand, was the second of seven children from a non influential Georgia family. He never had strong connections to the business world like Allen did, and instead looked out for himself trying to make ends meet through various blue collar jobs such as when he worked at the Bell Aircraft Factory during World War 2. He was a constant victim of poverty until he and his wife used their life savings to open a restaurant called the Pickrick. He took a strong segregationist stance with his restaurant in the 1960’s, physically pushing African Americans out of the building to make it clear that they were not welcome.
             Maddox’s upbringing where he was taught to look out for himself and his own interests endowed him with traits that continued into his adulthood. By keeping African Americans separate from whites and viewing them as inferior and dangerous, he was able to stay ahead of them and maintain a perceived sense of superiority. Segregation, in this sense, was a method of self preservation in the eyes of Maddox that was cultivated in him by his upbringing.
-          </Text>
+          
+            https://ivanallendigitalarchive.weebly.com/lester-maddox.html
+            </Text>
 
           <Text >
 
