@@ -117,20 +117,11 @@ export default class Events extends Component<Props> {
                 background/>
                 <Text style={styles.instructionText}> Click on the above image to learn more! </Text>
 
-
-                <TouchableOpacity style={styles.backpress} onPress={ () => {
+                <TouchableOpacity style={styles.homepress} onPress={ () => {
                     this.props.navigation.goBack(null);
                     }}>
                     <Image style={styles.backimage} resizeMode='contain'
-                        source={require('../../Images/backbutton2.png')}>
-                    </Image>
-                </TouchableOpacity>
-
-                <TouchableOpacity style={styles.homepress} onPress={ () => {
-                    this.props.navigation.navigate('AboutScreen');
-                    }}>
-                    <Image style={styles.backimage} resizeMode='contain'
-                    source={require('../../Images/homebutton.png')}>
+                    source={require('../../Images/backbutton2.png')}>
                     </Image>
                 </TouchableOpacity>
 

@@ -174,6 +174,7 @@ export default class ExploreMapCR extends Component<Props> {
                 onSnapToItem={this._onSnapToItem}
                 firstItem={0}/>
                 
+                </View>
                 {this.state.showImage &&
                     <View style={styles.bigimagecontainer}>
                         <TouchableOpacity activeOpacity={0} onPress={()=> this.setState({showImage: false})}>
@@ -185,6 +186,7 @@ export default class ExploreMapCR extends Component<Props> {
                 
                 
             </View>
+                
         );
     }
 }
@@ -273,7 +275,6 @@ const styles = StyleSheet.create({
 		width: "80%",
 		height: "80%",
     },
-
     homepress: {
 		width: "17.5%",
 		height: "12%",

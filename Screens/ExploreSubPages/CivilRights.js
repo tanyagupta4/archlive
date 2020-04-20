@@ -111,23 +111,15 @@ export default class CivilRights extends Component<Props> {
 
           <TouchableOpacity style={styles.SubmitButtonStyle}  onPress={()=> this.props.navigation.navigate('ExploreMapCR')}>
 				      <Text style={styles.TextStyle}>
-			        	Explore Interactive Map!
+			        	Explore The Interactive Map!
 				      </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.backpress} onPress={ () => {
-            this.props.navigation.goBack(null);
-						}}>
-						<Image style={styles.backimage} resizeMode='contain'
-							source={require('../../Images/backbutton2.png')}>
-						</Image>
-					</TouchableOpacity>
-
           <TouchableOpacity style={styles.homepress} onPress={ () => {
-            this.props.navigation.navigate('AboutScreen');
+            this.props.navigation.goBack(null);
             }}>
             <Image style={styles.homeImage} resizeMode='contain'
-              source={require('../../Images/homebutton.png')}>
+              source={require('../../Images/backbutton2.png')}>
             </Image>
           </TouchableOpacity>
 
@@ -155,7 +147,7 @@ const styles = {
     paddingBottom:12,
     paddingLeft:8,
     paddingRight:8,
-    left: 0,
+    left: mapPaddingLeft * 14,
     top: height * 0.05,
     backgroundColor:'lightslategray',
     borderRadius:8,
@@ -167,7 +159,7 @@ const styles = {
 backpress: {
   width: "100%",
   height: "100%",
- right: mapPaddingLeft * -40,
+ right: mapPaddingLeft * -42,
   alignItems: "center",
   justifyContent: "center"
 },
@@ -184,12 +176,12 @@ homeImage: {
 },
 
 homepress: {
-  width: "100%",
+  width: "25%",
   height: "100%",
-  top: -(height * 0.06),
-  right: mapPaddingLeft * -59,
+  top: -(height * 0.025),
+  right: mapPaddingLeft * -81,
   alignItems: "center",
-  justifyContent: "center"
+  justifyContent: "center",
 },
 TextStyle:{
      color:'white',

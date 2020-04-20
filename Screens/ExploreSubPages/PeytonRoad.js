@@ -184,30 +184,22 @@ export default class PeytonRoad extends Component<Props> {
 
 
       <View style={styles.fabMenuStyle}>
-    <TouchableOpacity style={styles.SubmitButtonStyle}  onPress={()=> this.props.navigation.navigate('ExploreMapPR')}>
+
+          <TouchableOpacity style={styles.SubmitButtonStyle}  onPress={()=> this.props.navigation.navigate('ExploreMapCR')}>
 				      <Text style={styles.TextStyle}>
-			        	Explore Interactive Map!
+			        	Explore The Interactive Map!
 				      </Text>
           </TouchableOpacity>
 
-              <TouchableOpacity style={styles.backpress} onPress={ () => {
-                    this.props.navigation.goBack(null);
-                }}>
+          <TouchableOpacity style={styles.homepress} onPress={ () => {
+            this.props.navigation.goBack(null);
+            }}>
+            <Image style={styles.homeImage} resizeMode='contain'
+              source={require('../../Images/backbutton2.png')}>
+            </Image>
+          </TouchableOpacity>
 
-              <Image style={styles.backimage} resizeMode='contain'
-                      source={require('../../Images/backbutton2.png')}>
-              </Image>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.homepress} onPress={ () => {
-                  this.props.navigation.navigate('AboutScreen');
-                }}>
-              <Image style={styles.backimage} resizeMode='contain'
-                      source={require('../../Images/homebutton.png')}>
-                    </Image>
-                </TouchableOpacity>
-
-  </View>
+      </View>
 
         </>
     )}
@@ -218,7 +210,7 @@ const styles = {
   linksnmedia: {
     flex: 1,
     paddingTop:8,
-    paddingBottom: 8,
+    paddingBottom:8,
     paddingLeft:8,
     paddingRight:8,
     backgroundColor:'slategray',
@@ -227,23 +219,23 @@ const styles = {
     borderColor: '#fff',
 },
   SubmitButtonStyle: {
-      paddingTop:12,
-      paddingBottom:12,
-      paddingLeft:8,
-      paddingRight:8,
-      left: 0,
-      top: height * 0.05,
-      backgroundColor:'lightslategray',
-      borderRadius:8,
-      borderWidth: 1,
-      borderColor: '#fff',
-      justifyContent: 'center',
-      alignItems: 'center',
+    paddingTop:12,
+    paddingBottom:12,
+    paddingLeft:8,
+    paddingRight:8,
+    left: mapPaddingLeft * 14,
+    top: height * 0.05,
+    backgroundColor:'lightslategray',
+    borderRadius:8,
+    borderWidth: 1,
+    borderColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
 },
 backpress: {
   width: "100%",
   height: "100%",
- right: mapPaddingLeft * -40,
+ right: mapPaddingLeft * -42,
   alignItems: "center",
   justifyContent: "center"
 },
@@ -260,12 +252,12 @@ homeImage: {
 },
 
 homepress: {
-  width: "100%",
+  width: "25%",
   height: "100%",
-  top: -(height * 0.06),
-  right: mapPaddingLeft * -56,
+  top: -(height * 0.025),
+  right: mapPaddingLeft * -81,
   alignItems: "center",
-  justifyContent: "center"
+  justifyContent: "center",
 },
 TextStyle:{
      color:'white',
@@ -292,16 +284,4 @@ MapButton: {
 MapButtonText: {
   color: 'white',
   fontSize: 20,
-},
-column:{
-flex: 1,
-flexDirection: 'column',
-alignItems: 'center',
-paddingLeft: 10,
-},
-column:{
-flex: 1,
-flexDirection: 'row',
-alignItems: 'center',
-paddingLeft: 10,
 }}

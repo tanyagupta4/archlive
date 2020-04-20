@@ -84,110 +84,103 @@ export default class SummerhillRiot extends Component<Props> {
 
   <View style={styles.fabMenuStyle}>
 
-      <TouchableOpacity style={styles.SubmitButtonStyle}  onPress={()=> this.props.navigation.navigate('ExploreMapSR')}>
-          <Text style={styles.TextStyle}>
-            Explore Interactive Map!
-          </Text>
-      </TouchableOpacity>
+  <TouchableOpacity style={styles.SubmitButtonStyle}  onPress={()=> this.props.navigation.navigate('ExploreMapCR')}>
+      <Text style={styles.TextStyle}>
+        Explore The Interactive Map!
+      </Text>
+  </TouchableOpacity>
 
-      <TouchableOpacity style={styles.backpress} onPress={ () => {
-        this.props.navigation.goBack(null);
-        }}>
-        <Image style={styles.backimage} resizeMode='contain'
-          source={require('../../Images/backbutton2.png')}>
-        </Image>
-      </TouchableOpacity>
+  <TouchableOpacity style={styles.homepress} onPress={ () => {
+    this.props.navigation.goBack(null);
+    }}>
+    <Image style={styles.homeImage} resizeMode='contain'
+      source={require('../../Images/backbutton2.png')}>
+    </Image>
+  </TouchableOpacity>
 
-      <TouchableOpacity style={styles.homepress} onPress={ () => {
-        this.props.navigation.navigate('AboutScreen');
-        }}>
-        <Image style={styles.homeImage} resizeMode='contain'
-          source={require('../../Images/homebutton.png')}>
-        </Image>
-      </TouchableOpacity>
+</View>
 
-  </View>
-
-    </>
+</>
 )}
+
 }
 
 const styles = {
-  linksnmedia: {
-    flex: 1,
-    paddingTop:8,
-    paddingBottom:8,
-    paddingLeft:8,
-    paddingRight:8,
-    backgroundColor:'slategray',
-    borderRadius:8,
-    borderWidth: 1,
-    borderColor: '#fff',
+linksnmedia: {
+flex: 1,
+paddingTop:8,
+paddingBottom:8,
+paddingLeft:8,
+paddingRight:8,
+backgroundColor:'slategray',
+borderRadius:8,
+borderWidth: 1,
+borderColor: '#fff',
 },
-  SubmitButtonStyle: {
-    paddingTop:12,
-    paddingBottom:12,
-    paddingLeft:8,
-    paddingRight:8,
-    left: 0,
-    top: height * 0.05,
-    backgroundColor:'lightslategray',
-    borderRadius:8,
-    borderWidth: 1,
-    borderColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center',
+SubmitButtonStyle: {
+paddingTop:12,
+paddingBottom:12,
+paddingLeft:8,
+paddingRight:8,
+left: mapPaddingLeft * 14,
+top: height * 0.05,
+backgroundColor:'lightslategray',
+borderRadius:8,
+borderWidth: 1,
+borderColor: '#fff',
+justifyContent: 'center',
+alignItems: 'center',
 },
 backpress: {
-  width: "100%",
-  height: "100%",
- right: mapPaddingLeft * -40,
-  alignItems: "center",
-  justifyContent: "center"
+width: "100%",
+height: "100%",
+right: mapPaddingLeft * -42,
+alignItems: "center",
+justifyContent: "center"
 },
 backimage: {
-  flex: 1,
-  width: "100%",
-  height: "100%",
+flex: 1,
+width: "100%",
+height: "100%",
 },
 
 homeImage: {
-  flex: 1,
-  width: "100%",
-  height: "100%",
+flex: 1,
+width: "100%",
+height: "100%",
 },
 
 homepress: {
-  width: "100%",
-  height: "100%",
-  top: -(height * 0.06),
-  right: mapPaddingLeft * -56,
-  alignItems: "center",
-  justifyContent: "center"
+width: "25%",
+height: "100%",
+top: -(height * 0.025),
+right: mapPaddingLeft * -81,
+alignItems: "center",
+justifyContent: "center",
 },
 TextStyle:{
-     color:'white',
-     fontWeight: "400",
-     fontSize: 20,
-     textAlign:'center',
-     textDecorationLine: 'underline',
-     fontFamily: 'didot',
- },
- fabMenuStyle: {
-  position: 'absolute',
+color:'white',
+fontWeight: "400",
+fontSize: 20,
+textAlign:'center',
+textDecorationLine: 'underline',
+fontFamily: 'didot',
+},
+fabMenuStyle: {
+position: 'absolute',
 },
 MapButton: {
-  marginTop:10,
-  paddingTop:25,
-  paddingBottom:10,
-  paddingLeft:15,
-  paddingRight:15,
-  backgroundColor:'darkslategray',
-  borderRadius:5,
-  borderWidth: 1,
-  borderColor: '#fff'
+marginTop:10,
+paddingTop:25,
+paddingBottom:10,
+paddingLeft:15,
+paddingRight:15,
+backgroundColor:'darkslategray',
+borderRadius:5,
+borderWidth: 1,
+borderColor: '#fff'
 },
 MapButtonText: {
-  color: 'white',
-  fontSize: 20,
+color: 'white',
+fontSize: 20,
 }}
