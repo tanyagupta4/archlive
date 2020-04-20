@@ -11,17 +11,17 @@ type Props = {};
 
 
 const markers = [
-  // {
-  //   "name" : "Summerhill neighborhood/Summerhill Race Riot",
-  //   "text" : "Summary",
-  //   "longlat" : [33.73768, -84.38688],
-  //   "location" : "Summerhill",
-  // },
+  {
+    "name" : "Summerhill neighborhood/Summerhill Race Riot",
+    "text" : "Summary",
+    "longlat" : [33.73768, -84.38688],
+    "location" : "Summerhill Riot",
+  },
   {
     "name" : "Fulton County Stadium",
     "text" : "Summary",
     "longlat" : [33.73981, -84.38973],
-    "location" : "Fulton",
+    "location" : "Fulton County Stadium",
   },
   //
   // {
@@ -124,6 +124,7 @@ const markerRef = null;
 
 export default class TourScreen2 extends Component<Props> {
 
+
   constructor(props) {
     super(props);
     this.state = {
@@ -163,9 +164,9 @@ export default class TourScreen2 extends Component<Props> {
 
 				<MapView.Callout
           style ={styles.SubmitButtonStyle}
-          tooltip = {false}
+          tooltip = {true}
 					onPress={() => {
-						this.props.navigation.navigate("TourInformationScreen", {location: marker.location});
+						this.props.navigation.navigate("TourInformationScreen2", {location: marker.location});
 						return;
 					}}>
           <TouchableOpacity >

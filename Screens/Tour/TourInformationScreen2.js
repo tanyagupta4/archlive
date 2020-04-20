@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, Dimensions, ScrollView, Image} from 'react-native'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 import ImageSlider from 'react-native-image-slider';
+import { NavigationActions, withOrientation } from 'react-navigation';
 
 const screen = Dimensions.get('window');
 const ASPECT_RATIO = screen.width / screen.height;
@@ -19,16 +20,18 @@ const instructions = Platform.select({
 //could be a cool idea to do a slideshow of images on information page
 let events = [
   {
-    location : "Summerhill Riot",
+    location : "Summerhill",
     date : "Date: 1966 September 6",
     description : "Description: View of part of the crowd gathered in the Summerhill neighborhood of Atlanta, Georgia during a riot, including people identified as members of the Student Nonviolent Coordinating Committee speaking into microphones, while Atlanta Mayor Ivan Allen, Jr. (not pictured) attempts to lead people to Atlanta Stadium to calm the situation.",
     images : require('../../Images/summerhill_riot.jpg'),
+    visited: 0,
   },
   {
     location : "Fulton County Stadium",
     date : "Date: 1966 September 6",
     description : "Description: View of part of the crowd gathered in the Summerhill neighborhood of Atlanta, Georgia during a riot, including people identified as members of the Student Nonviolent Coordinating Committee speaking into microphones, while Atlanta Mayor Ivan Allen, Jr. (not pictured) attempts to lead people to Atlanta Stadium to calm the situation.",
     images : require('../../Images/summerhill_riot.jpg'),
+    visited: 0,
   },
 ]
 
@@ -39,7 +42,7 @@ let selectedLocation = {
   location : "empty",
   date : "date not yet added",
   description: "location & description not yet added",
-  images : [require('../../Images/nophoto.png')],
+  images : require('../../Images/nophoto.png'),
 }
 
 //in case we don't have the location entered yet
@@ -47,11 +50,11 @@ const emptyLocation = {
   location : "empty",
   date : "date not yet added",
   description: "location & description not yet added",
-  images : [require('../../Images/nophoto.png')],
+  images : require('../../Images/nophoto.png'),
 }
 
 
-export default class TourInformationScreen extends Component<Props> {
+export default class TourInformationScreen2 extends Component<Props> {
   render() {
     //iterating through event list and finding the location we want or else it'll be set to empty state
     let location = this.props.navigation.getParam('location')
@@ -64,7 +67,6 @@ export default class TourInformationScreen extends Component<Props> {
           description: events[i].description,
           images: events[i].images,
         }
-        events[i].visited = 1
         i = events.length
       } else {
 
@@ -113,12 +115,10 @@ export default class TourInformationScreen extends Component<Props> {
         </Text>
 
 
-        <TouchableOpacity style={styles.nextStop} onPress={() => {
-            this.props.navigation.navigate('TourScreen2');
-          }}>
+        <TouchableOpacity style={styles.nextStop} >
             <Text
             style={styles.TextStyle}>
-            Next Stop!
+            End Of Tour!
             </Text>
         </TouchableOpacity>
       </View>

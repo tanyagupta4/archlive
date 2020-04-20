@@ -12,6 +12,7 @@ import AboutScreen from './Screens/AboutScreen.js'
 import TourScreen from './Screens/Tour/TourScreen.js'
 import TourInformationScreen from './Screens/Tour/TourInformationScreen.js'
 import TourScreen2 from './Screens/Tour/TourScreen2.js'
+import TourInformationScreen2 from './Screens/Tour/TourInformationScreen2.js'
 
 //Explore
 import Events from './Screens/Explore/Events.js'
@@ -64,6 +65,7 @@ const tourStack = createStackNavigator(
     TourScreen: TourScreen,
     TourInformationScreen: TourInformationScreen,
     TourScreen2: TourScreen2,
+    TourInformationScreen2: TourInformationScreen2,
   },
   {
     initialRouteName: 'TourScreen',

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
+import { Platform, StyleSheet, Text, View, Button, TouchableOpacity, Dimensions } from 'react-native'
 import MapView,{ PROVIDER_GOOGLE, OverlayComponent } from 'react-native-maps'
 
+const { width, height } = Dimensions.get("window");
 const instructions = Platform.select({
   ios: 'ios Home',
   android: 'Android home',
@@ -10,12 +11,13 @@ const instructions = Platform.select({
 type Props = {};
 
 
-const markers = [
+let markers = [
   {
     "name" : "Summerhill neighborhood/Summerhill Race Riot",
     "text" : "Summary",
     "longlat" : [33.73768, -84.38688],
-    "location" : "Summerhill",
+    "location" : "Summerhill Riot",
+    "visited":0,
   },
   // {
   //   "name" : "Fulton County Stadium",
