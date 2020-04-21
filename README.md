@@ -14,7 +14,7 @@ Version Number: 1.0.0
  * Guided Tour Through Archive
  
  	* The guided tour allows users the chance to walk through several events from the archive with the voice of a historical expert behind them. The guided tour starts by showing an user a location on a map, then allows users to learn about that location before guiding them to the next location also shown on a map. The guided tours main functionality is to allow users to walk through a geotagged tour while learning about how the archival events relate to each other.
- * Carosel of Events for Further Exploration/Information
+ * Carousel of Events for Further Exploration/Information
  
  	* This feature allows users to scroll through several events and then click on those events that interest them. Once they do so, the users will be guided to a page full of curated historical information about that event.
 	
